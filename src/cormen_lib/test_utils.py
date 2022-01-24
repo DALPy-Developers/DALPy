@@ -172,7 +172,7 @@ def cormen_equals(first, second):
     """Tests equality between two objects. If the objects are from the Cormen-lib, they are compared using their own
     custom comparator.
 
-    cormen_equals supports equality for the following objects: Array, Queue, Stack, SinglyLinkedListNode. For
+    cormen_equals supports equality for the following objects: Array, Array2D, Queue, Stack, SinglyLinkedListNode. For
     SinglyLinkedListNode, checks that all nodes next of the passed SinglyLinkedListNodes are the same.
 
     Args:
@@ -181,9 +181,6 @@ def cormen_equals(first, second):
 
     Returns:
         `True` if `first = second` otherwise `False`.
-
-    Raises:
-        NotImplementedError: If attempting to compare Array2D
     """
     if isinstance(first, Array) and isinstance(second, Array):
         return __array_equals(first, second)
@@ -446,7 +443,11 @@ def __array_equals(expected, actual):
 
 
 def __array2d_equals(expected, actual):
-    raise NotImplementedError("Array2D equality not supported.")
+    if expected.rows() != actual.rows() or expected.columns() != actual.columns(): return False
+    for i in range(expected.rows()):
+        for j in range(expected.columns()):
+            if expected[i, j] != actual[i, j]: return False
+    return True
 
 
 def __queue_equals(expected, actual):

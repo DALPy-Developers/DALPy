@@ -1,5 +1,5 @@
 # Cormen Lib
-The Cormen-lib module is an insular data structures and algorithms library based on Thomas H. Cormen's
+The Cormen-lib module is an data structures and algorithms library based on Thomas H. Cormen's
 *Introduction to Algorithms Third Edition*. This library was made specifically for administering and grading assignments 
 related to data structure and algorithms in computer science.
 

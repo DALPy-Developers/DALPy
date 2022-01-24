@@ -1,5 +1,8 @@
 import unittest
+
+from sqlalchemy import false
 from cormen_lib.arrays import Array, Array2D, sort
+from cormen_lib.test_utils import cormen_equals
 
 
 class ArrayTest(unittest.TestCase):
@@ -74,6 +77,48 @@ class Array2DTest(unittest.TestCase):
         self.assertEqual(a[0, 0], 2)
         self.assertEqual(a[0, 1], 3)
 
+    def test_array2d_inequal(self):
+        a = Array2D(2, 2)
+        a[0, 0] = 2
+        a[0, 1] = 3
+        a[1, 0] = 4
+        a[1, 1] = 1
+        b = Array2D(2, 2)
+        b[0, 0] = 2
+        b[0, 1] = 3
+        b[1, 0] = 4
+        b[1, 1] = 5
+        assert not cormen_equals(a, b)
+
+    def test_array2d_square_equal(self):
+        a = Array2D(2, 2)
+        a[0, 0] = 2
+        a[0, 1] = 3
+        a[1, 0] = 4
+        a[1, 1] = 1
+        b = Array2D(2, 2)
+        b[0, 0] = 2
+        b[0, 1] = 3
+        b[1, 0] = 4
+        b[1, 1] = 1
+        assert cormen_equals(a, b)
+
+    def test_array2d_rectangle_equal(self):
+        a = Array2D(3, 2)
+        a[0, 0] = 1
+        a[0, 1] = 2
+        a[1, 0] = 3
+        a[1, 1] = 4
+        a[2, 0] = 5
+        a[2, 1] = 6
+        b = Array2D(3, 2)
+        b[0, 0] = 1
+        b[0, 1] = 2
+        b[1, 0] = 3
+        b[1, 1] = 4
+        b[2, 0] = 5
+        b[2, 1] = 6
+        assert cormen_equals(a, b)
 
 if __name__ == '__main__':
     unittest.main()

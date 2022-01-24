@@ -1,4 +1,4 @@
-"""The Cormen-lib module is an insular data structures and algorithms library based on Thomas H. Cormen's
+"""The Cormen-lib module is a data structures and algorithms library based on Thomas H. Cormen's
 *Introduction to Algorithms Third Edition*. This library was made specifically for administering and grading assignments
 related to data structure and algorithms in computer science.
 
@@ -74,6 +74,8 @@ Consider the example test case below:
 ## Installation
 
 Cormen-lib is [available on PyPI](https://pypi.org/project/cormen-lib/), and can be installed with pip.
+
+    pip install cormen-lib
 
 Cormen-lib has the following dependencies:
 
