@@ -164,7 +164,7 @@ class Graph:
 
             g.add_edge(a, b, 1)
 
-        One can get a `Set` of the adjacent edges of a Vertex:
+        One can get a `cormen_lib.sets.Set` of the adjacent edges of a Vertex:
 
             s = g.adj(a)
     """
@@ -208,23 +208,24 @@ class Graph:
     def adj(self, vertex):
         """Gets the `Vertex` objects that are adjacent to a `Vertex`.
 
-        This gets a `Set` of the `Vertex` objects that are adjacent to the vertex. Since `Set` objects preserve
-        insertion order (see `Set` documentation), the `Set` will be ordered according to the order in which edges
-        starting from the input `Vertex` were created. One should assume that this method runs in `O(n)` time where `n`
-        is the number of edges going out of the input `Vertex`.
+        This gets a `cormen_lib.sets.Set` of the `Vertex` objects that are adjacent to the vertex. Since
+        `cormen_lib.sets.Set` objects preserve insertion order (see `cormen_lib.sets.Set` documentation), the
+        `cormen_lib.sets.Set` will be ordered according to the order in which edges starting from the input `Vertex`
+        were created. One should assume that this method runs in `O(n)` time where `n` is the number of edges going out
+        of the input `Vertex`.
 
         Args:
             vertex: A `Vertex`.
 
         Returns:
-            A `Set` containing the vertices adjacent to `vertex`.
+            A `cormen_lib.sets.Set` containing the vertices adjacent to `vertex`.
 
         Raises:
             GraphVertexError: If `vertex` is not in this `Graph`.
 
         Examples:
-            To illustrate the nature of the `Set` returned by this method, first set up a `Graph` and add some vertices
-            and edges:
+            To illustrate the nature of the `cormen_lib.sets.Set` returned by this method, first set up a `Graph` and
+            add some vertices and edges:
 
                 g = Graph()
                 a = Vertex('a')
@@ -236,8 +237,8 @@ class Graph:
                 g.add_edge(a, b)
                 g.add_edge(a, c)
 
-            The `Set` returned by `g.adj(a)` will always have `b` preceding `c` since the edge from `a` to `b` was
-            created before the edge from `a` to `c`.
+            The `cormen_lib.sets.Set` returned by `g.adj(a)` will always have `b` preceding `c` since the edge from `a`
+            to `b` was created before the edge from `a` to `c`.
         """
         if vertex not in self.__adj_lists:
             raise GraphVertexError(vertex.get_name())
@@ -276,8 +277,9 @@ class Graph:
         `Graph`.
 
         Returns:
-            A `Set` containing the `Vertex` objects in this `Graph`. The order of the vertices in this `Set` will always
-            be the order in which the vertices were added to this `Graph` via `add_vertex`.
+            A `cormen_lib.sets.Set` containing the `Vertex` objects in this `Graph`. The order of the vertices in this
+            `cormen_lib.sets.Set` will always be the order in which the vertices were added to this `Graph` via
+            `add_vertex`.
         """
         s = Set()
         for vertex in self.__adj_lists:
