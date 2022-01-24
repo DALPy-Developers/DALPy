@@ -105,7 +105,7 @@ writes comma-seperated test results to a file.</p>
 <dd>
 <div class="desc"><p>Tests equality between two objects. If the objects are from the Cormen-lib, they are compared using their own
 custom comparator.</p>
-<p>cormen_equals supports equality for the following objects: Array, Queue, Stack, SinglyLinkedListNode. For
+<p>cormen_equals supports equality for the following objects: Array, Array2D, Queue, Stack, SinglyLinkedListNode. For
 SinglyLinkedListNode, checks that all nodes next of the passed SinglyLinkedListNodes are the same.</p>
 <h2 id="args">Args</h2>
 <dl>
@@ -115,12 +115,7 @@ SinglyLinkedListNode, checks that all nodes next of the passed SinglyLinkedListN
 <dd>The second element to be tested</dd>
 </dl>
 <h2 id="returns">Returns</h2>
-<p><code>True</code> if <code>first = second</code> otherwise <code>False</code>.</p>
-<h2 id="raises">Raises</h2>
-<dl>
-<dt><code>NotImplementedError</code></dt>
-<dd>If attempting to compare Array2D</dd>
-</dl></div>
+<p><code>True</code> if <code>first = second</code> otherwise <code>False</code>.</p></div>
 </dd>
 <dt id="cormen_lib.test_utils.run_generic_test"><code class="name flex">
 <span>def <span class="ident">run_generic_test</span></span>(<span>params, expected, method, custom_comparator=None, in_place=False, init_params=None, init_expected=None, params_to_string=None, expected_to_string=None, output_to_string=None)</span>
