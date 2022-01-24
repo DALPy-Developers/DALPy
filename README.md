@@ -1,7 +1,7 @@
 # Cormen Lib
-The Cormen-lib module is an insular data structures and algorithms library based on the Thomas H. Cormen's
-*Introduction to Algorithms Third Edition.* This library was made specifically for administering and grading assignments related
-to data structure and algorithms in computer science.
+The Cormen-lib module is an insular data structures and algorithms library based on Thomas H. Cormen's
+*Introduction to Algorithms Third Edition*. This library was made specifically for administering and grading assignments 
+related to data structure and algorithms in computer science.
 
 With this module students can receive progress reports on their problem sets in real time as they complete assignments.
 Additionally, student submission assessment is done with unit tests, instead of hand-tracing, ensuring that the grades
@@ -16,7 +16,7 @@ written in pseudocode.
 
 ## Provided Data Structures
 The Cormen-lib library offers a set of fundamental data structures and algorithms, with behavior as specified by H.
-Cormen's Introduction to Algorithms. The following structures (separated by module) are supported:
+Cormen's *Introduction to Algorithms*. The following structures (separated by module) are supported:
 
 * arrays
     * Array
@@ -45,9 +45,9 @@ Cormen's Introduction to Algorithms. The following structures (separated by modu
 
 ## Unit Testing
 Along with the Cormen-lib data structures come test utilities for writing test cases. The testing framework allows a
-course administer to easily write test cases for either expected function output or general class behavior. Test cases
+course administrator to easily write test cases for either expected function output or general class behavior. Test cases
 can then be compiled into a testing suite which runs all test cases. The testing suite has the capability set a test
-case run-time timeout and two record comma-separated test results for administrative use.
+case run-time timeout and to record comma-separated test results for administrative use.
 
 Consider the example test case below:
 ```python
@@ -93,4 +93,4 @@ If you are planning to use Cormen-lib for a university course and have questions
 
 ## Documentation
 
-The full documentation for Cormen-Lib is available [here](https://cormen-lib-developers.github.io/Cormen-Lib/).
+The full documentation for Cormen-lib is available [here](https://cormen-lib-developers.github.io/Cormen-Lib/).
