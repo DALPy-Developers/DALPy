@@ -74,7 +74,9 @@ if __name__ == '__main__':
 
 ## Installation
 
-Cormen-lib is available on PyPI, and can be installed with pip.
+Cormen-lib is [available on PyPI](https://pypi.org/project/cormen-lib/), and can be installed with pip.
+
+    pip install cormen-lib
 
 Cormen-lib has the following dependencies:
 
