@@ -90,3 +90,7 @@ correctness, documentation and feature requests.
 ## Academic Usage
 
 If you are planning to use Cormen-lib for a university course and have questions, feel free to reach out by email.
+
+## Documentation
+
+The full documentation for Cormen-Lib is available [here](https://cormen-lib-developers.github.io/Cormen-Lib/).

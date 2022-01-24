@@ -5,4 +5,6 @@ echo moving up docs
 copy docs\cormen_lib\* docs\
 echo removing duplicates
 rmdir /q /s docs\cormen_lib
+echo pushing
+git push
 pause
