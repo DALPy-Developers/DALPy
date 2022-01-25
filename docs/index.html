@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
 <title>cormen_lib API documentation</title>
-<meta name="description" content="The Cormen-lib module is a data structures and algorithms library based on Thomas H. Cormen&#39;s
-*Introduction to Algorithms Third Edition*. This library …" />
+<meta name="description" content="The Cormen-lib module is a data structures and algorithms library based on Thomas H. Cormen et al.&#39;s
+*Introduction to Algorithms Third Edition*. This …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -23,7 +23,7 @@
 <h1 class="title">Package <code>cormen_lib</code></h1>
 </header>
 <section id="section-intro">
-<p>The Cormen-lib module is a data structures and algorithms library based on Thomas H. Cormen's
+<p>The Cormen-lib module is a data structures and algorithms library based on Thomas H. Cormen et al.'s
 <em>Introduction to Algorithms Third Edition</em>. This library was made specifically for administering and grading assignments
 related to data structure and algorithms in computer science.</p>
 <p>With this module students can receive progress reports on their problem sets in real time as they complete assignments.
@@ -36,7 +36,7 @@ restricting which library data structures students are allowed to use on any par
 written in pseudocode.</p>
 <h2 id="provided-data-structures">Provided Data Structures</h2>
 <p>The Cormen-lib library offers a set of fundamental data structures and algorithms, with behavior as specified by H.
-Cormen's <em>Introduction to Algorithms</em>. The following structures (separated by module) are supported:</p>
+Cormen et al.'s <em>Introduction to Algorithms</em>. The following structures (separated by module) are supported:</p>
 <ul>
 <li>arrays<ul>
 <li>Array</li>
@@ -84,8 +84,8 @@ Cormen's <em>Introduction to Algorithms</em>. The following structures (separate
 <h2 id="unit-testing">Unit Testing</h2>
 <p>Along with the Cormen-lib data structures come test utilities for writing test cases. The testing framework allows a
 course administrator to easily write test cases for either expected function output or general class behavior. Test
-cases can then be compiled into a testing suite which runs all test cases. The testing suite has the capability set a
-test case run-time timeout and to record comma-separated test results for administrative use.</p>
+cases can then be compiled into a testing suite. The testing suite has the capability to set a test case run-time
+timeout and to record comma-separated test results for administrative use.</p>
 <p>Consider the example test case below:</p>
 <pre><code>import unittest
 from cormen_lib.factory_utils import make_stack
@@ -103,7 +103,7 @@ class StudentFunctionTest(unittest.TestCase):
         expected = make_stack([1, 1, 2, 2, 3, 3])
         run_generic_test(stack, expected, student_function, in_place=True)
 
-# Run the test cases using build_and_run_watched_suite
+# Run the test cases using build_and_run_watched_suite with a timeout of 4 seconds
 if __name__ == '__main__':
     build_and_run_watched_suite([StudentFunctionTest], 4)
 </code></pre>

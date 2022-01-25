@@ -1,4 +1,4 @@
-"""The Cormen-lib module is a data structures and algorithms library based on Thomas H. Cormen's
+"""The Cormen-lib module is a data structures and algorithms library based on Thomas H. Cormen et al.'s
 *Introduction to Algorithms Third Edition*. This library was made specifically for administering and grading assignments
 related to data structure and algorithms in computer science.
 
@@ -15,7 +15,7 @@ written in pseudocode.
 
 ## Provided Data Structures
 The Cormen-lib library offers a set of fundamental data structures and algorithms, with behavior as specified by H.
-Cormen's *Introduction to Algorithms*. The following structures (separated by module) are supported:
+Cormen et al.'s *Introduction to Algorithms*. The following structures (separated by module) are supported:
 
 * arrays
     * Array
@@ -45,8 +45,8 @@ Cormen's *Introduction to Algorithms*. The following structures (separated by mo
 ## Unit Testing
 Along with the Cormen-lib data structures come test utilities for writing test cases. The testing framework allows a
 course administrator to easily write test cases for either expected function output or general class behavior. Test
-cases can then be compiled into a testing suite which runs all test cases. The testing suite has the capability set a
-test case run-time timeout and to record comma-separated test results for administrative use.
+cases can then be compiled into a testing suite. The testing suite has the capability to set a test case run-time 
+timeout and to record comma-separated test results for administrative use.
 
 Consider the example test case below:
 
@@ -66,7 +66,7 @@ Consider the example test case below:
             expected = make_stack([1, 1, 2, 2, 3, 3])
             run_generic_test(stack, expected, student_function, in_place=True)
 
-    # Run the test cases using build_and_run_watched_suite
+    # Run the test cases using build_and_run_watched_suite with a timeout of 4 seconds
     if __name__ == '__main__':
         build_and_run_watched_suite([StudentFunctionTest], 4)
 

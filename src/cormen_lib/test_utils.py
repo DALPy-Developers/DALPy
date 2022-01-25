@@ -13,6 +13,7 @@ from cormen_lib.graphs import Graph, Vertex
 from cormen_lib.linked_lists import SinglyLinkedListNode
 from cormen_lib.queues import Queue
 from cormen_lib.stacks import Stack
+from cormen_lib.sets import Set
 from cormen_lib.trees import BinaryTreeNode, NaryTreeNode
 from cormen_lib.factory_utils import copy_stack
 
@@ -172,7 +173,7 @@ def cormen_equals(first, second):
     """Tests equality between two objects. If the objects are from the Cormen-lib, they are compared using their own
     custom comparator.
 
-    cormen_equals supports equality for the following objects: Array, Array2D, Queue, Stack, SinglyLinkedListNode. For
+    cormen_equals supports equality for the following objects: Array, Array2D, Queue, Stack, Set, SinglyLinkedListNode. For
     SinglyLinkedListNode, checks that all nodes next of the passed SinglyLinkedListNodes are the same.
 
     Args:
@@ -190,6 +191,8 @@ def cormen_equals(first, second):
         return __queue_equals(first, second)
     if isinstance(first, Stack) and isinstance(second, Stack):
         return __stack_equals(first, second)
+    if isinstance(first, Set) and isinstance(second, Set):
+        return __set_equals(first, second)
     if isinstance(first, SinglyLinkedListNode) and isinstance(second, SinglyLinkedListNode):
         return __singly_linked_list_equals(first, second)
     return first == second
@@ -200,7 +203,7 @@ def to_cormen_string(obj):
     Generates a string representation of a Cormen-lib object if passed object is from Cormen-lib, otherwise calls
     native str method.
 
-    to_cormen_string supports the following objects: Array, Array2D, Queue, Stack, SinglyLinkedListNode, BinaryTreeNode,
+    to_cormen_string supports the following objects: Array, Array2D, Queue, Stack, Set, SinglyLinkedListNode, BinaryTreeNode,
     NaryTreeNode, Vertex, Graph
 
     Returns:
@@ -219,6 +222,8 @@ def to_cormen_string(obj):
         return __queue_to_string(obj)
     if isinstance(obj, Stack):
         return __stack_to_string(obj)
+    if isinstance(obj, Set):
+        return __set_to_string(obj)
     if isinstance(obj, SinglyLinkedListNode):
         return __singly_linked_list_to_string(obj)
     if isinstance(obj, BinaryTreeNode):
@@ -314,7 +319,7 @@ def __run_timed_test(test, watcher, timeout):
 def __array_to_string(array):
     out = "["
     for i in range(array.length()):
-        out += f'{array[i]}, '
+        out += f'{to_cormen_string(array[i])}, '
     return out[:-2] + "]" if array.length() > 0 else out + "]"
 
 
@@ -323,7 +328,7 @@ def __array2d_to_string(array):
     for i in range(array.rows()):
         out += "["
         for j in range(array.columns()):
-            out += f'{array[(i, j)]}, '
+            out += f'{to_cormen_string(array[(i, j)])}, '
         out = out[:-2] + "]\n "
     return out[:-2] + "]"
 
@@ -332,7 +337,7 @@ def __queue_to_string(queue):
     out = []
     for _ in range(queue.size()):
         next = queue.dequeue()
-        out.append(str(next))
+        out.append(to_cormen_string(next))
         queue.enqueue(next)
     return "[" + ", ".join(out) + "]"
 
@@ -342,12 +347,17 @@ def __stack_to_string(stack):
     temp_stack = Stack()
     for _ in range(stack.size()):
         next = stack.pop()
-        out.insert(0, str(next))
+        out.insert(0, to_cormen_string(next))
         temp_stack.push(next)
     while not temp_stack.is_empty():
         stack.push(temp_stack.pop())
     return "[" + ", ".join(out) + "]"
 
+def __set_to_string(s):
+    out = []
+    for elem in s:
+        out.append(to_cormen_string(elem))
+    return "{" + ", ".join(out) + "}"
 
 def __singly_linked_list_to_string(head):
     out = list()
@@ -384,7 +394,7 @@ def __binary_tree_to_string(root):
             if curr is not None:
                 q.append(curr.left)
                 q.append(curr.right)
-                out_buf.append(curr.data)
+                out_buf.append(to_cormen_string(curr.data))
                 all_none_level = False
             else:
                 out_buf.append(None)
@@ -425,7 +435,7 @@ def __nary_tree_to_string(root):
             if curr is None:
                 out.append(None)
             else:
-                out.append(curr.data)
+                out.append(to_cormen_string(curr.data))
                 lm_child = curr.leftmost_child
                 q.append(lm_child)
                 while lm_child is not None:
@@ -472,6 +482,14 @@ def __stack_equals(expected, actual):
         i += 1
     return True
 
+def __set_equals(expected, actual):
+    expected_set = set()
+    actual_set = set()
+    for elem in expected:
+        expected_set.add(elem)
+    for elem in actual:
+        actual_set.add(elem)
+    return expected_set == actual_set
 
 def __singly_linked_list_equals(expected, actual):
     seen = set()
