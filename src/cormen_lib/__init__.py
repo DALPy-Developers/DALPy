@@ -1,6 +1,6 @@
 """The Cormen-lib module is a data structures and algorithms library based on Thomas H. Cormen et al.'s
 *Introduction to Algorithms Third Edition*. This library was made specifically for administering and grading assignments
-related to data structure and algorithms in computer science.
+related to data structures and algorithms in computer science.
 
 With this module students can receive progress reports on their problem sets in real time as they complete assignments.
 Additionally, student submission assessment is done with unit tests, instead of hand-tracing, ensuring that the grades
@@ -17,28 +17,28 @@ written in pseudocode.
 The Cormen-lib library offers a set of fundamental data structures and algorithms, with behavior as specified by H.
 Cormen et al.'s *Introduction to Algorithms*. The following structures (separated by module) are supported:
 
-* arrays
+* [arrays](https://cormen-lib-developers.github.io/Cormen-Lib/arrays.html)
     * Array
     * Array2D
-* queues
+* [queues](https://cormen-lib-developers.github.io/Cormen-Lib/queues.html)
     * Queue
-* stacks
+* [stacks](https://cormen-lib-developers.github.io/Cormen-Lib/stacks.html)
     * Stack
-* sets
+* [sets](https://cormen-lib-developers.github.io/Cormen-Lib/sets.html)
     * Set
-* linked_lists
+* [linked_lists](https://cormen-lib-developers.github.io/Cormen-Lib/linked_lists.html)
     * SinglyLinkedListNode
     * DoublyLinkedListNode
-* trees
+* [trees](https://cormen-lib-developers.github.io/Cormen-Lib/trees.html)
     * BinaryTreeNode
     * NaryTreeNode
     * depth(NaryTreeNode)
-* hashing
+* [hashing](https://cormen-lib-developers.github.io/Cormen-Lib/hashing.html)
     * HashTable
-* heaps
+* [heaps](https://cormen-lib-developers.github.io/Cormen-Lib/heaps.html)
     * PriorityQueue
     * build_min_heap(Array)
-* graphs
+* [graphs](https://cormen-lib-developers.github.io/Cormen-Lib/graphs.html)
     * Vertex
     * Graph
 
@@ -93,4 +93,8 @@ If you are planning to use Cormen-lib for a university course and have questions
 ## Documentation
 
 The full documentation for Cormen-lib is available [here](https://cormen-lib-developers.github.io/Cormen-Lib/).
+
+## Sample Usage
+
+To view sample assignments using Cormen-lib browse the [Cormen-lib sample problems repository](https://github.com/Cormen-Lib-Developers/Cormen-Lib-Sample-Problems) on github.
 """

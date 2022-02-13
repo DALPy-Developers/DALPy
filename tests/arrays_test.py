@@ -1,6 +1,5 @@
 import unittest
 
-from sqlalchemy import false
 from cormen_lib.arrays import Array, Array2D, sort
 from cormen_lib.test_utils import cormen_equals
 
