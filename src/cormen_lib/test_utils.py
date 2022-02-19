@@ -1,12 +1,13 @@
 """This module provides utilities related to unit testing.
 
 This module contains the `build_and_run_watched_suite`, `assert_array_equals`, `behavior_test`, `run_generic_test`,
-`cormen_equals` and the `to_cormen_string` functions.
+`cormen_equals` and the `to_cormen_string` functions, as well as `UnexpectedReturnWarning`.
 """
 import inspect
 import unittest
 from multiprocessing import Process
 import traceback
+import warnings
 
 from cormen_lib.arrays import Array, Array2D
 from cormen_lib.graphs import Graph, Vertex
@@ -18,7 +19,7 @@ from cormen_lib.trees import BinaryTreeNode, NaryTreeNode
 from cormen_lib.factory_utils import copy_stack
 
 
-def build_and_run_watched_suite(cases, timeout=None, show_tb=False, grading_file=None):
+def build_and_run_watched_suite(cases, timeout=None, show_tb=False, grading_file=None, warning_filter="once"):
     '''Runs a set of test cases, ensuring that they do not run longer than `timeout` seconds. Optionally, 
     writes comma-seperated test results to a file.
 
@@ -27,9 +28,19 @@ def build_and_run_watched_suite(cases, timeout=None, show_tb=False, grading_file
         timeout: Number of seconds to allow each test case to run for.
         show_tb: Boolean toggle for stack trace.
         grading_file: Output file path to store comma-seperated test results.
+        warning_filter: A `warnings.simplefilter` action. Default value ensures that warnings are only displayed once. Choose `"ignore"` to supress warnings.
 
     If `grading_file` is not specified, the test logs will be dumped to console.
     '''
+    def _warning(
+        message,
+        category,
+        filename,
+        lineno,
+        file=None,
+        line=None): print(f'{category.__name__}: {message}')
+    warnings.showwarning = _warning
+    warnings.simplefilter(warning_filter, UnexpectedReturnWarning)
     watcher = _Watcher(show_tb)
     suite = unittest.TestSuite()
     for case in cases:
@@ -52,7 +63,7 @@ def assert_array_equals(expected, actual, msg=None):
         msg: The message to display on `AssertionError`, if not specified, then a default message is displayed.
     
     Raises:
-        AssertionError if `expected` != `actual`
+        AssertionError: If `expected` != `actual`.
     '''
     assert isinstance(actual, Array)
     assert expected.length() == actual.length(), f"Expected Array length = {expected.length()}, Actual Array length = {actual.length()}" if msg is None else msg
@@ -69,7 +80,7 @@ def behavior_test(behavior, objects):
         objects: a `list` of objects who's parameters are being called.
     
     Raises:
-        AssertionError if `METHOD(PARAMETERS) != RESULT`
+        AssertionError: If `METHOD(PARAMETERS) != RESULT`.
     
     For each tuple in behavior this test asserts that `METHOD(PARAMETERS) = RESULT`.
 
@@ -140,7 +151,8 @@ def run_generic_test(params, expected, method, custom_comparator=None, in_place=
         output_to_string: Function for displaying the actual output. Must be a `callable`.
 
     Raises:
-        AssertionError if the test fails.
+        AssertionError: If the test fails.
+        UnexpectedReturnWarning: If `in_place` is set to `True` but `method` still returns a value.
 
     If `expected` is an `Exception`, the test will assert that the function tested on the given parameters throws the
     expected `Exception`. If no custom `to_string`s are specified, the `to_cormen_string` method will be used for
@@ -152,7 +164,10 @@ def run_generic_test(params, expected, method, custom_comparator=None, in_place=
     passed = True
     try:
         result = method(*params) if isinstance(params, list) else method(params)
-        if in_place: result = params
+        if in_place:
+            if result is not None:
+                warnings.warn("A function that is meant to modify its argument(s) returned a non-None value.", UnexpectedReturnWarning, stacklevel=2)
+            result = params
         result_string = output_to_string(result) if output_to_string is not None else to_cormen_string(result)
         if custom_comparator is None:
             if not cormen_equals(expected, result):
@@ -199,8 +214,7 @@ def cormen_equals(first, second):
 
 
 def to_cormen_string(obj):
-    """
-    Generates a string representation of a Cormen-lib object if passed object is from Cormen-lib, otherwise calls
+    """Generates a string representation of a Cormen-lib object if passed object is from Cormen-lib, otherwise calls
     native str method.
 
     to_cormen_string supports the following objects: Array, Array2D, Queue, Stack, Set, SinglyLinkedListNode, BinaryTreeNode,
@@ -238,6 +252,11 @@ def to_cormen_string(obj):
         return str(obj)
     except:
         return obj
+
+
+class UnexpectedReturnWarning(Warning):
+    """A `Warning` subclass for instances where functions are expected to modify their arguments but return values instead."""
+    pass
 
 
 class _TestTimeoutError(Exception):

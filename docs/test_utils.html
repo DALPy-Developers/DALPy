@@ -24,7 +24,7 @@
 <section id="section-intro">
 <p>This module provides utilities related to unit testing.</p>
 <p>This module contains the <code><a title="cormen_lib.test_utils.build_and_run_watched_suite" href="#cormen_lib.test_utils.build_and_run_watched_suite">build_and_run_watched_suite()</a></code>, <code><a title="cormen_lib.test_utils.assert_array_equals" href="#cormen_lib.test_utils.assert_array_equals">assert_array_equals()</a></code>, <code><a title="cormen_lib.test_utils.behavior_test" href="#cormen_lib.test_utils.behavior_test">behavior_test()</a></code>, <code><a title="cormen_lib.test_utils.run_generic_test" href="#cormen_lib.test_utils.run_generic_test">run_generic_test()</a></code>,
-<code><a title="cormen_lib.test_utils.cormen_equals" href="#cormen_lib.test_utils.cormen_equals">cormen_equals()</a></code> and the <code><a title="cormen_lib.test_utils.to_cormen_string" href="#cormen_lib.test_utils.to_cormen_string">to_cormen_string()</a></code> functions.</p>
+<code><a title="cormen_lib.test_utils.cormen_equals" href="#cormen_lib.test_utils.cormen_equals">cormen_equals()</a></code> and the <code><a title="cormen_lib.test_utils.to_cormen_string" href="#cormen_lib.test_utils.to_cormen_string">to_cormen_string()</a></code> functions, as well as <code><a title="cormen_lib.test_utils.UnexpectedReturnWarning" href="#cormen_lib.test_utils.UnexpectedReturnWarning">UnexpectedReturnWarning</a></code>.</p>
 </section>
 <section>
 </section>
@@ -48,7 +48,10 @@
 <dd>The message to display on <code>AssertionError</code>, if not specified, then a default message is displayed.</dd>
 </dl>
 <h2 id="raises">Raises</h2>
-<p>AssertionError if <code>expected</code> != <code>actual</code></p></div>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If <code>expected</code> != <code>actual</code>.</dd>
+</dl></div>
 </dd>
 <dt id="cormen_lib.test_utils.behavior_test"><code class="name flex">
 <span>def <span class="ident">behavior_test</span></span>(<span>behavior, objects)</span>
@@ -63,8 +66,11 @@
 <dd>a <code>list</code> of objects who's parameters are being called.</dd>
 </dl>
 <h2 id="raises">Raises</h2>
-<p>AssertionError if <code>METHOD(PARAMETERS) != RESULT</code>
-For each tuple in behavior this test asserts that <code>METHOD(PARAMETERS) = RESULT</code>.</p>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If <code>METHOD(PARAMETERS) != RESULT</code>.</dd>
+</dl>
+<p>For each tuple in behavior this test asserts that <code>METHOD(PARAMETERS) = RESULT</code>.</p>
 <p>In each <code>tuple</code> <code>METHOD</code> should an uncalled <code>callable</code>, for example:</p>
 <pre><code class="language-python-repl">&gt;&gt;&gt; stack = Stack()
 &gt;&gt;&gt; uncalled_callable = stack.pop
@@ -81,7 +87,7 @@ For each tuple in behavior this test asserts that <code>METHOD(PARAMETERS) = RES
 If multiple objects are being tested, pass a tuple of objects.</p></div>
 </dd>
 <dt id="cormen_lib.test_utils.build_and_run_watched_suite"><code class="name flex">
-<span>def <span class="ident">build_and_run_watched_suite</span></span>(<span>cases, timeout=None, show_tb=False, grading_file=None)</span>
+<span>def <span class="ident">build_and_run_watched_suite</span></span>(<span>cases, timeout=None, show_tb=False, grading_file=None, warning_filter='once')</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Runs a set of test cases, ensuring that they do not run longer than <code>timeout</code> seconds. Optionally,
@@ -96,6 +102,8 @@ writes comma-seperated test results to a file.</p>
 <dd>Boolean toggle for stack trace.</dd>
 <dt><strong><code>grading_file</code></strong></dt>
 <dd>Output file path to store comma-seperated test results.</dd>
+<dt><strong><code>warning_filter</code></strong></dt>
+<dd>A <code>warnings.simplefilter</code> action. Default value ensures that warnings are only displayed once. Choose <code>"ignore"</code> to supress warnings.</dd>
 </dl>
 <p>If <code>grading_file</code> is not specified, the test logs will be dumped to console.</p></div>
 </dd>
@@ -147,8 +155,13 @@ or a list of parameters.</dd>
 <dd>Function for displaying the actual output. Must be a <code>callable</code>.</dd>
 </dl>
 <h2 id="raises">Raises</h2>
-<p>AssertionError if the test fails.
-If <code>expected</code> is an <code>Exception</code>, the test will assert that the function tested on the given parameters throws the
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the test fails.</dd>
+<dt><code><a title="cormen_lib.test_utils.UnexpectedReturnWarning" href="#cormen_lib.test_utils.UnexpectedReturnWarning">UnexpectedReturnWarning</a></code></dt>
+<dd>If <code>in_place</code> is set to <code>True</code> but <code>method</code> still returns a value.</dd>
+</dl>
+<p>If <code>expected</code> is an <code>Exception</code>, the test will assert that the function tested on the given parameters throws the
 expected <code>Exception</code>. If no custom <code>to_string</code>s are specified, the <code><a title="cormen_lib.test_utils.to_cormen_string" href="#cormen_lib.test_utils.to_cormen_string">to_cormen_string()</a></code> method will be used for
 displaying parameters, input and output.</p></div>
 </dd>
@@ -171,6 +184,22 @@ NaryTreeNode, Vertex, Graph</p>
 </dl>
 </section>
 <section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="cormen_lib.test_utils.UnexpectedReturnWarning"><code class="flex name class">
+<span>class <span class="ident">UnexpectedReturnWarning</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A <code>Warning</code> subclass for instances where functions are expected to modify their arguments but return values instead.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Warning</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+</dl>
 </section>
 </article>
 <nav id="sidebar">
@@ -192,6 +221,13 @@ NaryTreeNode, Vertex, Graph</p>
 <li><code><a title="cormen_lib.test_utils.cormen_equals" href="#cormen_lib.test_utils.cormen_equals">cormen_equals</a></code></li>
 <li><code><a title="cormen_lib.test_utils.run_generic_test" href="#cormen_lib.test_utils.run_generic_test">run_generic_test</a></code></li>
 <li><code><a title="cormen_lib.test_utils.to_cormen_string" href="#cormen_lib.test_utils.to_cormen_string">to_cormen_string</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="cormen_lib.test_utils.UnexpectedReturnWarning" href="#cormen_lib.test_utils.UnexpectedReturnWarning">UnexpectedReturnWarning</a></code></h4>
+</li>
 </ul>
 </li>
 </ul>
