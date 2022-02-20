@@ -38,7 +38,7 @@ def build_and_run_watched_suite(cases, timeout=None, show_tb=False, grading_file
         filename,
         lineno,
         file=None,
-        line=None): print(f'{category.__name__}: {message}')
+        line=None): print(f'{__bcolors.WARNING}{category.__name__}: {message}{__bcolors.ENDC}')
     warnings.showwarning = _warning
     warnings.simplefilter(warning_filter, UnexpectedReturnWarning)
     watcher = _Watcher(show_tb)
@@ -526,3 +526,9 @@ def __method_to_string(method):
     if isinstance(method, tuple):
         return f'({str(inspect.getsourcelines(method[0])[0][0]).strip(new_line).strip().split()[1].replace("(self,", "")}, {", ".join(str(param) for param in method[1:])})'
     return str(inspect.getsourcelines(method)[0][0]).strip("\n").strip().split()[1].replace('(self):', '()')
+
+
+class __bcolors:
+    HEADER = '\033[95m'
+    WARNING = '\033[93m'
+    ENDC = '\033[0m'

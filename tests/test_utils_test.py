@@ -38,7 +38,6 @@ class WarningTest(unittest.TestCase):
         a = Array(0)
         b = Array(0)
         run_generic_test(a, b, lambda x: make_array([1]), in_place=True)
-        run_generic_test()
 
 if __name__ == '__main__':
     build_and_run_watched_suite([WarningTest])
