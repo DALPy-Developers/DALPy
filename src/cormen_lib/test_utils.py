@@ -20,7 +20,7 @@ from cormen_lib.factory_utils import copy_stack
 
 
 def build_and_run_watched_suite(cases, timeout=None, show_tb=False, grading_file=None, warning_filter="once"):
-    '''Runs a set of test cases, ensuring that they do not run longer than `timeout` seconds. Optionally, 
+    """Runs a set of test cases, ensuring that they do not run longer than `timeout` seconds. Optionally,
     writes comma-seperated test results to a file.
 
     Args:
@@ -28,17 +28,21 @@ def build_and_run_watched_suite(cases, timeout=None, show_tb=False, grading_file
         timeout: Number of seconds to allow each test case to run for.
         show_tb: Boolean toggle for stack trace.
         grading_file: Output file path to store comma-seperated test results.
-        warning_filter: A `warnings.simplefilter` action. Default value ensures that warnings are only displayed once. Choose `"ignore"` to supress warnings.
+        warning_filter: A `warnings.simplefilter` action. Default value ensures that warnings are only displayed once.
+                        Choose `"ignore"` to supress warnings.
 
     If `grading_file` is not specified, the test logs will be dumped to console.
-    '''
+    """
+
     def _warning(
-        message,
-        category,
-        filename,
-        lineno,
-        file=None,
-        line=None): print(f'{__bcolors.WARNING}{category.__name__}: {message}{__bcolors.ENDC}')
+            message,
+            category,
+            filename,
+            lineno,
+            file=None,
+            line=None):
+        print(f'{__bcolors.WARNING}{category.__name__}: {message}{__bcolors.ENDC}')
+
     warnings.showwarning = _warning
     warnings.simplefilter(warning_filter, UnexpectedReturnWarning)
     watcher = _Watcher(show_tb)
@@ -55,16 +59,16 @@ def build_and_run_watched_suite(cases, timeout=None, show_tb=False, grading_file
 
 
 def assert_array_equals(expected, actual, msg=None):
-    '''Asserts that two `Array`s are equal, displaying a custom message if specified.
+    """Asserts that two `cormen_lib.arrays.Array`s are equal, displaying a custom message if specified.
 
     Args:
-        expected: The expected `Array`.
-        actual: The actual `Array`.
+        expected: The expected `cormen_lib.arrays.Array`.
+        actual: The actual `cormen_lib.arrays.Array`.
         msg: The message to display on `AssertionError`, if not specified, then a default message is displayed.
-    
+
     Raises:
         AssertionError: If `expected` != `actual`.
-    '''
+    """
     assert isinstance(actual, Array)
     assert expected.length() == actual.length(), f"Expected Array length = {expected.length()}, Actual Array length = {actual.length()}" if msg is None else msg
     for i in range(expected.length()):
@@ -73,15 +77,15 @@ def assert_array_equals(expected, actual, msg=None):
 
 
 def behavior_test(behavior, objects):
-    '''Test the behavior of an object.
+    """Test the behavior of an object.
 
     Args:
-        behavior: a `list` of `tuple`s of the form `(RESULT, METHOD, PARAMETERS)`. 
+        behavior: a `list` of `tuple`s of the form `(RESULT, METHOD, PARAMETERS)`.
         objects: a `list` of objects who's parameters are being called.
-    
+
     Raises:
         AssertionError: If `METHOD(PARAMETERS) != RESULT`.
-    
+
     For each tuple in behavior this test asserts that `METHOD(PARAMETERS) = RESULT`.
 
     In each `tuple` `METHOD` should an uncalled `callable`, for example:
@@ -94,13 +98,13 @@ def behavior_test(behavior, objects):
     - If `METHOD` has no parameters, then `PARAMETERS` can be omitted in favor of `(RESULT, METHOD)`.
 
     Example:
-    
+
     >>> stack = Stack()
     >>> behavior = [ (stack.push, 1), (1, stack.pop) ]
 
     The objects parameter is the object who's behavior is being tested, which will be used for the test log.
     If multiple objects are being tested, pass a tuple of objects.
-    '''
+    """
     msg = f'Behavior:\ninit {", ".join(type(obj).__name__ for obj in objects) if isinstance(objects, list) else type(objects).__name__}\n'
     passed = True
     expected, method, params, result = None, None, None, None
@@ -135,15 +139,15 @@ def behavior_test(behavior, objects):
 
 def run_generic_test(params, expected, method, custom_comparator=None, in_place=False, init_params=None,
                      init_expected=None, params_to_string=None, expected_to_string=None, output_to_string=None):
-    '''Test the output of a function.
+    """Test the output of a function.
 
     Args:
         params: Parameters to be passed into the function being tested. This argument can either be a single parameter,
                 or a list of parameters.
-        expected: Expected return value of tested function with parameters specified by params. 
+        expected: Expected return value of tested function with parameters specified by params.
         method: Function being tested. Must be a `callable`.
         custom_comparator: Function for determining if method output equals expected. Must be a `callable`.
-        in_place: True of expected should be compared against params.
+        in_place: `True` if `expected` should be compared against `params`.
         init_params: Function for initializing parameters. Must be a `callable`.
         init_expected: Function for initializing expected output. Must be a `callable`.
         params_to_string: Function for displaying the parameters. Must be a `callable`.
@@ -157,7 +161,7 @@ def run_generic_test(params, expected, method, custom_comparator=None, in_place=
     If `expected` is an `Exception`, the test will assert that the function tested on the given parameters throws the
     expected `Exception`. If no custom `to_string`s are specified, the `to_cormen_string` method will be used for
     displaying parameters, input and output.
-    '''
+    """
     msg = f"Input: {to_cormen_string(params) if params_to_string is None else params_to_string(params)}\nExpected: {to_cormen_string(expected) if expected_to_string is None else expected_to_string(expected)}\n"
     params = init_params(params) if init_params is not None else params
     expected = init_expected(expected) if init_expected is not None else expected
@@ -166,7 +170,8 @@ def run_generic_test(params, expected, method, custom_comparator=None, in_place=
         result = method(*params) if isinstance(params, list) else method(params)
         if in_place:
             if result is not None:
-                warnings.warn("A function that is meant to modify its argument(s) returned a non-None value.", UnexpectedReturnWarning, stacklevel=2)
+                warnings.warn("A function that is meant to modify its argument(s) returned a non-None value.",
+                              UnexpectedReturnWarning, stacklevel=2)
             result = params
         result_string = output_to_string(result) if output_to_string is not None else to_cormen_string(result)
         if custom_comparator is None:
@@ -188,8 +193,10 @@ def cormen_equals(first, second):
     """Tests equality between two objects. If the objects are from the Cormen-lib, they are compared using their own
     custom comparator.
 
-    cormen_equals supports equality for the following objects: Array, Array2D, Queue, Stack, Set, SinglyLinkedListNode. For
-    SinglyLinkedListNode, checks that all nodes next of the passed SinglyLinkedListNodes are the same.
+    cormen_equals supports equality for the following objects: `cormen_lib.arrays.Array`, `cormen_lib.arrays.Array2D`,
+    `cormen_lib.queues.Queue`, `cormen_lib.stacks.Stack`, `cormen_lib.sets.Set`,
+    `cormen_lib.linked_lists.SinglyLinkedListNode`. For `cormen_lib.linked_lists.SinglyLinkedListNode`, checks that all
+    nodes next of the passed `cormen_lib.linked_lists.SinglyLinkedListNode`s are the same.
 
     Args:
         first: The first element to be tested.
@@ -217,8 +224,10 @@ def to_cormen_string(obj):
     """Generates a string representation of a Cormen-lib object if passed object is from Cormen-lib, otherwise calls
     native str method.
 
-    to_cormen_string supports the following objects: Array, Array2D, Queue, Stack, Set, SinglyLinkedListNode, BinaryTreeNode,
-    NaryTreeNode, Vertex, Graph
+    to_cormen_string supports the following objects: `cormen_lib.arrays.Array`, `cormen_lib.arrays.Array2D`,
+    `cormen_lib.queues.Queue`, `cormen_lib.stacks.Stack`, `cormen_lib.sets.Set`,
+    `cormen_lib.linked_lists.SinglyLinkedListNode`, `cormen_lib.trees.BinaryTreeNode`, `cormen_lib.trees.NaryTreeNode`,
+    `cormen_lib.graphs.Vertex`, and `cormen_lib.graphs.Graph`.
 
     Returns:
         string represnetation of `obj`.
@@ -372,11 +381,13 @@ def __stack_to_string(stack):
         stack.push(temp_stack.pop())
     return "[" + ", ".join(out) + "]"
 
+
 def __set_to_string(s):
     out = []
     for elem in s:
         out.append(to_cormen_string(elem))
     return "{" + ", ".join(out) + "}"
+
 
 def __singly_linked_list_to_string(head):
     out = list()
@@ -501,6 +512,7 @@ def __stack_equals(expected, actual):
         i += 1
     return True
 
+
 def __set_equals(expected, actual):
     expected_set = set()
     actual_set = set()
@@ -509,6 +521,7 @@ def __set_equals(expected, actual):
     for elem in actual:
         actual_set.add(elem)
     return expected_set == actual_set
+
 
 def __singly_linked_list_equals(expected, actual):
     seen = set()
