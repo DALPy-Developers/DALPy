@@ -60,8 +60,8 @@ class GenericTesterTest(unittest.TestCase):
         try:
             generic_test(a, b, fnc_that_modifies, enforce_no_mod=True)
         except AssertionError as e:
-            assert "1st" in e.args[0]
-            assert "[1]" in e.args[0]
+            assert "1st" in e.args[0], e.args[0]
+            assert "[1]" in e.args[0], e.args[0]
 
     def test_requiring_no_modification_pass(self):
         a = Array(1)
@@ -84,9 +84,32 @@ class GenericTesterTest(unittest.TestCase):
         try:
             generic_test([a,b], c, fnc_that_modifies_second, enforce_no_mod=[False, True])
         except AssertionError as e:
-            assert "[[1, 4], [1, 3]]" in e.args[0]
-            assert "2nd" in e.args[0]
+            assert "[[1, 4], [1, 3]]" in e.args[0], e.args[0]
+            assert "2nd" in e.args[0], e.args[0]
     
+    def test_multiple_larger(self):
+        g = Graph()
+        a = Vertex('a')
+        b = Vertex('b')
+        c = Vertex('c')
+        g.add_vertex(a)
+        g.add_vertex(b)
+        g.add_vertex(c)
+        g.add_edge(a, b, 0)
+        g.add_edge(a, c, 0)
+        g.add_edge(b, c, 2)
+        g.add_edge(c, a, 3)
+        x = list(range(15))
+        def fnc_that_modifies(graph, x):
+            e = Vertex('e')
+            g.add_vertex(e)
+            g.add_edge(e, c, 1)
+        try:
+            generic_test([g,x], None, fnc_that_modifies, enforce_no_mod=True, custom_comparator=lambda x,y:True)
+        except AssertionError as e:
+            assert '1st' in e.args[0], e.args[0]
+            assert 'e: c <1>' in e.args[0], e.args[0]
+
     def test_larger_object(self):
         g = Graph()
         a = Vertex('a')
@@ -103,8 +126,25 @@ class GenericTesterTest(unittest.TestCase):
             e = Vertex('e')
             g.add_vertex(e)
             g.add_edge(e, c, 1)
-        generic_test(g, None, fnc_that_modifies, enforce_no_mod=True, custom_comparator=lambda x,y:True)
-    
+        try:
+            generic_test(g, None, fnc_that_modifies, enforce_no_mod=True, custom_comparator=lambda x,y:True)
+        except AssertionError as e:
+            assert 'e: c <1>' in e.args[0], e.args[0]
+
+
+    def test_requiring_second_argument_no_modification_arrays(self):
+        a = make_array([1, 2, 3, 4, 5])
+        b = make_array([6, 7, 8, 9,])
+        c = 1
+        def fnc_that_modifies_second(x, y):
+            y[0] = -1000
+            return 1
+        try:
+            generic_test([a,b], c, fnc_that_modifies_second, enforce_no_mod=[True, True])
+        except AssertionError as e:
+            assert '[-1000, 7, 8, 9]' in e.args[0], e.args[0]
+            assert '2nd' in e.args[0], e.args[0]
+
 
 if __name__ == '__main__':
     build_and_run_watched_suite([WarningTest, GenericTesterTest])

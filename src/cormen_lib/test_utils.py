@@ -1,6 +1,6 @@
 """This module provides utilities related to unit testing.
 
-This module contains the `build_and_run_watched_suite`, `assert_array_equals`, `behavior_test`, `run_generic_test`,
+This module contains the `build_and_run_watched_suite`, `assert_array_equals`, `behavior_test`, `generic_test`,
 `cormen_equals` and the `to_cormen_string` functions, as well as `UnexpectedReturnWarning`.
 """
 import inspect
@@ -141,7 +141,7 @@ def behavior_test(behavior, objects):
 
 def run_generic_test(params, expected, method, custom_comparator=None, in_place=False, enforce_no_mod=False, init_params=None,
                      init_expected=None, params_to_string=None, expected_to_string=None, output_to_string=None):
-    """Warning: Deprecated in 1.1.0, to be removed in 1.2.0. Use the generic_test function instead.
+    """Warning: Deprecated in 1.1.0, to be removed. Use the generic_test function instead.
     
     Test the output of a function.
 
@@ -152,16 +152,17 @@ def run_generic_test(params, expected, method, custom_comparator=None, in_place=
         method: Function being tested. Must be a `callable`.
         custom_comparator: Function for determining if method output equals expected. Must be a `callable`.
         in_place: `True` if `expected` should be compared against `params`.
+        enforce_no_mod: `bool` or a `list` of `bool` indicating which args should not be modified. Default `False` allows modification of all args.
         init_params: Function for initializing parameters. Must be a `callable`.
         init_expected: Function for initializing expected output. Must be a `callable`.
         params_to_string: Function for displaying the parameters. Must be a `callable`.
         expected_to_string: Function for displaying the expected output. Must be a `callable`.
         output_to_string: Function for displaying the actual output. Must be a `callable`.
-        enforce_no_mod: `bool` or a `list` of `bool` indicating which args should not be modified. Default `False` allows modification of all args.
 
     Raises:
         AssertionError: If the test fails.
         UnexpectedReturnWarning: If `in_place` is set to `True` but `method` still returns a value.
+        DeprecationWarning: If used in version >= 1.1.0.
 
     If `expected` is an `Exception`, the test will assert that the function tested on the given parameters throws the
     expected `Exception`. If no custom `to_string`s are specified, the `to_cormen_string` method will be used for
@@ -227,7 +228,7 @@ def generic_test(params, expected, method, custom_comparator=None, in_place=Fals
     if not isinstance(params, list): params = [params]
     for i, no_mod in enumerate(enforce_no_mod):
         if no_mod:
-            assert cormen_equals(params_copy[i], params[i]), f"{msg}Output: The {str(i+1) + __append_int(i+1)} input argument should not have been modified.\n\tArguments after function call: {modified_params_string}"
+            assert cormen_equals(params_copy[i], params[i]), f"{msg}Output: The {str(i+1) + __append_int(i+1)} input argument should not have been modified.\nArguments: {modified_params_string}"
 
 
 
