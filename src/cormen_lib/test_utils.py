@@ -139,11 +139,13 @@ def behavior_test(behavior, objects):
     assert passed, msg
 
 
-def run_generic_test(params, expected, method, custom_comparator=None, in_place=False, enforce_no_mod=False, init_params=None,
+def run_generic_test(params, expected, method, custom_comparator=None, in_place=False, enforce_no_mod=False,
+                     init_params=None,
                      init_expected=None, params_to_string=None, expected_to_string=None, output_to_string=None):
-    """Warning: Deprecated in 1.1.0, to be removed. Use the generic_test function instead.
-    
-    Test the output of a function.
+    """Test the output of a function.
+
+    Warnings:
+        Deprecated in 1.1.0, to be removed. Use the generic_test function instead.
 
     Args:
         params: Parameters to be passed into the function being tested. This argument can either be a single parameter,
@@ -168,36 +170,42 @@ def run_generic_test(params, expected, method, custom_comparator=None, in_place=
     expected `Exception`. If no custom `to_string`s are specified, the `to_cormen_string` method will be used for
     displaying parameters, input and output.
     """
-    warnings.warn("run_generic_test is deprecated after version 1.1.0, use generic_test instead.", DeprecationWarning, stacklevel=2)
-    params = init_params(params) if init_params is not None else params   
+    warnings.warn("run_generic_test is deprecated after version 1.1.0, use generic_test instead.", DeprecationWarning,
+                  stacklevel=2)
+    params = init_params(params) if init_params is not None else params
     expected = init_expected(expected) if init_expected is not None else expected
-    generic_test(params, expected, method, custom_comparator=custom_comparator, in_place=in_place, enforce_no_mod=enforce_no_mod,
-                     params_to_string=params_to_string, expected_to_string=expected_to_string, output_to_string=output_to_string)
+    generic_test(params, expected, method, custom_comparator=custom_comparator, in_place=in_place,
+                 enforce_no_mod=enforce_no_mod,
+                 params_to_string=params_to_string, expected_to_string=expected_to_string,
+                 output_to_string=output_to_string)
 
 
 def generic_test(params, expected, method, custom_comparator=None, in_place=False, enforce_no_mod=False,
-                    params_to_string=None, expected_to_string=None, output_to_string=None):
+                 params_to_string=None, expected_to_string=None, output_to_string=None):
     """Test the output of a function.
 
     Args:
         params: Parameters to be passed into the function being tested. This argument can either be a single parameter,
                 or a list of parameters.
-        expected: Expected return value of tested function with parameters specified by params.
+        expected: Expected return value of tested function with parameters specified by params. If `expected` is an
+                  `Exception`, the test will assert that the function tested on the given parameters throws the expected
+                  `Exception`.
         method: Function being tested. Must be a `callable`.
-        custom_comparator: Function for determining if method output equals expected. Must be a `callable`.
-        in_place: `True` if `expected` should be compared against `params`.
-        enforce_no_mod: `bool` or a `list` of `bool` indicating which args should not be modified. Default `False` allows modification of all args.
-        params_to_string: Function for displaying the parameters. Must be a `callable`.
-        expected_to_string: Function for displaying the expected output. Must be a `callable`.
-        output_to_string: Function for displaying the actual output. Must be a `callable`.
+        custom_comparator: Function for determining if method output equals expected. Must be a `callable`. Default
+                           `None` which means that `cormen_equals` will be used.
+        in_place: `True` if `expected` should be compared against `params`. By default this is `False`.
+        enforce_no_mod: `bool` or a `list` of `bool` indicating which args should not be modified. Default `False`
+                        allows modification of all args.
+        params_to_string: Function for displaying the parameters. Must be a `callable`. Default `None` which means that
+                          `cormen_to_string` will be used instead.
+        expected_to_string: Function for displaying the expected output. Must be a `callable`. Default `None` which
+                            means that `cormen_to_string` will be used instead.
+        output_to_string: Function for displaying the actual output. Must be a `callable`. Default `None` which means
+                          that `cormen_to_string` will be used instead.
 
     Raises:
         AssertionError: If the test fails.
         UnexpectedReturnWarning: If `in_place` is set to `True` but `method` still returns a value.
-
-    If `expected` is an `Exception`, the test will assert that the function tested on the given parameters throws the
-    expected `Exception`. If no custom `to_string`s are specified, the `to_cormen_string` method will be used for
-    displaying parameters, input and output.
     """
     msg = f"Input: {to_cormen_string(params) if params_to_string is None else params_to_string(params)}\nExpected: {to_cormen_string(expected) if expected_to_string is None else expected_to_string(expected)}\n"
     params_copy = copy.deepcopy(params) if isinstance(params, list) else [copy.deepcopy(params)]
@@ -223,13 +231,13 @@ def generic_test(params, expected, method, custom_comparator=None, in_place=Fals
         error_message = e.args[0] if len(e.args) > 0 else e.with_traceback
         assert False, f"{msg}Output: {error_message}"
     assert passed, msg
-    enforce_no_mod = [enforce_no_mod]*len(params_copy) if isinstance(enforce_no_mod, bool) else enforce_no_mod
+    enforce_no_mod = [enforce_no_mod] * len(params_copy) if isinstance(enforce_no_mod, bool) else enforce_no_mod
     modified_params_string = to_cormen_string(params) if params_to_string is None else params_to_string(params)
     if not isinstance(params, list): params = [params]
     for i, no_mod in enumerate(enforce_no_mod):
         if no_mod:
-            assert cormen_equals(params_copy[i], params[i]), f"{msg}Output: The {str(i+1) + __append_int(i+1)} input argument should not have been modified.\nArguments: {modified_params_string}"
-
+            assert cormen_equals(params_copy[i], params[
+                i]), f"{msg}Output: The {str(i + 1) + __append_int(i + 1)} input argument should not have been modified.\nArguments: {modified_params_string}"
 
 
 def cormen_equals(first, second):
