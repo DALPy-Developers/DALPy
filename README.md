@@ -1,5 +1,5 @@
 # Cormen Lib
-The Cormen-lib module is a data structures and algorithms library based on Thomas H. Cormen et al.'s
+The Cormen-Lib module is a data structures and algorithms library based on Thomas H. Cormen et al.'s
 *Introduction to Algorithms Third Edition*. This library was made specifically for administering and grading assignments 
 related to data structures and algorithms in computer science.
 
@@ -7,11 +7,11 @@ With this module students can receive progress reports on their problem sets in 
 Additionally, student submission assessment is done with unit tests, instead of hand-tracing, ensuring that the grades
 that students receive accurately reflect their submissions.
 
-The Cormen-lib testing suite offers extremely lightweight and flexible unit testing utilities that can be used on any
+The Cormen-Lib testing suite offers extremely lightweight and flexible unit testing utilities that can be used on any
 kind of assignment, whether to write functions or build classes. Course administration can be easily streamlined by
 restricting which library data structures students are allowed to use on any particular assignment.
 
-Cormen-lib began as a project by two Brandeis University undergraduate students to replace hand-written problem sets
+Cormen-Lib began as a project by two Brandeis University undergraduate students to replace hand-written problem sets
 written in pseudocode.
 
 ## Provided Data Structures
