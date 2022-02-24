@@ -5,11 +5,11 @@ This module contains the `build_and_run_watched_suite`, `assert_array_equals`, `
 """
 import inspect
 import unittest
-from multiprocessing import Process
 import traceback
 import warnings
 import copy
-
+import math
+from multiprocessing import Process
 from cormen_lib.arrays import Array, Array2D
 from cormen_lib.graphs import Graph, Vertex
 from cormen_lib.linked_lists import SinglyLinkedListNode
@@ -244,10 +244,11 @@ def cormen_equals(first, second):
     """Tests equality between two objects. If the objects are from the Cormen-lib, they are compared using their own
     custom comparator.
 
-    cormen_equals supports equality for the following objects: `cormen_lib.arrays.Array`, `cormen_lib.arrays.Array2D`,
+    `cormen_equals` supports equality for the following objects: `cormen_lib.arrays.Array`, `cormen_lib.arrays.Array2D`,
     `cormen_lib.queues.Queue`, `cormen_lib.stacks.Stack`, `cormen_lib.sets.Set`,
     `cormen_lib.linked_lists.SinglyLinkedListNode`. For `cormen_lib.linked_lists.SinglyLinkedListNode`, checks that all
-    nodes next of the passed `cormen_lib.linked_lists.SinglyLinkedListNode`s are the same.
+    nodes next of the passed `cormen_lib.linked_lists.SinglyLinkedListNode`s are the same. For instances of floats,
+    `math.isclose` is used for comparison.
 
     Args:
         first: The first element to be tested.
@@ -268,6 +269,8 @@ def cormen_equals(first, second):
         return __set_equals(first, second)
     if isinstance(first, SinglyLinkedListNode) and isinstance(second, SinglyLinkedListNode):
         return __singly_linked_list_equals(first, second)
+    if isinstance(first, float) and isinstance(second, float):
+        return math.isclose(first, second)
     return first == second
 
 
