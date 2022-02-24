@@ -244,10 +244,11 @@ def cormen_equals(first, second):
     """Tests equality between two objects. If the objects are from the Cormen-lib, they are compared using their own
     custom comparator.
 
-    cormen_equals supports equality for the following objects: `cormen_lib.arrays.Array`, `cormen_lib.arrays.Array2D`,
+    `cormen_equals` supports equality for the following objects: `cormen_lib.arrays.Array`, `cormen_lib.arrays.Array2D`,
     `cormen_lib.queues.Queue`, `cormen_lib.stacks.Stack`, `cormen_lib.sets.Set`,
     `cormen_lib.linked_lists.SinglyLinkedListNode`. For `cormen_lib.linked_lists.SinglyLinkedListNode`, checks that all
-    nodes next of the passed `cormen_lib.linked_lists.SinglyLinkedListNode`s are the same.
+    nodes next of the passed `cormen_lib.linked_lists.SinglyLinkedListNode`s are the same. For instances of floats,
+    `math.isclose` is used for comparison.
 
     Args:
         first: The first element to be tested.
