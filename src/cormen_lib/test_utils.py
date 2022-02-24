@@ -5,11 +5,11 @@ This module contains the `build_and_run_watched_suite`, `assert_array_equals`, `
 """
 import inspect
 import unittest
-from multiprocessing import Process
 import traceback
 import warnings
 import copy
-
+import math
+from multiprocessing import Process
 from cormen_lib.arrays import Array, Array2D
 from cormen_lib.graphs import Graph, Vertex
 from cormen_lib.linked_lists import SinglyLinkedListNode
@@ -268,6 +268,8 @@ def cormen_equals(first, second):
         return __set_equals(first, second)
     if isinstance(first, SinglyLinkedListNode) and isinstance(second, SinglyLinkedListNode):
         return __singly_linked_list_equals(first, second)
+    if isinstance(first, float) and isinstance(second, float):
+        return math.isclose(first, second)
     return first == second
 
 
