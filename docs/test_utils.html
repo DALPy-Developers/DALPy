@@ -23,7 +23,7 @@
 </header>
 <section id="section-intro">
 <p>This module provides utilities related to unit testing.</p>
-<p>This module contains the <code><a title="cormen_lib.test_utils.build_and_run_watched_suite" href="#cormen_lib.test_utils.build_and_run_watched_suite">build_and_run_watched_suite()</a></code>, <code><a title="cormen_lib.test_utils.assert_array_equals" href="#cormen_lib.test_utils.assert_array_equals">assert_array_equals()</a></code>, <code><a title="cormen_lib.test_utils.behavior_test" href="#cormen_lib.test_utils.behavior_test">behavior_test()</a></code>, <code><a title="cormen_lib.test_utils.run_generic_test" href="#cormen_lib.test_utils.run_generic_test">run_generic_test()</a></code>,
+<p>This module contains the <code><a title="cormen_lib.test_utils.build_and_run_watched_suite" href="#cormen_lib.test_utils.build_and_run_watched_suite">build_and_run_watched_suite()</a></code>, <code><a title="cormen_lib.test_utils.assert_array_equals" href="#cormen_lib.test_utils.assert_array_equals">assert_array_equals()</a></code>, <code><a title="cormen_lib.test_utils.behavior_test" href="#cormen_lib.test_utils.behavior_test">behavior_test()</a></code>, <code><a title="cormen_lib.test_utils.generic_test" href="#cormen_lib.test_utils.generic_test">generic_test()</a></code>,
 <code><a title="cormen_lib.test_utils.cormen_equals" href="#cormen_lib.test_utils.cormen_equals">cormen_equals()</a></code> and the <code><a title="cormen_lib.test_utils.to_cormen_string" href="#cormen_lib.test_utils.to_cormen_string">to_cormen_string()</a></code> functions, as well as <code><a title="cormen_lib.test_utils.UnexpectedReturnWarning" href="#cormen_lib.test_utils.UnexpectedReturnWarning">UnexpectedReturnWarning</a></code>.</p>
 </section>
 <section>
@@ -128,11 +128,55 @@ nodes next of the passed <code><a title="cormen_lib.linked_lists.SinglyLinkedLis
 <h2 id="returns">Returns</h2>
 <p><code>True</code> if <code>first = second</code> otherwise <code>False</code>.</p></div>
 </dd>
-<dt id="cormen_lib.test_utils.run_generic_test"><code class="name flex">
-<span>def <span class="ident">run_generic_test</span></span>(<span>params, expected, method, custom_comparator=None, in_place=False, init_params=None, init_expected=None, params_to_string=None, expected_to_string=None, output_to_string=None)</span>
+<dt id="cormen_lib.test_utils.generic_test"><code class="name flex">
+<span>def <span class="ident">generic_test</span></span>(<span>params, expected, method, custom_comparator=None, in_place=False, enforce_no_mod=False, params_to_string=None, expected_to_string=None, output_to_string=None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Test the output of a function.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>params</code></strong></dt>
+<dd>Parameters to be passed into the function being tested. This argument can either be a single parameter,
+or a list of parameters.</dd>
+<dt><strong><code>expected</code></strong></dt>
+<dd>Expected return value of tested function with parameters specified by params. If <code>expected</code> is an
+<code>Exception</code>, the test will assert that the function tested on the given parameters throws the expected
+<code>Exception</code>.</dd>
+<dt><strong><code>method</code></strong></dt>
+<dd>Function being tested. Must be a <code>callable</code>.</dd>
+<dt><strong><code>custom_comparator</code></strong></dt>
+<dd>Function for determining if method output equals expected. Must be a <code>callable</code>. Default
+<code>None</code> which means that <code><a title="cormen_lib.test_utils.cormen_equals" href="#cormen_lib.test_utils.cormen_equals">cormen_equals()</a></code> will be used.</dd>
+<dt><strong><code>in_place</code></strong></dt>
+<dd><code>True</code> if <code>expected</code> should be compared against <code>params</code>. By default this is <code>False</code>.</dd>
+<dt><strong><code>enforce_no_mod</code></strong></dt>
+<dd><code>bool</code> or a <code>list</code> of <code>bool</code> indicating which args should not be modified. Default <code>False</code>
+allows modification of all args.</dd>
+<dt><strong><code>params_to_string</code></strong></dt>
+<dd>Function for displaying the parameters. Must be a <code>callable</code>. Default <code>None</code> which means that
+<code>cormen_to_string</code> will be used instead.</dd>
+<dt><strong><code>expected_to_string</code></strong></dt>
+<dd>Function for displaying the expected output. Must be a <code>callable</code>. Default <code>None</code> which
+means that <code>cormen_to_string</code> will be used instead.</dd>
+<dt><strong><code>output_to_string</code></strong></dt>
+<dd>Function for displaying the actual output. Must be a <code>callable</code>. Default <code>None</code> which means
+that <code>cormen_to_string</code> will be used instead.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the test fails.</dd>
+<dt><code><a title="cormen_lib.test_utils.UnexpectedReturnWarning" href="#cormen_lib.test_utils.UnexpectedReturnWarning">UnexpectedReturnWarning</a></code></dt>
+<dd>If <code>in_place</code> is set to <code>True</code> but <code>method</code> still returns a value.</dd>
+</dl></div>
+</dd>
+<dt id="cormen_lib.test_utils.run_generic_test"><code class="name flex">
+<span>def <span class="ident">run_generic_test</span></span>(<span>params, expected, method, custom_comparator=None, in_place=False, enforce_no_mod=False, init_params=None, init_expected=None, params_to_string=None, expected_to_string=None, output_to_string=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test the output of a function.</p>
+<h2 id="warnings">Warnings</h2>
+<p>Deprecated in 1.1.0, to be removed. Use the generic_test function instead.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>params</code></strong></dt>
@@ -146,6 +190,8 @@ or a list of parameters.</dd>
 <dd>Function for determining if method output equals expected. Must be a <code>callable</code>.</dd>
 <dt><strong><code>in_place</code></strong></dt>
 <dd><code>True</code> if <code>expected</code> should be compared against <code>params</code>.</dd>
+<dt><strong><code>enforce_no_mod</code></strong></dt>
+<dd><code>bool</code> or a <code>list</code> of <code>bool</code> indicating which args should not be modified. Default <code>False</code> allows modification of all args.</dd>
 <dt><strong><code>init_params</code></strong></dt>
 <dd>Function for initializing parameters. Must be a <code>callable</code>.</dd>
 <dt><strong><code>init_expected</code></strong></dt>
@@ -163,6 +209,8 @@ or a list of parameters.</dd>
 <dd>If the test fails.</dd>
 <dt><code><a title="cormen_lib.test_utils.UnexpectedReturnWarning" href="#cormen_lib.test_utils.UnexpectedReturnWarning">UnexpectedReturnWarning</a></code></dt>
 <dd>If <code>in_place</code> is set to <code>True</code> but <code>method</code> still returns a value.</dd>
+<dt><code>DeprecationWarning</code></dt>
+<dd>If used in version &gt;= 1.1.0.</dd>
 </dl>
 <p>If <code>expected</code> is an <code>Exception</code>, the test will assert that the function tested on the given parameters throws the
 expected <code>Exception</code>. If no custom <code>to_string</code>s are specified, the <code><a title="cormen_lib.test_utils.to_cormen_string" href="#cormen_lib.test_utils.to_cormen_string">to_cormen_string()</a></code> method will be used for
@@ -224,6 +272,7 @@ native str method.</p>
 <li><code><a title="cormen_lib.test_utils.behavior_test" href="#cormen_lib.test_utils.behavior_test">behavior_test</a></code></li>
 <li><code><a title="cormen_lib.test_utils.build_and_run_watched_suite" href="#cormen_lib.test_utils.build_and_run_watched_suite">build_and_run_watched_suite</a></code></li>
 <li><code><a title="cormen_lib.test_utils.cormen_equals" href="#cormen_lib.test_utils.cormen_equals">cormen_equals</a></code></li>
+<li><code><a title="cormen_lib.test_utils.generic_test" href="#cormen_lib.test_utils.generic_test">generic_test</a></code></li>
 <li><code><a title="cormen_lib.test_utils.run_generic_test" href="#cormen_lib.test_utils.run_generic_test">run_generic_test</a></code></li>
 <li><code><a title="cormen_lib.test_utils.to_cormen_string" href="#cormen_lib.test_utils.to_cormen_string">to_cormen_string</a></code></li>
 </ul>
