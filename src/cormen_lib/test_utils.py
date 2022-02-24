@@ -3,34 +3,35 @@
 This module contains the `build_and_run_watched_suite`, `assert_array_equals`, `behavior_test`, `generic_test`,
 `cormen_equals` and the `to_cormen_string` functions, as well as `UnexpectedReturnWarning`.
 """
-import inspect
-import unittest
-import traceback
-import warnings
 import copy
+import inspect
 import math
+import traceback
+import unittest
+import warnings
 from multiprocessing import Process
+
 from cormen_lib.arrays import Array, Array2D
+from cormen_lib.factory_utils import copy_stack
 from cormen_lib.graphs import Graph, Vertex
 from cormen_lib.linked_lists import SinglyLinkedListNode
 from cormen_lib.queues import Queue
-from cormen_lib.stacks import Stack
 from cormen_lib.sets import Set
+from cormen_lib.stacks import Stack
 from cormen_lib.trees import BinaryTreeNode, NaryTreeNode
-from cormen_lib.factory_utils import copy_stack
 
 
 def build_and_run_watched_suite(cases, timeout=None, show_tb=False, grading_file=None, warning_filter="once"):
     """Runs a set of test cases, ensuring that they do not run longer than `timeout` seconds. Optionally,
-    writes comma-seperated test results to a file.
+    writes comma-separated test results to a file.
 
     Args:
         cases: A list of TestCases to be run.
         timeout: Number of seconds to allow each test case to run for.
         show_tb: Boolean toggle for stack trace.
-        grading_file: Output file path to store comma-seperated test results.
+        grading_file: Output file path to store comma-separated test results.
         warning_filter: A `warnings.simplefilter` action. Default value ensures that warnings are only displayed once.
-                        Choose `"ignore"` to supress warnings.
+                        Choose `"ignore"` to suppress warnings.
 
     If `grading_file` is not specified, the test logs will be dumped to console.
     """
@@ -154,7 +155,8 @@ def run_generic_test(params, expected, method, custom_comparator=None, in_place=
         method: Function being tested. Must be a `callable`.
         custom_comparator: Function for determining if method output equals expected. Must be a `callable`.
         in_place: `True` if `expected` should be compared against `params`.
-        enforce_no_mod: `bool` or a `list` of `bool` indicating which args should not be modified. Default `False` allows modification of all args.
+        enforce_no_mod: `bool` or a `list` of `bool` indicating which args should not be modified. Default `False`
+                        allows modification of all args.
         init_params: Function for initializing parameters. Must be a `callable`.
         init_expected: Function for initializing expected output. Must be a `callable`.
         params_to_string: Function for displaying the parameters. Must be a `callable`.
@@ -241,13 +243,13 @@ def generic_test(params, expected, method, custom_comparator=None, in_place=Fals
 
 
 def cormen_equals(first, second):
-    """Tests equality between two objects. If the objects are from the Cormen-lib, they are compared using their own
+    """Tests equality between two objects. If the objects are from the Cormen-Lib, they are compared using their own
     custom comparator.
 
     `cormen_equals` supports equality for the following objects: `cormen_lib.arrays.Array`, `cormen_lib.arrays.Array2D`,
     `cormen_lib.queues.Queue`, `cormen_lib.stacks.Stack`, `cormen_lib.sets.Set`,
     `cormen_lib.linked_lists.SinglyLinkedListNode`. For `cormen_lib.linked_lists.SinglyLinkedListNode`, checks that all
-    nodes next of the passed `cormen_lib.linked_lists.SinglyLinkedListNode`s are the same. For instances of floats,
+    nodes next of the passed `cormen_lib.linked_lists.SinglyLinkedListNode`s are the same. For instances of `float`s,
     `math.isclose` is used for comparison.
 
     Args:
@@ -275,7 +277,7 @@ def cormen_equals(first, second):
 
 
 def to_cormen_string(obj):
-    """Generates a string representation of a Cormen-lib object if passed object is from Cormen-lib, otherwise calls
+    """Generates a string representation of a Cormen-Lib object if passed object is from Cormen-Lib, otherwise calls
     native str method.
 
     to_cormen_string supports the following objects: `cormen_lib.arrays.Array`, `cormen_lib.arrays.Array2D`,
@@ -284,7 +286,7 @@ def to_cormen_string(obj):
     `cormen_lib.graphs.Vertex`, and `cormen_lib.graphs.Graph`.
 
     Returns:
-        string represnetation of `obj`.
+        string representation of `obj`.
 
     Args:
         obj: The object to convert to string

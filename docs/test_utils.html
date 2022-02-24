@@ -91,7 +91,7 @@ If multiple objects are being tested, pass a tuple of objects.</p></div>
 </code></dt>
 <dd>
 <div class="desc"><p>Runs a set of test cases, ensuring that they do not run longer than <code>timeout</code> seconds. Optionally,
-writes comma-seperated test results to a file.</p>
+writes comma-separated test results to a file.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>cases</code></strong></dt>
@@ -101,10 +101,10 @@ writes comma-seperated test results to a file.</p>
 <dt><strong><code>show_tb</code></strong></dt>
 <dd>Boolean toggle for stack trace.</dd>
 <dt><strong><code>grading_file</code></strong></dt>
-<dd>Output file path to store comma-seperated test results.</dd>
+<dd>Output file path to store comma-separated test results.</dd>
 <dt><strong><code>warning_filter</code></strong></dt>
 <dd>A <code>warnings.simplefilter</code> action. Default value ensures that warnings are only displayed once.
-Choose <code>"ignore"</code> to supress warnings.</dd>
+Choose <code>"ignore"</code> to suppress warnings.</dd>
 </dl>
 <p>If <code>grading_file</code> is not specified, the test logs will be dumped to console.</p></div>
 </dd>
@@ -112,12 +112,13 @@ Choose <code>"ignore"</code> to supress warnings.</dd>
 <span>def <span class="ident">cormen_equals</span></span>(<span>first, second)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Tests equality between two objects. If the objects are from the Cormen-lib, they are compared using their own
+<div class="desc"><p>Tests equality between two objects. If the objects are from the Cormen-Lib, they are compared using their own
 custom comparator.</p>
-<p>cormen_equals supports equality for the following objects: <code><a title="cormen_lib.arrays.Array" href="arrays.html#cormen_lib.arrays.Array">Array</a></code>, <code><a title="cormen_lib.arrays.Array2D" href="arrays.html#cormen_lib.arrays.Array2D">Array2D</a></code>,
+<p><code><a title="cormen_lib.test_utils.cormen_equals" href="#cormen_lib.test_utils.cormen_equals">cormen_equals()</a></code> supports equality for the following objects: <code><a title="cormen_lib.arrays.Array" href="arrays.html#cormen_lib.arrays.Array">Array</a></code>, <code><a title="cormen_lib.arrays.Array2D" href="arrays.html#cormen_lib.arrays.Array2D">Array2D</a></code>,
 <code><a title="cormen_lib.queues.Queue" href="queues.html#cormen_lib.queues.Queue">Queue</a></code>, <code><a title="cormen_lib.stacks.Stack" href="stacks.html#cormen_lib.stacks.Stack">Stack</a></code>, <code><a title="cormen_lib.sets.Set" href="sets.html#cormen_lib.sets.Set">Set</a></code>,
 <code><a title="cormen_lib.linked_lists.SinglyLinkedListNode" href="linked_lists.html#cormen_lib.linked_lists.SinglyLinkedListNode">SinglyLinkedListNode</a></code>. For <code><a title="cormen_lib.linked_lists.SinglyLinkedListNode" href="linked_lists.html#cormen_lib.linked_lists.SinglyLinkedListNode">SinglyLinkedListNode</a></code>, checks that all
-nodes next of the passed <code><a title="cormen_lib.linked_lists.SinglyLinkedListNode" href="linked_lists.html#cormen_lib.linked_lists.SinglyLinkedListNode">SinglyLinkedListNode</a></code>s are the same.</p>
+nodes next of the passed <code><a title="cormen_lib.linked_lists.SinglyLinkedListNode" href="linked_lists.html#cormen_lib.linked_lists.SinglyLinkedListNode">SinglyLinkedListNode</a></code>s are the same. For instances of <code>float</code>s,
+<code>math.isclose</code> is used for comparison.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>first</code></strong></dt>
@@ -191,7 +192,8 @@ or a list of parameters.</dd>
 <dt><strong><code>in_place</code></strong></dt>
 <dd><code>True</code> if <code>expected</code> should be compared against <code>params</code>.</dd>
 <dt><strong><code>enforce_no_mod</code></strong></dt>
-<dd><code>bool</code> or a <code>list</code> of <code>bool</code> indicating which args should not be modified. Default <code>False</code> allows modification of all args.</dd>
+<dd><code>bool</code> or a <code>list</code> of <code>bool</code> indicating which args should not be modified. Default <code>False</code>
+allows modification of all args.</dd>
 <dt><strong><code>init_params</code></strong></dt>
 <dd>Function for initializing parameters. Must be a <code>callable</code>.</dd>
 <dt><strong><code>init_expected</code></strong></dt>
@@ -220,14 +222,14 @@ displaying parameters, input and output.</p></div>
 <span>def <span class="ident">to_cormen_string</span></span>(<span>obj)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Generates a string representation of a Cormen-lib object if passed object is from Cormen-lib, otherwise calls
+<div class="desc"><p>Generates a string representation of a Cormen-Lib object if passed object is from Cormen-Lib, otherwise calls
 native str method.</p>
 <p>to_cormen_string supports the following objects: <code><a title="cormen_lib.arrays.Array" href="arrays.html#cormen_lib.arrays.Array">Array</a></code>, <code><a title="cormen_lib.arrays.Array2D" href="arrays.html#cormen_lib.arrays.Array2D">Array2D</a></code>,
 <code><a title="cormen_lib.queues.Queue" href="queues.html#cormen_lib.queues.Queue">Queue</a></code>, <code><a title="cormen_lib.stacks.Stack" href="stacks.html#cormen_lib.stacks.Stack">Stack</a></code>, <code><a title="cormen_lib.sets.Set" href="sets.html#cormen_lib.sets.Set">Set</a></code>,
 <code><a title="cormen_lib.linked_lists.SinglyLinkedListNode" href="linked_lists.html#cormen_lib.linked_lists.SinglyLinkedListNode">SinglyLinkedListNode</a></code>, <code><a title="cormen_lib.trees.BinaryTreeNode" href="trees.html#cormen_lib.trees.BinaryTreeNode">BinaryTreeNode</a></code>, <code><a title="cormen_lib.trees.NaryTreeNode" href="trees.html#cormen_lib.trees.NaryTreeNode">NaryTreeNode</a></code>,
 <code><a title="cormen_lib.graphs.Vertex" href="graphs.html#cormen_lib.graphs.Vertex">Vertex</a></code>, and <code><a title="cormen_lib.graphs.Graph" href="graphs.html#cormen_lib.graphs.Graph">Graph</a></code>.</p>
 <h2 id="returns">Returns</h2>
-<p>string represnetation of <code>obj</code>.</p>
+<p>string representation of <code>obj</code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>obj</code></strong></dt>
