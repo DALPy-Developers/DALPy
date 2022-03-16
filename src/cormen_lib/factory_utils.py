@@ -40,7 +40,9 @@ def copy_stack(s):
     """
     buf = Stack()
     while not s.is_empty():
-        buf.push(s.pop())
+        nxt = s.pop()
+        buf.push(nxt)
+        buf.push(nxt)
     cpy = Stack()
     while not buf.is_empty():
         s.push(buf.pop())
