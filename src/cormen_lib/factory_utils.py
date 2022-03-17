@@ -1,6 +1,7 @@
-"""This module provides factory functions for creating Cormen-Lib objects.
+"""This module provides factory functions for creating and modifying Cormen-Lib objects.
 
-This module contains the `make_queue`, `make_stack`, `copy_stack` and `make_array`.
+The functions contained in this module are meant to be used when writing test cases for problems implemented in
+Cormen-Lib.
 """
 
 from cormen_lib.stacks import Stack
@@ -60,3 +61,22 @@ def make_array(ls):
     for i, e in enumerate(ls):
         a[i] = e
     return a
+
+
+def nary_add_children(root, children):
+    """Adds `NaryTreeNode`s to be the children of another `NaryTreeNode`.
+
+    Args:
+        root: an `NaryTreeNode` to which we will be adding children. This will be modified in place by this function.
+        children: a `list` of `NaryTreeNode`s that are the children to be added. These nodes will be added as the
+                  children of `root` in the order they occur in this `list`. `children[0]` will be the leftmost child of
+                  `root`, `children[1]` will be the right sibling of `children[0]` and so on.
+    """
+
+    if len(children) == 0:
+        return
+    root.leftmost_child = children[0]
+    for i, child in enumerate(children):
+        child.parent = root
+        if i < len(children) - 1:
+            child.right_sibling = children[i + 1]
