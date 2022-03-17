@@ -2,7 +2,7 @@
 
 This module contains `PriorityQueue`, an implementation of a priority queue, and `PriorityQueueUnderflowError`, an error
 raised by `PriorityQueue`. This module also contains the function `build_min_heap` which modifies the elements of an
-`cormen_lib.arrays.Array` so that they construct a min heap.
+`dalpy.arrays.Array` so that they construct a min heap.
 
 Examples:
     Initializing, adding, and removing elements from a `PriorityQueue`:
@@ -19,7 +19,7 @@ Examples:
         q.extract_min()
 """
 
-from cormen_lib.arrays import Array
+from dalpy.arrays import Array
 from heapq import heapify
 
 
@@ -156,17 +156,17 @@ class PriorityQueue:
 
 
 def build_min_heap(arr):
-    """Modifies an `cormen_lib.arrays.Array` so that its elements make up a min heap.
+    """Modifies an `dalpy.arrays.Array` so that its elements make up a min heap.
 
-    This method does not return a copy of the provided `cormen_lib.arrays.Array` whose elements make up a heap, it modifies it in place.
+    This method does not return a copy of the provided `dalpy.arrays.Array` whose elements make up a heap, it modifies it in place.
     Furthermore, all the elements (starting from index 0) are in a min heap. A user may assume that this method runs in
-    `O(n)` time where `n` is the length of the input `cormen_lib.arrays.Array`.
+    `O(n)` time where `n` is the length of the input `dalpy.arrays.Array`.
 
     Args:
-        arr: The input `cormen_lib.arrays.Array`. Its elements should be comparable with `<`, `>=`, etc.
+        arr: The input `dalpy.arrays.Array`. Its elements should be comparable with `<`, `>=`, etc.
 
     Raises:
-        TypeError: If `arr` is not an `cormen_lib.arrays.Array`'.
+        TypeError: If `arr` is not an `dalpy.arrays.Array`'.
     """
     if not isinstance(arr, Array):
         raise TypeError('can only build min heap of an Array')

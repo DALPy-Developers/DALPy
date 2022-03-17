@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.2" />
-<title>cormen_lib.graphs API documentation</title>
+<title>dalpy.graphs API documentation</title>
 <meta name="description" content="This module holds classes related to graphs …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,15 +19,15 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>cormen_lib.graphs</code></h1>
+<h1 class="title">Module <code>dalpy.graphs</code></h1>
 </header>
 <section id="section-intro">
 <p>This module holds classes related to graphs.</p>
-<p>This module contains the <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code>, <code><a title="cormen_lib.graphs.VertexAttributeError" href="#cormen_lib.graphs.VertexAttributeError">VertexAttributeError</a></code>, <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code>, and <code><a title="cormen_lib.graphs.GraphVertexError" href="#cormen_lib.graphs.GraphVertexError">GraphVertexError</a></code> classes. <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> represents
-a graph vertex. <code><a title="cormen_lib.graphs.VertexAttributeError" href="#cormen_lib.graphs.VertexAttributeError">VertexAttributeError</a></code> is an error raised by <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code>. <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code> represents a directed graph.
-<code><a title="cormen_lib.graphs.GraphVertexError" href="#cormen_lib.graphs.GraphVertexError">GraphVertexError</a></code> is an error raised by <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code>.</p>
+<p>This module contains the <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code>, <code><a title="dalpy.graphs.VertexAttributeError" href="#dalpy.graphs.VertexAttributeError">VertexAttributeError</a></code>, <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code>, and <code><a title="dalpy.graphs.GraphVertexError" href="#dalpy.graphs.GraphVertexError">GraphVertexError</a></code> classes. <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> represents
+a graph vertex. <code><a title="dalpy.graphs.VertexAttributeError" href="#dalpy.graphs.VertexAttributeError">VertexAttributeError</a></code> is an error raised by <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code>. <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code> represents a directed graph.
+<code><a title="dalpy.graphs.GraphVertexError" href="#dalpy.graphs.GraphVertexError">GraphVertexError</a></code> is an error raised by <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code>.</p>
 <h2 id="examples">Examples</h2>
-<p>Initializing a <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code> as well as adding colored vertices and edges:</p>
+<p>Initializing a <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code> as well as adding colored vertices and edges:</p>
 <pre><code>g = Graph()
 a = Vertex('a', color='red')
 b = Vertex('b', color='blue')
@@ -35,7 +35,7 @@ g.add_vertex(a)
 g.add_vertex(b)
 g.add_edge(a, b)
 </code></pre>
-<p>The following code will raise a <code><a title="cormen_lib.graphs.VertexAttributeError" href="#cormen_lib.graphs.VertexAttributeError">VertexAttributeError</a></code> because <code>'colour'</code> is not an attribute of the <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> <code>a</code>:</p>
+<p>The following code will raise a <code><a title="dalpy.graphs.VertexAttributeError" href="#dalpy.graphs.VertexAttributeError">VertexAttributeError</a></code> because <code>'colour'</code> is not an attribute of the <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> <code>a</code>:</p>
 <pre><code>x = a['colour']
 </code></pre>
 </section>
@@ -48,18 +48,18 @@ g.add_edge(a, b)
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="cormen_lib.graphs.Graph"><code class="flex name class">
+<dt id="dalpy.graphs.Graph"><code class="flex name class">
 <span>class <span class="ident">Graph</span></span>
 </code></dt>
 <dd>
 <div class="desc"><p>Represents a directed graph.</p>
-<p>A <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code> represents a directed graph object whose edges can be assigned weights. The <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> objects in the
-<code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code> should have unique names. For more information on this, see the class docstring of <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code>.</p>
+<p>A <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code> represents a directed graph object whose edges can be assigned weights. The <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> objects in the
+<code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code> should have unique names. For more information on this, see the class docstring of <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code>.</p>
 <h2 id="examples">Examples</h2>
-<p>To initialize a <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code>:</p>
+<p>To initialize a <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code>:</p>
 <pre><code>g = Graph()
 </code></pre>
-<p>In order to add edges to a <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code>, one must first add the <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> objects that will make up that edge.</p>
+<p>In order to add edges to a <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code>, one must first add the <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> objects that will make up that edge.</p>
 <pre><code>a = Vertex('a')
 b = Vertex('b')
 g.add_vertex(a)
@@ -72,73 +72,73 @@ object.</p>
 <p>When adding an edge, one can specify a weight (by default it is <code>None</code>):</p>
 <pre><code>g.add_edge(a, b, 1)
 </code></pre>
-<p>One can get a <code><a title="cormen_lib.sets.Set" href="sets.html#cormen_lib.sets.Set">Set</a></code> of the adjacent edges of a Vertex:</p>
+<p>One can get a <code><a title="dalpy.sets.Set" href="sets.html#dalpy.sets.Set">Set</a></code> of the adjacent edges of a Vertex:</p>
 <pre><code>s = g.adj(a)
 </code></pre>
-<p>Initializes an empty <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code> in <code>O(1)</code> time.</p></div>
+<p>Initializes an empty <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code> in <code>O(1)</code> time.</p></div>
 <h3>Methods</h3>
 <dl>
-<dt id="cormen_lib.graphs.Graph.add_edge"><code class="name flex">
+<dt id="dalpy.graphs.Graph.add_edge"><code class="name flex">
 <span>def <span class="ident">add_edge</span></span>(<span>self, source, dest, weight=None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Adds an edge between 2 <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> objects in this <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code>.</p>
-<p>This creates an edge from the source <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> to the destination <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code>. <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code> is directed so the edge is
-in only one direction. That is, an edge from the destination <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> to the source <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> will not exist. One
+<div class="desc"><p>Adds an edge between 2 <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> objects in this <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code>.</p>
+<p>This creates an edge from the source <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> to the destination <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code>. <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code> is directed so the edge is
+in only one direction. That is, an edge from the destination <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> to the source <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> will not exist. One
 can additionally provide a weight for this edge. One may assume that this operation runs in <code>O(1)</code> time with
-respect to the number of vertices and edges in this <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code>.</p>
+respect to the number of vertices and edges in this <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>source</code></strong></dt>
-<dd>The source <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code>.</dd>
+<dd>The source <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code>.</dd>
 <dt><strong><code>dest</code></strong></dt>
-<dd>The destination <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code>.</dd>
+<dd>The destination <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code>.</dd>
 <dt><strong><code>weight</code></strong></dt>
 <dd>The weight for this edge (floating point, integer). By default this is <code>None</code>.</dd>
 </dl>
 <h2 id="raises">Raises</h2>
 <dl>
-<dt><code><a title="cormen_lib.graphs.GraphVertexError" href="#cormen_lib.graphs.GraphVertexError">GraphVertexError</a></code></dt>
-<dd>If <code>source</code> or <code>dest</code> is not in this <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code>.</dd>
+<dt><code><a title="dalpy.graphs.GraphVertexError" href="#dalpy.graphs.GraphVertexError">GraphVertexError</a></code></dt>
+<dd>If <code>source</code> or <code>dest</code> is not in this <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code>.</dd>
 </dl></div>
 </dd>
-<dt id="cormen_lib.graphs.Graph.add_vertex"><code class="name flex">
+<dt id="dalpy.graphs.Graph.add_vertex"><code class="name flex">
 <span>def <span class="ident">add_vertex</span></span>(<span>self, vertex)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Adds a <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> to this <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code>.</p>
+<div class="desc"><p>Adds a <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> to this <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code>.</p>
 <p>One may assume that this operation runs in <code>O(1)</code> time with respect to the number of vertices and edges in this
-<code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code>.</p>
+<code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>vertex</code></strong></dt>
-<dd>The <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> to be added to this <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code>.</dd>
+<dd>The <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> to be added to this <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code>.</dd>
 </dl></div>
 </dd>
-<dt id="cormen_lib.graphs.Graph.adj"><code class="name flex">
+<dt id="dalpy.graphs.Graph.adj"><code class="name flex">
 <span>def <span class="ident">adj</span></span>(<span>self, vertex)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Gets the <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> objects that are adjacent to a <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code>.</p>
-<p>This gets a <code><a title="cormen_lib.sets.Set" href="sets.html#cormen_lib.sets.Set">Set</a></code> of the <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> objects that are adjacent to the vertex. Since
-<code><a title="cormen_lib.sets.Set" href="sets.html#cormen_lib.sets.Set">Set</a></code> objects preserve insertion order (see <code><a title="cormen_lib.sets.Set" href="sets.html#cormen_lib.sets.Set">Set</a></code> documentation), the
-<code><a title="cormen_lib.sets.Set" href="sets.html#cormen_lib.sets.Set">Set</a></code> will be ordered according to the order in which edges starting from the input <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code>
+<div class="desc"><p>Gets the <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> objects that are adjacent to a <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code>.</p>
+<p>This gets a <code><a title="dalpy.sets.Set" href="sets.html#dalpy.sets.Set">Set</a></code> of the <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> objects that are adjacent to the vertex. Since
+<code><a title="dalpy.sets.Set" href="sets.html#dalpy.sets.Set">Set</a></code> objects preserve insertion order (see <code><a title="dalpy.sets.Set" href="sets.html#dalpy.sets.Set">Set</a></code> documentation), the
+<code><a title="dalpy.sets.Set" href="sets.html#dalpy.sets.Set">Set</a></code> will be ordered according to the order in which edges starting from the input <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code>
 were created. One should assume that this method runs in <code>O(n)</code> time where <code>n</code> is the number of edges going out
-of the input <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code>.</p>
+of the input <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>vertex</code></strong></dt>
-<dd>A <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code>.</dd>
+<dd>A <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code>.</dd>
 </dl>
 <h2 id="returns">Returns</h2>
-<p>A <code><a title="cormen_lib.sets.Set" href="sets.html#cormen_lib.sets.Set">Set</a></code> containing the vertices adjacent to <code>vertex</code>.</p>
+<p>A <code><a title="dalpy.sets.Set" href="sets.html#dalpy.sets.Set">Set</a></code> containing the vertices adjacent to <code>vertex</code>.</p>
 <h2 id="raises">Raises</h2>
 <dl>
-<dt><code><a title="cormen_lib.graphs.GraphVertexError" href="#cormen_lib.graphs.GraphVertexError">GraphVertexError</a></code></dt>
-<dd>If <code>vertex</code> is not in this <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code>.</dd>
+<dt><code><a title="dalpy.graphs.GraphVertexError" href="#dalpy.graphs.GraphVertexError">GraphVertexError</a></code></dt>
+<dd>If <code>vertex</code> is not in this <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code>.</dd>
 </dl>
 <h2 id="examples">Examples</h2>
-<p>To illustrate the nature of the <code><a title="cormen_lib.sets.Set" href="sets.html#cormen_lib.sets.Set">Set</a></code> returned by this method, first set up a <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code> and
+<p>To illustrate the nature of the <code><a title="dalpy.sets.Set" href="sets.html#dalpy.sets.Set">Set</a></code> returned by this method, first set up a <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code> and
 add some vertices and edges:</p>
 <pre><code>g = Graph()
 a = Vertex('a')
@@ -150,62 +150,62 @@ g.add_vertex(c)
 g.add_edge(a, b)
 g.add_edge(a, c)
 </code></pre>
-<p>The <code><a title="cormen_lib.sets.Set" href="sets.html#cormen_lib.sets.Set">Set</a></code> returned by <code>g.adj(a)</code> will always have <code>b</code> preceding <code>c</code> since the edge from <code>a</code>
+<p>The <code><a title="dalpy.sets.Set" href="sets.html#dalpy.sets.Set">Set</a></code> returned by <code>g.adj(a)</code> will always have <code>b</code> preceding <code>c</code> since the edge from <code>a</code>
 to <code>b</code> was created before the edge from <code>a</code> to <code>c</code>.</p></div>
 </dd>
-<dt id="cormen_lib.graphs.Graph.vertices"><code class="name flex">
+<dt id="dalpy.graphs.Graph.vertices"><code class="name flex">
 <span>def <span class="ident">vertices</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Gets the vertices in this <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code>.</p>
+<div class="desc"><p>Gets the vertices in this <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code>.</p>
 <p>One should assume that this method runs in <code>O(V)</code> time where <code>V</code> is the number of vertices added to this
-<code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code>.</p>
+<code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code>.</p>
 <h2 id="returns">Returns</h2>
-<p>A <code><a title="cormen_lib.sets.Set" href="sets.html#cormen_lib.sets.Set">Set</a></code> containing the <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> objects in this <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code>. The order of the vertices in this
-<code><a title="cormen_lib.sets.Set" href="sets.html#cormen_lib.sets.Set">Set</a></code> will always be the order in which the vertices were added to this <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code> via
+<p>A <code><a title="dalpy.sets.Set" href="sets.html#dalpy.sets.Set">Set</a></code> containing the <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> objects in this <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code>. The order of the vertices in this
+<code><a title="dalpy.sets.Set" href="sets.html#dalpy.sets.Set">Set</a></code> will always be the order in which the vertices were added to this <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code> via
 <code>add_vertex</code>.</p></div>
 </dd>
-<dt id="cormen_lib.graphs.Graph.weight"><code class="name flex">
+<dt id="dalpy.graphs.Graph.weight"><code class="name flex">
 <span>def <span class="ident">weight</span></span>(<span>self, source, dest)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Gets the weight of an edge defined by two vertices.</p>
 <p>One should assume that this method runs in <code>O(1)</code> time with respect to the number of vertices and edges in this
-<code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code>.</p>
+<code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>source</code></strong></dt>
-<dd>The source <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> of the edge in question.</dd>
+<dd>The source <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> of the edge in question.</dd>
 <dt><strong><code>dest</code></strong></dt>
-<dd>The destination <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> of the edge in question.</dd>
+<dd>The destination <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> of the edge in question.</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <p>The integer or floating point weight associated with the edge from <code>source</code> to <code>dest</code>. This will be <code>None</code>
 if no weight was specified when the edge was created.</p>
 <h2 id="raises">Raises</h2>
 <dl>
-<dt><code><a title="cormen_lib.graphs.GraphVertexError" href="#cormen_lib.graphs.GraphVertexError">GraphVertexError</a></code></dt>
-<dd>If <code>source</code> or <code>dest</code> is not in this <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code>.</dd>
-<dt><code><a title="cormen_lib.graphs.GraphEdgeError" href="#cormen_lib.graphs.GraphEdgeError">GraphEdgeError</a></code></dt>
+<dt><code><a title="dalpy.graphs.GraphVertexError" href="#dalpy.graphs.GraphVertexError">GraphVertexError</a></code></dt>
+<dd>If <code>source</code> or <code>dest</code> is not in this <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code>.</dd>
+<dt><code><a title="dalpy.graphs.GraphEdgeError" href="#dalpy.graphs.GraphEdgeError">GraphEdgeError</a></code></dt>
 <dd>If an edge from <code>source</code> to <code>dest</code> does not exist.</dd>
 </dl></div>
 </dd>
 </dl>
 </dd>
-<dt id="cormen_lib.graphs.GraphEdgeError"><code class="flex name class">
+<dt id="dalpy.graphs.GraphEdgeError"><code class="flex name class">
 <span>class <span class="ident">GraphEdgeError</span></span>
 <span>(</span><span>source_name, dest_name)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>This class is used by <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code> to raise errors regarding invalid edges.</p>
-<p>Initializes a <code><a title="cormen_lib.graphs.GraphEdgeError" href="#cormen_lib.graphs.GraphEdgeError">GraphEdgeError</a></code> that will be raised associated with a particular <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code>.</p>
+<div class="desc"><p>This class is used by <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code> to raise errors regarding invalid edges.</p>
+<p>Initializes a <code><a title="dalpy.graphs.GraphEdgeError" href="#dalpy.graphs.GraphEdgeError">GraphEdgeError</a></code> that will be raised associated with a particular <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>source_name</code></strong></dt>
-<dd>The string name of the source <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> of the edge this <code><a title="cormen_lib.graphs.GraphVertexError" href="#cormen_lib.graphs.GraphVertexError">GraphVertexError</a></code> is being raised in
+<dd>The string name of the source <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> of the edge this <code><a title="dalpy.graphs.GraphVertexError" href="#dalpy.graphs.GraphVertexError">GraphVertexError</a></code> is being raised in
 association with.</dd>
 <dt><strong><code>dest_name</code></strong></dt>
-<dd>The string name of the destination <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> of the edge this <code><a title="cormen_lib.graphs.GraphVertexError" href="#cormen_lib.graphs.GraphVertexError">GraphVertexError</a></code> is being raised
+<dd>The string name of the destination <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> of the edge this <code><a title="dalpy.graphs.GraphVertexError" href="#dalpy.graphs.GraphVertexError">GraphVertexError</a></code> is being raised
 in association with.</dd>
 </dl></div>
 <h3>Ancestors</h3>
@@ -214,17 +214,17 @@ in association with.</dd>
 <li>builtins.BaseException</li>
 </ul>
 </dd>
-<dt id="cormen_lib.graphs.GraphVertexError"><code class="flex name class">
+<dt id="dalpy.graphs.GraphVertexError"><code class="flex name class">
 <span>class <span class="ident">GraphVertexError</span></span>
 <span>(</span><span>vertex_name)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>This class is used by <code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code> to raise errors regarding invalid vertices.</p>
-<p>Initializes a <code><a title="cormen_lib.graphs.GraphVertexError" href="#cormen_lib.graphs.GraphVertexError">GraphVertexError</a></code> that will be raised associated with a particular <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code>.</p>
+<div class="desc"><p>This class is used by <code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code> to raise errors regarding invalid vertices.</p>
+<p>Initializes a <code><a title="dalpy.graphs.GraphVertexError" href="#dalpy.graphs.GraphVertexError">GraphVertexError</a></code> that will be raised associated with a particular <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>vertex_name</code></strong></dt>
-<dd>The string name of the <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> this <code><a title="cormen_lib.graphs.GraphVertexError" href="#cormen_lib.graphs.GraphVertexError">GraphVertexError</a></code> is being raised in association with.</dd>
+<dd>The string name of the <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> this <code><a title="dalpy.graphs.GraphVertexError" href="#dalpy.graphs.GraphVertexError">GraphVertexError</a></code> is being raised in association with.</dd>
 </dl></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -232,68 +232,68 @@ in association with.</dd>
 <li>builtins.BaseException</li>
 </ul>
 </dd>
-<dt id="cormen_lib.graphs.Vertex"><code class="flex name class">
+<dt id="dalpy.graphs.Vertex"><code class="flex name class">
 <span>class <span class="ident">Vertex</span></span>
 <span>(</span><span>name, **attributes)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Represents a graph vertex.</p>
-<p>A <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> has a name and a collection of customizable attributes. The name should be used to identify it in a
-<code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code>. <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> objects are compared with <code>==</code> and via hash code based on their name. The attributes you can use
+<p>A <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> has a name and a collection of customizable attributes. The name should be used to identify it in a
+<code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code>. <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> objects are compared with <code>==</code> and via hash code based on their name. The attributes you can use
 in graph algorithms. For example, you could set colors or time steps as in DFS. One should assume all operations
-that can be performed on a <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> are done in <code>O(1)</code> time.</p>
+that can be performed on a <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> are done in <code>O(1)</code> time.</p>
 <h2 id="examples">Examples</h2>
-<p>To initialize a <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> with a name:</p>
+<p>To initialize a <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> with a name:</p>
 <pre><code>v = Vertex('a')
 </code></pre>
-<p>To initialize a <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> with some starting attributes, use keyword arguments following the name:</p>
+<p>To initialize a <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> with some starting attributes, use keyword arguments following the name:</p>
 <pre><code>v = Vertex('a', color='red', time=1)
 </code></pre>
-<p>To add additional attributes to an existing <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> using <code>[]</code> with <code>=</code>:</p>
+<p>To add additional attributes to an existing <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> using <code>[]</code> with <code>=</code>:</p>
 <pre><code>v['seen'] = False
 </code></pre>
 <p>To update or view existing attributes, use the same idea:</p>
 <pre><code>x = v['color']
 v['time'] = 3
 </code></pre>
-<p>If you try to get the value of an attribute that does not exist, a <code><a title="cormen_lib.graphs.VertexAttributeError" href="#cormen_lib.graphs.VertexAttributeError">VertexAttributeError</a></code> will be raised (e.g.
-calling <code>print(v['colour'])</code>. If you try to add a new attribute to an existing <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> where the attribute's
+<p>If you try to get the value of an attribute that does not exist, a <code><a title="dalpy.graphs.VertexAttributeError" href="#dalpy.graphs.VertexAttributeError">VertexAttributeError</a></code> will be raised (e.g.
+calling <code>print(v['colour'])</code>. If you try to add a new attribute to an existing <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> where the attribute's
 type is not <code>str</code>, a <code>TypeError</code> will be raised (e.g. calling <code>v[1] = 'blue'</code>).</p>
-<p>Initializes a <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code>.</p>
+<p>Initializes a <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>name</code></strong></dt>
-<dd>The name of the <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code>. Make sure to read the class docstring above regarding naming of <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code>
+<dd>The name of the <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code>. Make sure to read the class docstring above regarding naming of <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code>
 objects.</dd>
 <dt><strong><code>**attributes</code></strong></dt>
-<dd>Optional keyword arguments specifying attributes you want the <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> to start with. See
+<dd>Optional keyword arguments specifying attributes you want the <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> to start with. See
 the class docstring above for some possible attributes you could add.</dd>
 </dl></div>
 <h3>Methods</h3>
 <dl>
-<dt id="cormen_lib.graphs.Vertex.get_name"><code class="name flex">
+<dt id="dalpy.graphs.Vertex.get_name"><code class="name flex">
 <span>def <span class="ident">get_name</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns the name of this <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code>.</p></div>
+<div class="desc"><p>Returns the name of this <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code>.</p></div>
 </dd>
 </dl>
 </dd>
-<dt id="cormen_lib.graphs.VertexAttributeError"><code class="flex name class">
+<dt id="dalpy.graphs.VertexAttributeError"><code class="flex name class">
 <span>class <span class="ident">VertexAttributeError</span></span>
 <span>(</span><span>name, wrong_attribute, attributes)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>This class is used by <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> to raise errors regarding invalid attributes.</p>
-<p>Initializes a <code><a title="cormen_lib.graphs.VertexAttributeError" href="#cormen_lib.graphs.VertexAttributeError">VertexAttributeError</a></code>.</p>
+<div class="desc"><p>This class is used by <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> to raise errors regarding invalid attributes.</p>
+<p>Initializes a <code><a title="dalpy.graphs.VertexAttributeError" href="#dalpy.graphs.VertexAttributeError">VertexAttributeError</a></code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>name</code></strong></dt>
-<dd>String name of <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> that erroneous attribute is associated with.</dd>
+<dd>String name of <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> that erroneous attribute is associated with.</dd>
 <dt><strong><code>wrong_attribute</code></strong></dt>
-<dd>String attribute that does not exist in the <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> referred to by <code>name</code>.</dd>
+<dd>String attribute that does not exist in the <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> referred to by <code>name</code>.</dd>
 <dt><strong><code>attributes</code></strong></dt>
-<dd>The valid attributes in the <code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code> referred to by <code>name</code> as a <code>list</code> of <code>str</code>.</dd>
+<dd>The valid attributes in the <code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code> referred to by <code>name</code> as a <code>list</code> of <code>str</code>.</dd>
 </dl></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -312,35 +312,35 @@ the class docstring above for some possible attributes you could add.</dd>
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="cormen_lib" href="index.html">cormen_lib</a></code></li>
+<li><code><a title="dalpy" href="index.html">dalpy</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="cormen_lib.graphs.Graph" href="#cormen_lib.graphs.Graph">Graph</a></code></h4>
+<h4><code><a title="dalpy.graphs.Graph" href="#dalpy.graphs.Graph">Graph</a></code></h4>
 <ul class="">
-<li><code><a title="cormen_lib.graphs.Graph.add_edge" href="#cormen_lib.graphs.Graph.add_edge">add_edge</a></code></li>
-<li><code><a title="cormen_lib.graphs.Graph.add_vertex" href="#cormen_lib.graphs.Graph.add_vertex">add_vertex</a></code></li>
-<li><code><a title="cormen_lib.graphs.Graph.adj" href="#cormen_lib.graphs.Graph.adj">adj</a></code></li>
-<li><code><a title="cormen_lib.graphs.Graph.vertices" href="#cormen_lib.graphs.Graph.vertices">vertices</a></code></li>
-<li><code><a title="cormen_lib.graphs.Graph.weight" href="#cormen_lib.graphs.Graph.weight">weight</a></code></li>
+<li><code><a title="dalpy.graphs.Graph.add_edge" href="#dalpy.graphs.Graph.add_edge">add_edge</a></code></li>
+<li><code><a title="dalpy.graphs.Graph.add_vertex" href="#dalpy.graphs.Graph.add_vertex">add_vertex</a></code></li>
+<li><code><a title="dalpy.graphs.Graph.adj" href="#dalpy.graphs.Graph.adj">adj</a></code></li>
+<li><code><a title="dalpy.graphs.Graph.vertices" href="#dalpy.graphs.Graph.vertices">vertices</a></code></li>
+<li><code><a title="dalpy.graphs.Graph.weight" href="#dalpy.graphs.Graph.weight">weight</a></code></li>
 </ul>
 </li>
 <li>
-<h4><code><a title="cormen_lib.graphs.GraphEdgeError" href="#cormen_lib.graphs.GraphEdgeError">GraphEdgeError</a></code></h4>
+<h4><code><a title="dalpy.graphs.GraphEdgeError" href="#dalpy.graphs.GraphEdgeError">GraphEdgeError</a></code></h4>
 </li>
 <li>
-<h4><code><a title="cormen_lib.graphs.GraphVertexError" href="#cormen_lib.graphs.GraphVertexError">GraphVertexError</a></code></h4>
+<h4><code><a title="dalpy.graphs.GraphVertexError" href="#dalpy.graphs.GraphVertexError">GraphVertexError</a></code></h4>
 </li>
 <li>
-<h4><code><a title="cormen_lib.graphs.Vertex" href="#cormen_lib.graphs.Vertex">Vertex</a></code></h4>
+<h4><code><a title="dalpy.graphs.Vertex" href="#dalpy.graphs.Vertex">Vertex</a></code></h4>
 <ul class="">
-<li><code><a title="cormen_lib.graphs.Vertex.get_name" href="#cormen_lib.graphs.Vertex.get_name">get_name</a></code></li>
+<li><code><a title="dalpy.graphs.Vertex.get_name" href="#dalpy.graphs.Vertex.get_name">get_name</a></code></li>
 </ul>
 </li>
 <li>
-<h4><code><a title="cormen_lib.graphs.VertexAttributeError" href="#cormen_lib.graphs.VertexAttributeError">VertexAttributeError</a></code></h4>
+<h4><code><a title="dalpy.graphs.VertexAttributeError" href="#dalpy.graphs.VertexAttributeError">VertexAttributeError</a></code></h4>
 </li>
 </ul>
 </li>

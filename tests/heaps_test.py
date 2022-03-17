@@ -1,7 +1,7 @@
 import unittest
 
-from cormen_lib.heaps import build_min_heap, PriorityQueue, PriorityQueueUnderflowError
-from cormen_lib.arrays import Array
+from dalpy.heaps import build_min_heap, PriorityQueue, PriorityQueueUnderflowError
+from dalpy.arrays import Array
 
 
 class PriorityQueueTest(unittest.TestCase):

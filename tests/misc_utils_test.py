@@ -1,5 +1,5 @@
 import unittest
-from cormen_lib.misc_utils import *
+from dalpy.misc_utils import *
 
 
 class MiscTest(unittest.TestCase):

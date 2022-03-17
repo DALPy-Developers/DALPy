@@ -1,10 +1,10 @@
 import unittest
 import warnings
 import math
-from cormen_lib.arrays import Array
-from cormen_lib.graphs import Graph, Vertex
-from cormen_lib.test_utils import cormen_equals, generic_test, build_and_run_watched_suite, UnexpectedReturnWarning
-from cormen_lib.factory_utils import make_array
+from dalpy.arrays import Array
+from dalpy.graphs import Graph, Vertex
+from dalpy.test_utils import dalpy_equals, generic_test, build_and_run_watched_suite, UnexpectedReturnWarning
+from dalpy.factory_utils import make_array
 
 
 class WarningTest(unittest.TestCase):
@@ -149,7 +149,7 @@ class CormenEqualsTest(unittest.TestCase):
     def test_floats(self):
         x = math.sqrt(7)*math.sqrt(7)
         y = 7.0
-        assert cormen_equals(x, y), f'y={y}, x={x}'
+        assert dalpy_equals(x, y), f'y={y}, x={x}'
 
 
 

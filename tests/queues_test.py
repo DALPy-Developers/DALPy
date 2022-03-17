@@ -1,6 +1,6 @@
 import unittest
 
-from cormen_lib.queues import Queue, QueueUnderflowError
+from dalpy.queues import Queue, QueueUnderflowError
 
 
 class QueueTest(unittest.TestCase):

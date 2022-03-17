@@ -1,5 +1,5 @@
 import unittest
-from cormen_lib.hashing import HashTable
+from dalpy.hashing import HashTable
 
 
 class HashTableSet(unittest.TestCase):

@@ -1,6 +1,5 @@
-# DALPy
-DALPy is a Python module for learning data structures and algorithms. It is based off of *Introduction to Algorithms*
-by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein. This library was made specifically for 
+"""DALPy is a Python module for learning data structures and algorithms. It is based off of *Introduction to Algorithms*
+by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein. This library was made specifically for
 administering and grading assignments related to data structures and algorithms in computer science.
 
 With this module students can receive progress reports on their problem sets in real time as they complete assignments.
@@ -15,7 +14,7 @@ DALPy began as a project by two Brandeis University undergraduate students to re
 written in pseudocode.
 
 ## Provided Data Structures
-The DALPy library offers a set of fundamental data structures and algorithms, with behavior as specified by
+The DALPy library offers a set of fundamental data structures and algorithms, with behavior as specified by H.
 Cormen et al.'s *Introduction to Algorithms*. The following structures (separated by module) are supported:
 
 * [arrays](https://cormen-lib-developers.github.io/DALPy/arrays.html)
@@ -45,31 +44,31 @@ Cormen et al.'s *Introduction to Algorithms*. The following structures (separate
 
 ## Unit Testing
 Along with the DALPy data structures come test utilities for writing test cases. The testing framework allows a
-course administrator to easily write test cases for either expected function output or general class behavior. Test cases
-can then be combined into a testing suite. The testing suite has the capability to set a test case run-time timeout and 
-to record comma-separated test results for administrative use.
+course administrator to easily write test cases for either expected function output or general class behavior. Test
+cases can then be compiled into a testing suite. The testing suite has the capability to set a test case run-time 
+timeout and to record comma-separated test results for administrative use.
 
 Consider the example test case below:
-```python
-import unittest
-from dalpy.factory_utils import make_stack
-from dalpy.test_utils import build_and_run_watched_suite, run_generic_test
 
-from student_submission import student_function
+    import unittest
+    from dalpy.factory_utils import make_stack
+    from dalpy.test_utils import build_and_run_watched_suite, run_generic_test
 
-# TestCase class for testing student_function
-class StudentFunctionTest(unittest.TestCase):
+    from student_submission import student_function
 
-    # A single test case
-    def simple_test_case(self):
-        stack = make_stack([1, 2, 3])
-        expected = make_stack([1, 1, 2, 2, 3, 3])
-        run_generic_test(stack, expected, student_function, in_place=True)
+    # TestCase class for testing student_function
+    class StudentFunctionTest(unittest.TestCase):
 
-# Run the test cases using build_and_run_watched_suite with a timeout of 4 seconds
-if __name__ == '__main__':
-    build_and_run_watched_suite([StudentFunctionTest], 4)
-```
+        # A single test case
+        def simple_test_case(self):
+            stack = make_stack([1, 2, 3])
+            expected = make_stack([1, 1, 2, 2, 3, 3])
+            run_generic_test(stack, expected, student_function, in_place=True)
+
+    # Run the test cases using build_and_run_watched_suite with a timeout of 4 seconds
+    if __name__ == '__main__':
+        build_and_run_watched_suite([StudentFunctionTest], 4)
+
 
 ## Installation
 
@@ -97,3 +96,8 @@ The full documentation for DALPy is available [here](https://cormen-lib-develope
 ## Sample Usage
 
 To view sample assignments using DALPy browse the [DALPy sample problems repository](https://github.com/DALPy-Developers/DALPy-Sample-Problems) on github.
+
+## Notes
+
+This project was formerly known as Cormen-Lib.
+"""

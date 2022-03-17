@@ -1,7 +1,7 @@
 """This module provides miscellaneous utility functions and constants.
 
 Currently, this module holds utilities only related to mathematical operations, but operations related to other aspects
-of Python that should be wrapped into Cormen-Lib could be added here (e.g. related to strings).
+of Python that should be wrapped into DALPy could be added here (e.g. related to strings).
 """
 
 import sys

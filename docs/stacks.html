@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.2" />
-<title>cormen_lib.stacks API documentation</title>
+<title>dalpy.stacks API documentation</title>
 <meta name="description" content="This module holds classes related to LIFO stacks …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,19 +19,19 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>cormen_lib.stacks</code></h1>
+<h1 class="title">Module <code>dalpy.stacks</code></h1>
 </header>
 <section id="section-intro">
 <p>This module holds classes related to LIFO stacks.</p>
-<p>This module contains <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code>, an implementation of a LIFO stack, and <code><a title="cormen_lib.stacks.StackUnderflowError" href="#cormen_lib.stacks.StackUnderflowError">StackUnderflowError</a></code>, an error raised by <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code>.</p>
+<p>This module contains <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code>, an implementation of a LIFO stack, and <code><a title="dalpy.stacks.StackUnderflowError" href="#dalpy.stacks.StackUnderflowError">StackUnderflowError</a></code>, an error raised by <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code>.</p>
 <h2 id="examples">Examples</h2>
-<p>Initializing, adding, and removing elements from a <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code>:</p>
+<p>Initializing, adding, and removing elements from a <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code>:</p>
 <pre><code>s = Stack()
 s.push(1)
 s.push(2)
 s.pop()
 </code></pre>
-<p>The following code will raise a <code><a title="cormen_lib.stacks.StackUnderflowError" href="#cormen_lib.stacks.StackUnderflowError">StackUnderflowError</a></code> because the second pop is done on an empty <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code>:</p>
+<p>The following code will raise a <code><a title="dalpy.stacks.StackUnderflowError" href="#dalpy.stacks.StackUnderflowError">StackUnderflowError</a></code> because the second pop is done on an empty <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code>:</p>
 <pre><code>s.pop()
 s.pop()
 </code></pre>
@@ -45,14 +45,14 @@ s.pop()
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="cormen_lib.stacks.Stack"><code class="flex name class">
+<dt id="dalpy.stacks.Stack"><code class="flex name class">
 <span>class <span class="ident">Stack</span></span>
 </code></dt>
 <dd>
 <div class="desc"><p>This class represents a LIFO stack.</p>
-<p>One may assume that this <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code> has no maximum capacity.</p>
+<p>One may assume that this <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code> has no maximum capacity.</p>
 <h2 id="examples">Examples</h2>
-<p>To initialize a <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code>:</p>
+<p>To initialize a <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code>:</p>
 <pre><code>s = Stack()
 </code></pre>
 <p>To add elements to the end of <code>s</code>:</p>
@@ -65,72 +65,72 @@ s.push(2)
 <p>To see the element at the top of <code>s</code> (in this case <code>y = 1</code>):</p>
 <pre><code>y = s.top()
 </code></pre>
-<p>Initializes an empty <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code> in <code>O(1)</code> time.</p></div>
+<p>Initializes an empty <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code> in <code>O(1)</code> time.</p></div>
 <h3>Methods</h3>
 <dl>
-<dt id="cormen_lib.stacks.Stack.is_empty"><code class="name flex">
+<dt id="dalpy.stacks.Stack.is_empty"><code class="name flex">
 <span>def <span class="ident">is_empty</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns <code>True</code> if this <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code> is empty, <code>False</code> otherwise in <code>O(1)</code> time w/r/t the size of this <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code>.</p></div>
+<div class="desc"><p>Returns <code>True</code> if this <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code> is empty, <code>False</code> otherwise in <code>O(1)</code> time w/r/t the size of this <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code>.</p></div>
 </dd>
-<dt id="cormen_lib.stacks.Stack.pop"><code class="name flex">
+<dt id="dalpy.stacks.Stack.pop"><code class="name flex">
 <span>def <span class="ident">pop</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Removes the element at the top of this <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code>.</p>
-<p>One may assume that this operation runs in <code>O(1)</code> time with respect to the size of this <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code>.</p>
+<div class="desc"><p>Removes the element at the top of this <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code>.</p>
+<p>One may assume that this operation runs in <code>O(1)</code> time with respect to the size of this <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code>.</p>
 <h2 id="returns">Returns</h2>
-<p>The element at the top of the <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code> that was removed. That is, the element that was last added to this
-<code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code> of the elements in it.</p>
+<p>The element at the top of the <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code> that was removed. That is, the element that was last added to this
+<code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code> of the elements in it.</p>
 <h2 id="raises">Raises</h2>
 <dl>
-<dt><code><a title="cormen_lib.stacks.StackUnderflowError" href="#cormen_lib.stacks.StackUnderflowError">StackUnderflowError</a></code></dt>
-<dd>If this <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code> is empty.</dd>
+<dt><code><a title="dalpy.stacks.StackUnderflowError" href="#dalpy.stacks.StackUnderflowError">StackUnderflowError</a></code></dt>
+<dd>If this <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code> is empty.</dd>
 </dl></div>
 </dd>
-<dt id="cormen_lib.stacks.Stack.push"><code class="name flex">
+<dt id="dalpy.stacks.Stack.push"><code class="name flex">
 <span>def <span class="ident">push</span></span>(<span>self, value)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Adds an element to the top of this <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code>.</p>
-<p>One may assume that this operation runs in <code>O(1)</code> time with respect to the size of this <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code>.</p>
+<div class="desc"><p>Adds an element to the top of this <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code>.</p>
+<p>One may assume that this operation runs in <code>O(1)</code> time with respect to the size of this <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>value</code></strong></dt>
-<dd>Element to add to this <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code>. It can be of any type.</dd>
+<dd>Element to add to this <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code>. It can be of any type.</dd>
 </dl></div>
 </dd>
-<dt id="cormen_lib.stacks.Stack.size"><code class="name flex">
+<dt id="dalpy.stacks.Stack.size"><code class="name flex">
 <span>def <span class="ident">size</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns the integer number of elements in this <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code> in <code>O(1)</code> time w/r/t the size of this <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code>.</p></div>
+<div class="desc"><p>Returns the integer number of elements in this <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code> in <code>O(1)</code> time w/r/t the size of this <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code>.</p></div>
 </dd>
-<dt id="cormen_lib.stacks.Stack.top"><code class="name flex">
+<dt id="dalpy.stacks.Stack.top"><code class="name flex">
 <span>def <span class="ident">top</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Gets the element at the top of this <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code>.</p>
-<p>One may assume that this operation runs in <code>O(1)</code> time with respect to the size of this <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code>.</p>
+<div class="desc"><p>Gets the element at the top of this <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code>.</p>
+<p>One may assume that this operation runs in <code>O(1)</code> time with respect to the size of this <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code>.</p>
 <h2 id="returns">Returns</h2>
-<p>The element at the top of the <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code>. That is, the element that was last added to this <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code> of the
+<p>The element at the top of the <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code>. That is, the element that was last added to this <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code> of the
 elements in it.</p>
 <h2 id="raises">Raises</h2>
 <dl>
-<dt><code><a title="cormen_lib.stacks.StackUnderflowError" href="#cormen_lib.stacks.StackUnderflowError">StackUnderflowError</a></code></dt>
-<dd>If this <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code> is empty.</dd>
+<dt><code><a title="dalpy.stacks.StackUnderflowError" href="#dalpy.stacks.StackUnderflowError">StackUnderflowError</a></code></dt>
+<dd>If this <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code> is empty.</dd>
 </dl></div>
 </dd>
 </dl>
 </dd>
-<dt id="cormen_lib.stacks.StackUnderflowError"><code class="flex name class">
+<dt id="dalpy.stacks.StackUnderflowError"><code class="flex name class">
 <span>class <span class="ident">StackUnderflowError</span></span>
 <span>(</span><span>operation)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>This class is used by <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code> to raise errors for operations done on an empty <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code>.</p>
-<p>Initializes a <code><a title="cormen_lib.stacks.StackUnderflowError" href="#cormen_lib.stacks.StackUnderflowError">StackUnderflowError</a></code> that will be raised associated with a particular <code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code> operation.</p>
+<div class="desc"><p>This class is used by <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code> to raise errors for operations done on an empty <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code>.</p>
+<p>Initializes a <code><a title="dalpy.stacks.StackUnderflowError" href="#dalpy.stacks.StackUnderflowError">StackUnderflowError</a></code> that will be raised associated with a particular <code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code> operation.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>operation</code></strong></dt>
@@ -153,23 +153,23 @@ elements in it.</p>
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="cormen_lib" href="index.html">cormen_lib</a></code></li>
+<li><code><a title="dalpy" href="index.html">dalpy</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="cormen_lib.stacks.Stack" href="#cormen_lib.stacks.Stack">Stack</a></code></h4>
+<h4><code><a title="dalpy.stacks.Stack" href="#dalpy.stacks.Stack">Stack</a></code></h4>
 <ul class="">
-<li><code><a title="cormen_lib.stacks.Stack.is_empty" href="#cormen_lib.stacks.Stack.is_empty">is_empty</a></code></li>
-<li><code><a title="cormen_lib.stacks.Stack.pop" href="#cormen_lib.stacks.Stack.pop">pop</a></code></li>
-<li><code><a title="cormen_lib.stacks.Stack.push" href="#cormen_lib.stacks.Stack.push">push</a></code></li>
-<li><code><a title="cormen_lib.stacks.Stack.size" href="#cormen_lib.stacks.Stack.size">size</a></code></li>
-<li><code><a title="cormen_lib.stacks.Stack.top" href="#cormen_lib.stacks.Stack.top">top</a></code></li>
+<li><code><a title="dalpy.stacks.Stack.is_empty" href="#dalpy.stacks.Stack.is_empty">is_empty</a></code></li>
+<li><code><a title="dalpy.stacks.Stack.pop" href="#dalpy.stacks.Stack.pop">pop</a></code></li>
+<li><code><a title="dalpy.stacks.Stack.push" href="#dalpy.stacks.Stack.push">push</a></code></li>
+<li><code><a title="dalpy.stacks.Stack.size" href="#dalpy.stacks.Stack.size">size</a></code></li>
+<li><code><a title="dalpy.stacks.Stack.top" href="#dalpy.stacks.Stack.top">top</a></code></li>
 </ul>
 </li>
 <li>
-<h4><code><a title="cormen_lib.stacks.StackUnderflowError" href="#cormen_lib.stacks.StackUnderflowError">StackUnderflowError</a></code></h4>
+<h4><code><a title="dalpy.stacks.StackUnderflowError" href="#dalpy.stacks.StackUnderflowError">StackUnderflowError</a></code></h4>
 </li>
 </ul>
 </li>

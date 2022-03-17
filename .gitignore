@@ -139,4 +139,4 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
-/simple_cormen_lib/.idea/
+/simple_dalpy/.idea/

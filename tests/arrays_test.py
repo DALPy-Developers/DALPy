@@ -1,7 +1,7 @@
 import unittest
 
-from cormen_lib.arrays import Array, Array2D, sort
-from cormen_lib.test_utils import cormen_equals
+from dalpy.arrays import Array, Array2D, sort
+from dalpy.test_utils import dalpy_equals
 
 
 class ArrayTest(unittest.TestCase):
@@ -87,7 +87,7 @@ class Array2DTest(unittest.TestCase):
         b[0, 1] = 3
         b[1, 0] = 4
         b[1, 1] = 5
-        assert not cormen_equals(a, b)
+        assert not dalpy_equals(a, b)
 
     def test_array2d_square_equal(self):
         a = Array2D(2, 2)
@@ -100,7 +100,7 @@ class Array2DTest(unittest.TestCase):
         b[0, 1] = 3
         b[1, 0] = 4
         b[1, 1] = 1
-        assert cormen_equals(a, b)
+        assert dalpy_equals(a, b)
 
     def test_array2d_rectangle_equal(self):
         a = Array2D(3, 2)
@@ -117,7 +117,7 @@ class Array2DTest(unittest.TestCase):
         b[1, 1] = 4
         b[2, 0] = 5
         b[2, 1] = 6
-        assert cormen_equals(a, b)
+        assert dalpy_equals(a, b)
 
 if __name__ == '__main__':
     unittest.main()
