@@ -63,7 +63,7 @@ def make_array(ls):
     return a
 
 
-def add_children(root, children):
+def nary_add_children(root, children):
     """Adds `NaryTreeNode`s to be the children of another `NaryTreeNode`.
 
     Args:

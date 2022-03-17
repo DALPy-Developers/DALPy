@@ -25,13 +25,13 @@ class CopyStackTest(unittest.TestCase):
 class AddChildrenTest(unittest.TestCase):
     def test_add_no_children(self):
         root = NaryTreeNode('a')
-        add_children(root, [])
+        nary_add_children(root, [])
         self.assertIsNone(root.leftmost_child)
 
     def test_add_1_child(self):
         root = NaryTreeNode('a')
         children = [NaryTreeNode('b')]
-        add_children(root, children)
+        nary_add_children(root, children)
         self.assertEqual(root.leftmost_child.data, 'b')
         self.assertEqual(children[0].parent.data, 'a')
         self.assertIsNone(children[0].right_sibling)
@@ -39,7 +39,7 @@ class AddChildrenTest(unittest.TestCase):
     def test_add_3_children(self):
         root = NaryTreeNode('a')
         children = [NaryTreeNode('b'), NaryTreeNode('c'), NaryTreeNode('d')]
-        add_children(root, children)
+        nary_add_children(root, children)
         self.assertEqual(root.leftmost_child.data, 'b')
         self.assertEqual(children[0].parent.data, 'a')
         self.assertEqual(children[1].parent.data, 'a')
@@ -52,8 +52,8 @@ class AddChildrenTest(unittest.TestCase):
         root = NaryTreeNode('a')
         level1 = [NaryTreeNode('b'), NaryTreeNode('c')]
         level2 = [NaryTreeNode('d'), NaryTreeNode('e')]
-        add_children(root, level1)
-        add_children(level1[0], level2)
+        nary_add_children(root, level1)
+        nary_add_children(level1[0], level2)
         self.assertEqual(root.leftmost_child.data, 'b')
         self.assertEqual(level1[0].parent.data, 'a')
         self.assertEqual(level1[1].parent.data, 'a')

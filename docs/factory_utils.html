@@ -33,21 +33,6 @@ Cormen-Lib.</p>
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="cormen_lib.factory_utils.add_children"><code class="name flex">
-<span>def <span class="ident">add_children</span></span>(<span>root, children)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Adds <code>NaryTreeNode</code>s to be the children of another <code>NaryTreeNode</code>.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>root</code></strong></dt>
-<dd>an <code>NaryTreeNode</code> to which we will be adding children. This will be modified in place by this function.</dd>
-<dt><strong><code>children</code></strong></dt>
-<dd>a <code>list</code> of <code>NaryTreeNode</code>s that are the children to be added. These nodes will be added as the
-children of <code>root</code> in the order they occur in this <code>list</code>. <code>children[0]</code> will be the leftmost child of
-<code>root</code>, <code>children[1]</code> will be the right sibling of <code>children[0]</code> and so on.</dd>
-</dl></div>
-</dd>
 <dt id="cormen_lib.factory_utils.copy_stack"><code class="name flex">
 <span>def <span class="ident">copy_stack</span></span>(<span>s)</span>
 </code></dt>
@@ -92,6 +77,21 @@ children of <code>root</code> in the order they occur in this <code>list</code>.
 <dd>A <code>list</code> of elements to be enqueued into the <code>Stack</code>.</dd>
 </dl></div>
 </dd>
+<dt id="cormen_lib.factory_utils.nary_add_children"><code class="name flex">
+<span>def <span class="ident">nary_add_children</span></span>(<span>root, children)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds <code>NaryTreeNode</code>s to be the children of another <code>NaryTreeNode</code>.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>root</code></strong></dt>
+<dd>an <code>NaryTreeNode</code> to which we will be adding children. This will be modified in place by this function.</dd>
+<dt><strong><code>children</code></strong></dt>
+<dd>a <code>list</code> of <code>NaryTreeNode</code>s that are the children to be added. These nodes will be added as the
+children of <code>root</code> in the order they occur in this <code>list</code>. <code>children[0]</code> will be the leftmost child of
+<code>root</code>, <code>children[1]</code> will be the right sibling of <code>children[0]</code> and so on.</dd>
+</dl></div>
+</dd>
 </dl>
 </section>
 <section>
@@ -110,11 +110,11 @@ children of <code>root</code> in the order they occur in this <code>list</code>.
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="cormen_lib.factory_utils.add_children" href="#cormen_lib.factory_utils.add_children">add_children</a></code></li>
 <li><code><a title="cormen_lib.factory_utils.copy_stack" href="#cormen_lib.factory_utils.copy_stack">copy_stack</a></code></li>
 <li><code><a title="cormen_lib.factory_utils.make_array" href="#cormen_lib.factory_utils.make_array">make_array</a></code></li>
 <li><code><a title="cormen_lib.factory_utils.make_queue" href="#cormen_lib.factory_utils.make_queue">make_queue</a></code></li>
 <li><code><a title="cormen_lib.factory_utils.make_stack" href="#cormen_lib.factory_utils.make_stack">make_stack</a></code></li>
+<li><code><a title="cormen_lib.factory_utils.nary_add_children" href="#cormen_lib.factory_utils.nary_add_children">nary_add_children</a></code></li>
 </ul>
 </li>
 </ul>
