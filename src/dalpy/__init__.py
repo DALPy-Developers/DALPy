@@ -52,7 +52,7 @@ Consider the example test case below:
 
     import unittest
     from dalpy.factory_utils import make_stack
-    from dalpy.test_utils import build_and_run_watched_suite, run_generic_test
+    from dalpy.test_utils import build_and_run_watched_suite, generic_test
 
     from student_submission import student_function
 
@@ -63,7 +63,7 @@ Consider the example test case below:
         def simple_test_case(self):
             stack = make_stack([1, 2, 3])
             expected = make_stack([1, 1, 2, 2, 3, 3])
-            run_generic_test(stack, expected, student_function, in_place=True)
+            generic_test(stack, expected, student_function, in_place=True)
 
     # Run the test cases using build_and_run_watched_suite with a timeout of 4 seconds
     if __name__ == '__main__':
