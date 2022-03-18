@@ -1,6 +1,6 @@
 import unittest
 
-from cormen_lib.trees import depth, BinaryTreeNode, NaryTreeNode
+from dalpy.trees import depth, BinaryTreeNode, NaryTreeNode
 
 
 class DepthTest(unittest.TestCase):

@@ -1,12 +1,12 @@
-"""This module provides factory functions for creating and modifying Cormen-Lib objects.
+"""This module provides factory functions for creating and modifying DALPy objects.
 
 The functions contained in this module are meant to be used when writing test cases for problems implemented in
-Cormen-Lib.
+DALPy.
 """
 
-from cormen_lib.stacks import Stack
-from cormen_lib.arrays import Array
-from cormen_lib.queues import Queue
+from dalpy.stacks import Stack
+from dalpy.arrays import Array
+from dalpy.queues import Queue
 
 
 def make_queue(ls):

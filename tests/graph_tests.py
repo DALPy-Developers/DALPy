@@ -1,6 +1,6 @@
 import unittest
-from cormen_lib.graphs import Vertex, VertexAttributeError, Graph, GraphVertexError, GraphEdgeError
-from cormen_lib.sets import Set
+from dalpy.graphs import Vertex, VertexAttributeError, Graph, GraphVertexError, GraphEdgeError
+from dalpy.sets import Set
 
 
 class VertexTest(unittest.TestCase):

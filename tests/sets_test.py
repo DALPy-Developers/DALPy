@@ -1,5 +1,5 @@
 import unittest
-from cormen_lib.sets import Set
+from dalpy.sets import Set
 
 
 class SetTest(unittest.TestCase):

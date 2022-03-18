@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.2" />
-<title>cormen_lib.queues API documentation</title>
+<title>dalpy.queues API documentation</title>
 <meta name="description" content="This module holds classes related to FIFO queues …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,19 +19,19 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>cormen_lib.queues</code></h1>
+<h1 class="title">Module <code>dalpy.queues</code></h1>
 </header>
 <section id="section-intro">
 <p>This module holds classes related to FIFO queues.</p>
-<p>This module contains <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code>, an implementation of a FIFO queue, and <code><a title="cormen_lib.queues.QueueUnderflowError" href="#cormen_lib.queues.QueueUnderflowError">QueueUnderflowError</a></code>, an error raised by <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code>.</p>
+<p>This module contains <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code>, an implementation of a FIFO queue, and <code><a title="dalpy.queues.QueueUnderflowError" href="#dalpy.queues.QueueUnderflowError">QueueUnderflowError</a></code>, an error raised by <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code>.</p>
 <h2 id="examples">Examples</h2>
-<p>Initializing, adding, and removing elements from a <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code>:</p>
+<p>Initializing, adding, and removing elements from a <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code>:</p>
 <pre><code>q = Queue()
 q.enqueue(1)
 q.enqueue(2)
 q.dequeue()
 </code></pre>
-<p>The following code will raise a <code><a title="cormen_lib.queues.QueueUnderflowError" href="#cormen_lib.queues.QueueUnderflowError">QueueUnderflowError</a></code> because the second dequeue is done on an empty <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code>:</p>
+<p>The following code will raise a <code><a title="dalpy.queues.QueueUnderflowError" href="#dalpy.queues.QueueUnderflowError">QueueUnderflowError</a></code> because the second dequeue is done on an empty <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code>:</p>
 <pre><code>q.dequeue()
 q.dequeue()
 </code></pre>
@@ -45,14 +45,14 @@ q.dequeue()
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="cormen_lib.queues.Queue"><code class="flex name class">
+<dt id="dalpy.queues.Queue"><code class="flex name class">
 <span>class <span class="ident">Queue</span></span>
 </code></dt>
 <dd>
 <div class="desc"><p>This class represents a FIFO queue.</p>
-<p>One may assume that this <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code> has no maximum capacity.</p>
+<p>One may assume that this <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code> has no maximum capacity.</p>
 <h2 id="examples">Examples</h2>
-<p>To initialize a <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code>:</p>
+<p>To initialize a <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code>:</p>
 <pre><code>q = Queue()
 </code></pre>
 <p>To add elements to the end of <code>q</code>:</p>
@@ -65,72 +65,72 @@ q.enqueue(2)
 <p>To see the element at the front of <code>q</code> (in this case <code>y = 2</code>):</p>
 <pre><code>y = q.front()
 </code></pre>
-<p>Initializes an empty <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code> in <code>O(1)</code> time.</p></div>
+<p>Initializes an empty <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code> in <code>O(1)</code> time.</p></div>
 <h3>Methods</h3>
 <dl>
-<dt id="cormen_lib.queues.Queue.dequeue"><code class="name flex">
+<dt id="dalpy.queues.Queue.dequeue"><code class="name flex">
 <span>def <span class="ident">dequeue</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Removes the element at the front of this <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code>.</p>
-<p>One may assume that this operation runs in <code>O(1)</code> time with respect to the size of this <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code>.</p>
+<div class="desc"><p>Removes the element at the front of this <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code>.</p>
+<p>One may assume that this operation runs in <code>O(1)</code> time with respect to the size of this <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code>.</p>
 <h2 id="returns">Returns</h2>
-<p>The element at the front of the <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code> that was removed. That is, the element that was first added to this
-<code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code> of the elements in it.</p>
+<p>The element at the front of the <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code> that was removed. That is, the element that was first added to this
+<code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code> of the elements in it.</p>
 <h2 id="raises">Raises</h2>
 <dl>
-<dt><code><a title="cormen_lib.queues.QueueUnderflowError" href="#cormen_lib.queues.QueueUnderflowError">QueueUnderflowError</a></code></dt>
-<dd>If this <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code> is empty.</dd>
+<dt><code><a title="dalpy.queues.QueueUnderflowError" href="#dalpy.queues.QueueUnderflowError">QueueUnderflowError</a></code></dt>
+<dd>If this <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code> is empty.</dd>
 </dl></div>
 </dd>
-<dt id="cormen_lib.queues.Queue.enqueue"><code class="name flex">
+<dt id="dalpy.queues.Queue.enqueue"><code class="name flex">
 <span>def <span class="ident">enqueue</span></span>(<span>self, value)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Adds an element to the end of this <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code>.</p>
-<p>One may assume that this operation runs in <code>O(1)</code> time with respect to the size of this <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code>.</p>
+<div class="desc"><p>Adds an element to the end of this <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code>.</p>
+<p>One may assume that this operation runs in <code>O(1)</code> time with respect to the size of this <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>value</code></strong></dt>
-<dd>Element to add to this <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code>. It can be of any type.</dd>
+<dd>Element to add to this <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code>. It can be of any type.</dd>
 </dl></div>
 </dd>
-<dt id="cormen_lib.queues.Queue.front"><code class="name flex">
+<dt id="dalpy.queues.Queue.front"><code class="name flex">
 <span>def <span class="ident">front</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Gets the element at the front of this <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code>.</p>
-<p>One may assume that this operation runs in <code>O(1)</code> time with respect to the size of this <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code>.</p>
+<div class="desc"><p>Gets the element at the front of this <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code>.</p>
+<p>One may assume that this operation runs in <code>O(1)</code> time with respect to the size of this <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code>.</p>
 <h2 id="returns">Returns</h2>
-<p>The element at the front of the <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code>. That is, the element that was first added to this <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code> of the
+<p>The element at the front of the <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code>. That is, the element that was first added to this <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code> of the
 elements in it.</p>
 <h2 id="raises">Raises</h2>
 <dl>
-<dt><code><a title="cormen_lib.queues.QueueUnderflowError" href="#cormen_lib.queues.QueueUnderflowError">QueueUnderflowError</a></code></dt>
-<dd>If this <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code> is empty.</dd>
+<dt><code><a title="dalpy.queues.QueueUnderflowError" href="#dalpy.queues.QueueUnderflowError">QueueUnderflowError</a></code></dt>
+<dd>If this <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code> is empty.</dd>
 </dl></div>
 </dd>
-<dt id="cormen_lib.queues.Queue.is_empty"><code class="name flex">
+<dt id="dalpy.queues.Queue.is_empty"><code class="name flex">
 <span>def <span class="ident">is_empty</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns <code>True</code> if this <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code> is empty, <code>False</code> otherwise in <code>O(1)</code> time w/r/t the size of this <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code>.</p></div>
+<div class="desc"><p>Returns <code>True</code> if this <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code> is empty, <code>False</code> otherwise in <code>O(1)</code> time w/r/t the size of this <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code>.</p></div>
 </dd>
-<dt id="cormen_lib.queues.Queue.size"><code class="name flex">
+<dt id="dalpy.queues.Queue.size"><code class="name flex">
 <span>def <span class="ident">size</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns the integer number of elements in this <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code> in <code>O(1)</code> time w/r/t the size of this <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code>.</p></div>
+<div class="desc"><p>Returns the integer number of elements in this <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code> in <code>O(1)</code> time w/r/t the size of this <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code>.</p></div>
 </dd>
 </dl>
 </dd>
-<dt id="cormen_lib.queues.QueueUnderflowError"><code class="flex name class">
+<dt id="dalpy.queues.QueueUnderflowError"><code class="flex name class">
 <span>class <span class="ident">QueueUnderflowError</span></span>
 <span>(</span><span>operation)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>This class is used by <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code> to raise errors for operations done on an empty <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code>.</p>
-<p>Initializes a <code><a title="cormen_lib.queues.QueueUnderflowError" href="#cormen_lib.queues.QueueUnderflowError">QueueUnderflowError</a></code> that will be raised associated with a particular <code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code> operation.</p>
+<div class="desc"><p>This class is used by <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code> to raise errors for operations done on an empty <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code>.</p>
+<p>Initializes a <code><a title="dalpy.queues.QueueUnderflowError" href="#dalpy.queues.QueueUnderflowError">QueueUnderflowError</a></code> that will be raised associated with a particular <code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code> operation.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>operation</code></strong></dt>
@@ -153,23 +153,23 @@ elements in it.</p>
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="cormen_lib" href="index.html">cormen_lib</a></code></li>
+<li><code><a title="dalpy" href="index.html">dalpy</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="cormen_lib.queues.Queue" href="#cormen_lib.queues.Queue">Queue</a></code></h4>
+<h4><code><a title="dalpy.queues.Queue" href="#dalpy.queues.Queue">Queue</a></code></h4>
 <ul class="">
-<li><code><a title="cormen_lib.queues.Queue.dequeue" href="#cormen_lib.queues.Queue.dequeue">dequeue</a></code></li>
-<li><code><a title="cormen_lib.queues.Queue.enqueue" href="#cormen_lib.queues.Queue.enqueue">enqueue</a></code></li>
-<li><code><a title="cormen_lib.queues.Queue.front" href="#cormen_lib.queues.Queue.front">front</a></code></li>
-<li><code><a title="cormen_lib.queues.Queue.is_empty" href="#cormen_lib.queues.Queue.is_empty">is_empty</a></code></li>
-<li><code><a title="cormen_lib.queues.Queue.size" href="#cormen_lib.queues.Queue.size">size</a></code></li>
+<li><code><a title="dalpy.queues.Queue.dequeue" href="#dalpy.queues.Queue.dequeue">dequeue</a></code></li>
+<li><code><a title="dalpy.queues.Queue.enqueue" href="#dalpy.queues.Queue.enqueue">enqueue</a></code></li>
+<li><code><a title="dalpy.queues.Queue.front" href="#dalpy.queues.Queue.front">front</a></code></li>
+<li><code><a title="dalpy.queues.Queue.is_empty" href="#dalpy.queues.Queue.is_empty">is_empty</a></code></li>
+<li><code><a title="dalpy.queues.Queue.size" href="#dalpy.queues.Queue.size">size</a></code></li>
 </ul>
 </li>
 <li>
-<h4><code><a title="cormen_lib.queues.QueueUnderflowError" href="#cormen_lib.queues.QueueUnderflowError">QueueUnderflowError</a></code></h4>
+<h4><code><a title="dalpy.queues.QueueUnderflowError" href="#dalpy.queues.QueueUnderflowError">QueueUnderflowError</a></code></h4>
 </li>
 </ul>
 </li>

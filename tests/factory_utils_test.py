@@ -1,7 +1,7 @@
 import unittest
-from cormen_lib.factory_utils import *
-from cormen_lib.test_utils import build_and_run_watched_suite, generic_test
-from cormen_lib.trees import NaryTreeNode
+from dalpy.factory_utils import *
+from dalpy.test_utils import build_and_run_watched_suite, generic_test
+from dalpy.trees import NaryTreeNode
 
 
 class CopyStackTest(unittest.TestCase):

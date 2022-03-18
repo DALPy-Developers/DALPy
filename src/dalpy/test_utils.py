@@ -1,7 +1,7 @@
 """This module provides utilities related to unit testing.
 
 This module contains the `build_and_run_watched_suite`, `assert_array_equals`, `behavior_test`, `generic_test`,
-`cormen_equals` and the `to_cormen_string` functions, as well as `UnexpectedReturnWarning`.
+`dalpy_equals` and the `dalpy_to_string` functions, as well as `UnexpectedReturnWarning`.
 """
 import copy
 import inspect
@@ -11,14 +11,14 @@ import unittest
 import warnings
 from multiprocessing import Process
 
-from cormen_lib.arrays import Array, Array2D
-from cormen_lib.factory_utils import copy_stack
-from cormen_lib.graphs import Graph, Vertex
-from cormen_lib.linked_lists import SinglyLinkedListNode
-from cormen_lib.queues import Queue
-from cormen_lib.sets import Set
-from cormen_lib.stacks import Stack
-from cormen_lib.trees import BinaryTreeNode, NaryTreeNode
+from dalpy.arrays import Array, Array2D
+from dalpy.factory_utils import copy_stack
+from dalpy.graphs import Graph, Vertex
+from dalpy.linked_lists import SinglyLinkedListNode
+from dalpy.queues import Queue
+from dalpy.sets import Set
+from dalpy.stacks import Stack
+from dalpy.trees import BinaryTreeNode, NaryTreeNode
 
 
 def build_and_run_watched_suite(cases, timeout=None, show_tb=False, grading_file=None, warning_filter="once"):
@@ -62,11 +62,11 @@ def build_and_run_watched_suite(cases, timeout=None, show_tb=False, grading_file
 
 
 def assert_array_equals(expected, actual, msg=None):
-    """Asserts that two `cormen_lib.arrays.Array`s are equal, displaying a custom message if specified.
+    """Asserts that two `dalpy.arrays.Array`s are equal, displaying a custom message if specified.
 
     Args:
-        expected: The expected `cormen_lib.arrays.Array`.
-        actual: The actual `cormen_lib.arrays.Array`.
+        expected: The expected `dalpy.arrays.Array`.
+        actual: The actual `dalpy.arrays.Array`.
         msg: The message to display on `AssertionError`, if not specified, then a default message is displayed.
 
     Raises:
@@ -120,20 +120,20 @@ def behavior_test(behavior, objects):
             if len(event) > 2:
                 params = (event[2],)
                 result = method(*params)
-                msg += f'{__method_to_string((method,) + params)} {to_cormen_string(result)}'
+                msg += f'{__method_to_string((method,) + params)} {dalpy_to_string(result)}'
             else:
                 result = method()
-                msg += f'{__method_to_string(method)} {to_cormen_string(result)}'
+                msg += f'{__method_to_string(method)} {dalpy_to_string(result)}'
                 params = None
-            if cormen_equals(result, expected):
+            if dalpy_equals(result, expected):
                 msg += ' ✓\n'
                 continue
-            msg += f' ✗\nexpected {to_cormen_string(expected)}'
+            msg += f' ✗\nexpected {dalpy_to_string(expected)}'
             passed = False
             break
     except Exception as e:
         # If expected is an exception then check that exception thrown matches expected exception
-        msg += f'{__method_to_string((method,) + params if params is not None else method)} {to_cormen_string(result)} ✗\n'
+        msg += f'{__method_to_string((method,) + params if params is not None else method)} {dalpy_to_string(result)} ✗\n'
         if type(expected) == type and isinstance(e, expected): return
         # error_message = e.args[0] if len(e.args) > 0 else e.with_traceback
         assert False, f'{msg}Unexpected error: {type(e).__name__}'
@@ -169,7 +169,7 @@ def run_generic_test(params, expected, method, custom_comparator=None, in_place=
         DeprecationWarning: If used in version >= 1.1.0.
 
     If `expected` is an `Exception`, the test will assert that the function tested on the given parameters throws the
-    expected `Exception`. If no custom `to_string`s are specified, the `to_cormen_string` method will be used for
+    expected `Exception`. If no custom `to_string`s are specified, the `dalpy_to_string` method will be used for
     displaying parameters, input and output.
     """
     warnings.warn("run_generic_test is deprecated after version 1.1.0, use generic_test instead.", DeprecationWarning,
@@ -194,22 +194,22 @@ def generic_test(params, expected, method, custom_comparator=None, in_place=Fals
                   `Exception`.
         method: Function being tested. Must be a `callable`.
         custom_comparator: Function for determining if method output equals expected. Must be a `callable`. Default
-                           `None` which means that `cormen_equals` will be used.
+                           `None` which means that `dalpy_equals` will be used.
         in_place: `True` if `expected` should be compared against `params`. By default this is `False`.
         enforce_no_mod: `bool` or a `list` of `bool` indicating which args should not be modified. Default `False`
                         allows modification of all args.
         params_to_string: Function for displaying the parameters. Must be a `callable`. Default `None` which means that
-                          `cormen_to_string` will be used instead.
+                          `dalpy_to_string` will be used instead.
         expected_to_string: Function for displaying the expected output. Must be a `callable`. Default `None` which
-                            means that `cormen_to_string` will be used instead.
+                            means that `dalpy_to_string` will be used instead.
         output_to_string: Function for displaying the actual output. Must be a `callable`. Default `None` which means
-                          that `cormen_to_string` will be used instead.
+                          that `dalpy_to_string` will be used instead.
 
     Raises:
         AssertionError: If the test fails.
         UnexpectedReturnWarning: If `in_place` is set to `True` but `method` still returns a value.
     """
-    msg = f"Input: {to_cormen_string(params) if params_to_string is None else params_to_string(params)}\nExpected: {to_cormen_string(expected) if expected_to_string is None else expected_to_string(expected)}\n"
+    msg = f"Input: {dalpy_to_string(params) if params_to_string is None else params_to_string(params)}\nExpected: {dalpy_to_string(expected) if expected_to_string is None else expected_to_string(expected)}\n"
     params_copy = copy.deepcopy(params) if isinstance(params, list) else [copy.deepcopy(params)]
     passed = True
     try:
@@ -219,9 +219,9 @@ def generic_test(params, expected, method, custom_comparator=None, in_place=Fals
                 warnings.warn("A function that is meant to modify its argument(s) returned a non-None value.",
                               UnexpectedReturnWarning, stacklevel=2)
             result = params
-        result_string = output_to_string(result) if output_to_string is not None else to_cormen_string(result)
+        result_string = output_to_string(result) if output_to_string is not None else dalpy_to_string(result)
         if custom_comparator is None:
-            if not cormen_equals(expected, result):
+            if not dalpy_equals(expected, result):
                 msg = f"{msg}Output: {result_string}"
                 passed = False
         elif not custom_comparator(expected, result):
@@ -234,22 +234,22 @@ def generic_test(params, expected, method, custom_comparator=None, in_place=Fals
         assert False, f"{msg}Output: {error_message}"
     assert passed, msg
     enforce_no_mod = [enforce_no_mod] * len(params_copy) if isinstance(enforce_no_mod, bool) else enforce_no_mod
-    modified_params_string = to_cormen_string(params) if params_to_string is None else params_to_string(params)
+    modified_params_string = dalpy_to_string(params) if params_to_string is None else params_to_string(params)
     if not isinstance(params, list): params = [params]
     for i, no_mod in enumerate(enforce_no_mod):
         if no_mod:
-            assert cormen_equals(params_copy[i], params[
+            assert dalpy_equals(params_copy[i], params[
                 i]), f"{msg}Output: The {str(i + 1) + __append_int(i + 1)} input argument should not have been modified.\nArguments: {modified_params_string}"
 
 
-def cormen_equals(first, second):
-    """Tests equality between two objects. If the objects are from the Cormen-Lib, they are compared using their own
+def dalpy_equals(first, second):
+    """Tests equality between two objects. If the objects are from the DALPy, they are compared using their own
     custom comparator.
 
-    `cormen_equals` supports equality for the following objects: `cormen_lib.arrays.Array`, `cormen_lib.arrays.Array2D`,
-    `cormen_lib.queues.Queue`, `cormen_lib.stacks.Stack`, `cormen_lib.sets.Set`,
-    `cormen_lib.linked_lists.SinglyLinkedListNode`. For `cormen_lib.linked_lists.SinglyLinkedListNode`, checks that all
-    nodes next of the passed `cormen_lib.linked_lists.SinglyLinkedListNode`s are the same. For instances of `float`s,
+    `dalpy_equals` supports equality for the following objects: `dalpy.arrays.Array`, `dalpy.arrays.Array2D`,
+    `dalpy.queues.Queue`, `dalpy.stacks.Stack`, `dalpy.sets.Set`,
+    `dalpy.linked_lists.SinglyLinkedListNode`. For `dalpy.linked_lists.SinglyLinkedListNode`, checks that all
+    nodes next of the passed `dalpy.linked_lists.SinglyLinkedListNode`s are the same. For instances of `float`s,
     `math.isclose` is used for comparison.
 
     Args:
@@ -276,14 +276,14 @@ def cormen_equals(first, second):
     return first == second
 
 
-def to_cormen_string(obj):
-    """Generates a string representation of a Cormen-Lib object if passed object is from Cormen-Lib, otherwise calls
+def dalpy_to_string(obj):
+    """Generates a string representation of a DALPy object if passed object is from DALPy, otherwise calls
     native str method.
 
-    to_cormen_string supports the following objects: `cormen_lib.arrays.Array`, `cormen_lib.arrays.Array2D`,
-    `cormen_lib.queues.Queue`, `cormen_lib.stacks.Stack`, `cormen_lib.sets.Set`,
-    `cormen_lib.linked_lists.SinglyLinkedListNode`, `cormen_lib.trees.BinaryTreeNode`, `cormen_lib.trees.NaryTreeNode`,
-    `cormen_lib.graphs.Vertex`, and `cormen_lib.graphs.Graph`.
+    dalpy_to_string supports the following objects: `dalpy.arrays.Array`, `dalpy.arrays.Array2D`,
+    `dalpy.queues.Queue`, `dalpy.stacks.Stack`, `dalpy.sets.Set`,
+    `dalpy.linked_lists.SinglyLinkedListNode`, `dalpy.trees.BinaryTreeNode`, `dalpy.trees.NaryTreeNode`,
+    `dalpy.graphs.Vertex`, and `dalpy.graphs.Graph`.
 
     Returns:
         string representation of `obj`.
@@ -292,7 +292,7 @@ def to_cormen_string(obj):
         obj: The object to convert to string
     """
     if isinstance(obj, list):
-        return "[" + ", ".join(to_cormen_string(elem) for elem in obj) + "]"
+        return "[" + ", ".join(dalpy_to_string(elem) for elem in obj) + "]"
     if isinstance(obj, Array):
         return __array_to_string(obj)
     if isinstance(obj, Array2D):
@@ -403,7 +403,7 @@ def __run_timed_test(test, watcher, timeout):
 def __array_to_string(array):
     out = "["
     for i in range(array.length()):
-        out += f'{to_cormen_string(array[i])}, '
+        out += f'{dalpy_to_string(array[i])}, '
     return out[:-2] + "]" if array.length() > 0 else out + "]"
 
 
@@ -412,7 +412,7 @@ def __array2d_to_string(array):
     for i in range(array.rows()):
         out += "["
         for j in range(array.columns()):
-            out += f'{to_cormen_string(array[(i, j)])}, '
+            out += f'{dalpy_to_string(array[(i, j)])}, '
         out = out[:-2] + "]\n "
     return out[:-2] + "]"
 
@@ -421,7 +421,7 @@ def __queue_to_string(queue):
     out = []
     for _ in range(queue.size()):
         next = queue.dequeue()
-        out.append(to_cormen_string(next))
+        out.append(dalpy_to_string(next))
         queue.enqueue(next)
     return "[" + ", ".join(out) + "]"
 
@@ -431,7 +431,7 @@ def __stack_to_string(stack):
     temp_stack = Stack()
     for _ in range(stack.size()):
         next = stack.pop()
-        out.insert(0, to_cormen_string(next))
+        out.insert(0, dalpy_to_string(next))
         temp_stack.push(next)
     while not temp_stack.is_empty():
         stack.push(temp_stack.pop())
@@ -441,7 +441,7 @@ def __stack_to_string(stack):
 def __set_to_string(s):
     out = []
     for elem in s:
-        out.append(to_cormen_string(elem))
+        out.append(dalpy_to_string(elem))
     return "{" + ", ".join(out) + "}"
 
 
@@ -453,7 +453,7 @@ def __singly_linked_list_to_string(head):
             out.append("cycle")
             break
         seen.add(head)
-        out.append(to_cormen_string(head.data))
+        out.append(dalpy_to_string(head.data))
         head = head.next
     return "➔ ".join(out)
 
@@ -480,7 +480,7 @@ def __binary_tree_to_string(root):
             if curr is not None:
                 q.append(curr.left)
                 q.append(curr.right)
-                out_buf.append(to_cormen_string(curr.data))
+                out_buf.append(dalpy_to_string(curr.data))
                 all_none_level = False
             else:
                 out_buf.append(None)
@@ -521,7 +521,7 @@ def __nary_tree_to_string(root):
             if curr is None:
                 out.append(None)
             else:
-                out.append(to_cormen_string(curr.data))
+                out.append(dalpy_to_string(curr.data))
                 lm_child = curr.leftmost_child
                 q.append(lm_child)
                 while lm_child is not None:

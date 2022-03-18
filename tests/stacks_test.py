@@ -1,5 +1,5 @@
 import unittest
-from cormen_lib.stacks import Stack, StackUnderflowError
+from dalpy.stacks import Stack, StackUnderflowError
 
 
 class StackTest(unittest.TestCase):

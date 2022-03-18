@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.2" />
-<title>cormen_lib.trees API documentation</title>
+<title>dalpy.trees API documentation</title>
 <meta name="description" content="Module that holds classes and functions related to trees …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,14 +19,14 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>cormen_lib.trees</code></h1>
+<h1 class="title">Module <code>dalpy.trees</code></h1>
 </header>
 <section id="section-intro">
 <p>Module that holds classes and functions related to trees.</p>
-<p>This module contains the <code><a title="cormen_lib.trees.BinaryTreeNode" href="#cormen_lib.trees.BinaryTreeNode">BinaryTreeNode</a></code> and <code><a title="cormen_lib.trees.NaryTreeNode" href="#cormen_lib.trees.NaryTreeNode">NaryTreeNode</a></code> classes. <code><a title="cormen_lib.trees.BinaryTreeNode" href="#cormen_lib.trees.BinaryTreeNode">BinaryTreeNode</a></code> can be used to recursively define
-a binary tree. <code><a title="cormen_lib.trees.NaryTreeNode" href="#cormen_lib.trees.NaryTreeNode">NaryTreeNode</a></code> can be used to recursively define a doubly linked list. Problems or algorithms that
-operate on trees should take an object of either of these classes. This module also contains the <code><a title="cormen_lib.trees.depth" href="#cormen_lib.trees.depth">depth()</a></code> function which
-computes the depth of an <code><a title="cormen_lib.trees.NaryTreeNode" href="#cormen_lib.trees.NaryTreeNode">NaryTreeNode</a></code> in a tree.</p>
+<p>This module contains the <code><a title="dalpy.trees.BinaryTreeNode" href="#dalpy.trees.BinaryTreeNode">BinaryTreeNode</a></code> and <code><a title="dalpy.trees.NaryTreeNode" href="#dalpy.trees.NaryTreeNode">NaryTreeNode</a></code> classes. <code><a title="dalpy.trees.BinaryTreeNode" href="#dalpy.trees.BinaryTreeNode">BinaryTreeNode</a></code> can be used to recursively define
+a binary tree. <code><a title="dalpy.trees.NaryTreeNode" href="#dalpy.trees.NaryTreeNode">NaryTreeNode</a></code> can be used to recursively define a doubly linked list. Problems or algorithms that
+operate on trees should take an object of either of these classes. This module also contains the <code><a title="dalpy.trees.depth" href="#dalpy.trees.depth">depth()</a></code> function which
+computes the depth of an <code><a title="dalpy.trees.NaryTreeNode" href="#dalpy.trees.NaryTreeNode">NaryTreeNode</a></code> in a tree.</p>
 <h2 id="examples">Examples</h2>
 <p>A binary tree can be created as follows:</p>
 <pre><code>bt = BinaryTreeNode(1)
@@ -54,7 +54,7 @@ x = depth(c3)
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="cormen_lib.trees.depth"><code class="name flex">
+<dt id="dalpy.trees.depth"><code class="name flex">
 <span>def <span class="ident">depth</span></span>(<span>node)</span>
 </code></dt>
 <dd>
@@ -64,14 +64,14 @@ runs in <code>O(h)</code> time where <code>h</code> is the height of tree the in
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>node</code></strong></dt>
-<dd>an <code><a title="cormen_lib.trees.NaryTreeNode" href="#cormen_lib.trees.NaryTreeNode">NaryTreeNode</a></code>.</dd>
+<dd>an <code><a title="dalpy.trees.NaryTreeNode" href="#dalpy.trees.NaryTreeNode">NaryTreeNode</a></code>.</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <p>The integer depth of node in the tree its contained in.</p>
 <h2 id="raises">Raises</h2>
 <dl>
 <dt><code>TypeError</code></dt>
-<dd>If <code>node</code> is not an <code><a title="cormen_lib.trees.NaryTreeNode" href="#cormen_lib.trees.NaryTreeNode">NaryTreeNode</a></code>.</dd>
+<dd>If <code>node</code> is not an <code><a title="dalpy.trees.NaryTreeNode" href="#dalpy.trees.NaryTreeNode">NaryTreeNode</a></code>.</dd>
 </dl></div>
 </dd>
 </dl>
@@ -79,7 +79,7 @@ runs in <code>O(h)</code> time where <code>h</code> is the height of tree the in
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="cormen_lib.trees.BinaryTreeNode"><code class="flex name class">
+<dt id="dalpy.trees.BinaryTreeNode"><code class="flex name class">
 <span>class <span class="ident">BinaryTreeNode</span></span>
 <span>(</span><span>data=None, left=None, right=None)</span>
 </code></dt>
@@ -90,24 +90,24 @@ runs in <code>O(h)</code> time where <code>h</code> is the height of tree the in
 <dt><strong><code>data</code></strong></dt>
 <dd>The data stored in the node. This can be any type.</dd>
 <dt><strong><code>left</code></strong></dt>
-<dd>A <code><a title="cormen_lib.trees.BinaryTreeNode" href="#cormen_lib.trees.BinaryTreeNode">BinaryTreeNode</a></code> representing the node that is to the left of this node in a tree.</dd>
+<dd>A <code><a title="dalpy.trees.BinaryTreeNode" href="#dalpy.trees.BinaryTreeNode">BinaryTreeNode</a></code> representing the node that is to the left of this node in a tree.</dd>
 <dt><strong><code>right</code></strong></dt>
-<dd>A <code><a title="cormen_lib.trees.BinaryTreeNode" href="#cormen_lib.trees.BinaryTreeNode">BinaryTreeNode</a></code> representing the node that is to the right of this node in a tree.</dd>
+<dd>A <code><a title="dalpy.trees.BinaryTreeNode" href="#dalpy.trees.BinaryTreeNode">BinaryTreeNode</a></code> representing the node that is to the right of this node in a tree.</dd>
 </dl>
-<p>Initializes a <code><a title="cormen_lib.trees.BinaryTreeNode" href="#cormen_lib.trees.BinaryTreeNode">BinaryTreeNode</a></code> in <code>O(1)</code> time.</p>
+<p>Initializes a <code><a title="dalpy.trees.BinaryTreeNode" href="#dalpy.trees.BinaryTreeNode">BinaryTreeNode</a></code> in <code>O(1)</code> time.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>data</code></strong></dt>
 <dd>The data to be stored in the node. This can be of any type. By default, this is <code>None</code>.</dd>
 <dt><strong><code>left</code></strong></dt>
-<dd>A <code><a title="cormen_lib.trees.BinaryTreeNode" href="#cormen_lib.trees.BinaryTreeNode">BinaryTreeNode</a></code> representing the node that is to the left of this node in a tree. By default this
+<dd>A <code><a title="dalpy.trees.BinaryTreeNode" href="#dalpy.trees.BinaryTreeNode">BinaryTreeNode</a></code> representing the node that is to the left of this node in a tree. By default this
 is <code>None</code>.</dd>
 <dt><strong><code>right</code></strong></dt>
-<dd>A <code><a title="cormen_lib.trees.BinaryTreeNode" href="#cormen_lib.trees.BinaryTreeNode">BinaryTreeNode</a></code> representing the node that is to the right of this node in a tree. By default this
+<dd>A <code><a title="dalpy.trees.BinaryTreeNode" href="#dalpy.trees.BinaryTreeNode">BinaryTreeNode</a></code> representing the node that is to the right of this node in a tree. By default this
 is <code>None</code>.</dd>
 </dl></div>
 </dd>
-<dt id="cormen_lib.trees.NaryTreeNode"><code class="flex name class">
+<dt id="dalpy.trees.NaryTreeNode"><code class="flex name class">
 <span>class <span class="ident">NaryTreeNode</span></span>
 <span>(</span><span>data=None, parent=None, leftmost_child=None, right_sibling=None)</span>
 </code></dt>
@@ -118,25 +118,25 @@ is <code>None</code>.</dd>
 <dt><strong><code>data</code></strong></dt>
 <dd>The data stored in the node. This can be any type.</dd>
 <dt><strong><code>parent</code></strong></dt>
-<dd>A <code><a title="cormen_lib.trees.NaryTreeNode" href="#cormen_lib.trees.NaryTreeNode">NaryTreeNode</a></code> representing the node that is the parent of this node in a tree.</dd>
+<dd>A <code><a title="dalpy.trees.NaryTreeNode" href="#dalpy.trees.NaryTreeNode">NaryTreeNode</a></code> representing the node that is the parent of this node in a tree.</dd>
 <dt><strong><code>leftmost_child</code></strong></dt>
-<dd>A <code><a title="cormen_lib.trees.NaryTreeNode" href="#cormen_lib.trees.NaryTreeNode">NaryTreeNode</a></code> representing the node that is the leftmost child of this node in a tree.</dd>
+<dd>A <code><a title="dalpy.trees.NaryTreeNode" href="#dalpy.trees.NaryTreeNode">NaryTreeNode</a></code> representing the node that is the leftmost child of this node in a tree.</dd>
 <dt><strong><code>right_sibling</code></strong></dt>
-<dd>A <code><a title="cormen_lib.trees.NaryTreeNode" href="#cormen_lib.trees.NaryTreeNode">NaryTreeNode</a></code> representing the node that is the right sibling of this node in a tree.</dd>
+<dd>A <code><a title="dalpy.trees.NaryTreeNode" href="#dalpy.trees.NaryTreeNode">NaryTreeNode</a></code> representing the node that is the right sibling of this node in a tree.</dd>
 </dl>
-<p>Initializes a <code><a title="cormen_lib.trees.NaryTreeNode" href="#cormen_lib.trees.NaryTreeNode">NaryTreeNode</a></code> in <code>O(1)</code> time.</p>
+<p>Initializes a <code><a title="dalpy.trees.NaryTreeNode" href="#dalpy.trees.NaryTreeNode">NaryTreeNode</a></code> in <code>O(1)</code> time.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>data</code></strong></dt>
 <dd>The data to be stored in the node. This can be of any type. By default, this is <code>None</code>.</dd>
 <dt><strong><code>parent</code></strong></dt>
-<dd>A <code><a title="cormen_lib.trees.NaryTreeNode" href="#cormen_lib.trees.NaryTreeNode">NaryTreeNode</a></code> representing the node that is the parent of this node in a tree. By default, this
+<dd>A <code><a title="dalpy.trees.NaryTreeNode" href="#dalpy.trees.NaryTreeNode">NaryTreeNode</a></code> representing the node that is the parent of this node in a tree. By default, this
 is <code>None</code>.</dd>
 <dt><strong><code>leftmost_child</code></strong></dt>
-<dd>A <code><a title="cormen_lib.trees.NaryTreeNode" href="#cormen_lib.trees.NaryTreeNode">NaryTreeNode</a></code> representing the node that is the leftmost child of this node in a tree. By
+<dd>A <code><a title="dalpy.trees.NaryTreeNode" href="#dalpy.trees.NaryTreeNode">NaryTreeNode</a></code> representing the node that is the leftmost child of this node in a tree. By
 default, this is <code>None</code>.</dd>
 <dt><strong><code>right_sibling</code></strong></dt>
-<dd>A <code><a title="cormen_lib.trees.NaryTreeNode" href="#cormen_lib.trees.NaryTreeNode">NaryTreeNode</a></code> representing the node that is the right sibling of this node in a tree. By
+<dd>A <code><a title="dalpy.trees.NaryTreeNode" href="#dalpy.trees.NaryTreeNode">NaryTreeNode</a></code> representing the node that is the right sibling of this node in a tree. By
 default, this is <code>None</code>.</dd>
 </dl></div>
 </dd>
@@ -151,21 +151,21 @@ default, this is <code>None</code>.</dd>
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="cormen_lib" href="index.html">cormen_lib</a></code></li>
+<li><code><a title="dalpy" href="index.html">dalpy</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="cormen_lib.trees.depth" href="#cormen_lib.trees.depth">depth</a></code></li>
+<li><code><a title="dalpy.trees.depth" href="#dalpy.trees.depth">depth</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="cormen_lib.trees.BinaryTreeNode" href="#cormen_lib.trees.BinaryTreeNode">BinaryTreeNode</a></code></h4>
+<h4><code><a title="dalpy.trees.BinaryTreeNode" href="#dalpy.trees.BinaryTreeNode">BinaryTreeNode</a></code></h4>
 </li>
 <li>
-<h4><code><a title="cormen_lib.trees.NaryTreeNode" href="#cormen_lib.trees.NaryTreeNode">NaryTreeNode</a></code></h4>
+<h4><code><a title="dalpy.trees.NaryTreeNode" href="#dalpy.trees.NaryTreeNode">NaryTreeNode</a></code></h4>
 </li>
 </ul>
 </li>
