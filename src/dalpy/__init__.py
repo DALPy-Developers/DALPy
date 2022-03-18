@@ -17,28 +17,28 @@ written in pseudocode.
 The DALPy library offers a set of fundamental data structures and algorithms, with behavior as specified by H.
 Cormen et al.'s *Introduction to Algorithms*. The following structures (separated by module) are supported:
 
-* [arrays](https://cormen-lib-developers.github.io/DALPy/arrays.html)
+* [arrays](https://dalpy-developers.github.io/DALPy/arrays.html)
     * Array
     * Array2D
-* [queues](https://cormen-lib-developers.github.io/DALPy/queues.html)
+* [queues](https://dalpy-developers.github.io/DALPy/queues.html)
     * Queue
-* [stacks](https://cormen-lib-developers.github.io/DALPy/stacks.html)
+* [stacks](https://dalpy-developers.github.io/DALPy/stacks.html)
     * Stack
-* [sets](https://cormen-lib-developers.github.io/DALPy/sets.html)
+* [sets](https://dalpy-developers.github.io/DALPy/sets.html)
     * Set
-* [linked_lists](https://cormen-lib-developers.github.io/DALPy/linked_lists.html)
+* [linked_lists](https://dalpy-developers.github.io/DALPy/linked_lists.html)
     * SinglyLinkedListNode
     * DoublyLinkedListNode
-* [trees](https://cormen-lib-developers.github.io/DALPy/trees.html)
+* [trees](https://dalpy-developers.github.io/DALPy/trees.html)
     * BinaryTreeNode
     * NaryTreeNode
     * depth(NaryTreeNode)
-* [hashing](https://cormen-lib-developers.github.io/DALPy/hashing.html)
+* [hashing](https://dalpy-developers.github.io/DALPy/hashing.html)
     * HashTable
-* [heaps](https://cormen-lib-developers.github.io/DALPy/heaps.html)
+* [heaps](https://dalpy-developers.github.io/DALPy/heaps.html)
     * PriorityQueue
     * build_min_heap(Array)
-* [graphs](https://cormen-lib-developers.github.io/DALPy/graphs.html)
+* [graphs](https://dalpy-developers.github.io/DALPy/graphs.html)
     * Vertex
     * Graph
 
@@ -72,7 +72,7 @@ Consider the example test case below:
 
 ## Installation
 
-DALPy is [available on PyPI](https://pypi.org/project/cormen-lib/), and can be installed with pip.
+DALPy is [available on PyPI](https://pypi.org/project/dalpy/), and can be installed with pip.
 
     pip install dalpy
 
@@ -82,7 +82,7 @@ DALPy has the following dependencies:
 
 ## Issues
 
-We encourage you to report issues using the Github tracker. We welcome all kinds of issues, especially those related to
+We encourage you to report issues using the GitHub tracker. We welcome all kinds of issues, especially those related to
 correctness, documentation and feature requests.
 
 ## Academic Usage
@@ -91,11 +91,11 @@ If you are planning to use DALPy for a university course and have questions, fee
 
 ## Documentation
 
-The full documentation for DALPy is available [here](https://cormen-lib-developers.github.io/DALPy/).
+The full documentation for DALPy is available [here](https://dalpy-developers.github.io/DALPy/).
 
 ## Sample Usage
 
-To view sample assignments using DALPy browse the [DALPy sample problems repository](https://github.com/DALPy-Developers/DALPy-Sample-Problems) on github.
+To view sample assignments using DALPy browse the [DALPy sample problems repository](https://github.com/DALPy-Developers/DALPy-Sample-Problems) on GitHub.
 
 ## Notes
 
