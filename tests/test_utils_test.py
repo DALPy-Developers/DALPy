@@ -144,7 +144,7 @@ class GenericTesterTest(unittest.TestCase):
             assert '2nd' in e.args[0], e.args[0]
 
 
-class CormenEqualsTest(unittest.TestCase):
+class DALPyEqualsTest(unittest.TestCase):
 
     def test_floats(self):
         x = math.sqrt(7)*math.sqrt(7)
@@ -154,4 +154,4 @@ class CormenEqualsTest(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    build_and_run_watched_suite([WarningTest, GenericTesterTest, CormenEqualsTest])
+    build_and_run_watched_suite([WarningTest, GenericTesterTest, DALPyEqualsTest])

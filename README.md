@@ -97,3 +97,7 @@ The full documentation for DALPy is available [here](https://dalpy-developers.gi
 ## Sample Usage
 
 To view sample assignments using DALPy browse the [DALPy sample problems repository](https://github.com/DALPy-Developers/DALPy-Sample-Problems) on GitHub.
+
+## Notes
+
+This project was formerly known as [Cormen-Lib](https://pypi.org/project/cormen-lib/).
