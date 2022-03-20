@@ -1,6 +1,6 @@
 # encoding: utf8
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 setup(
@@ -12,6 +12,8 @@ setup(
     name='cormen-lib',
     platforms=['all'],
     url='https://pypi.org/project/dalpy/',
-    version="1.1.2",
+    version="1.1.3",
     zip_safe=False,
+    package_dir={"": "src"},
+    packages=find_packages(where="src"),
 )
