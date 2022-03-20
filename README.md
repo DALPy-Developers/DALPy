@@ -1,9 +1,9 @@
 # DALPy
-DALPy is a Python module for learning data structures and algorithms. It is based off of *Introduction to Algorithms*
+DALPy is a Python package for learning data structures and algorithms. It is based off of *Introduction to Algorithms*
 by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein. This library was made specifically for 
 administering and grading assignments related to data structures and algorithms in computer science.
 
-With this module students can receive progress reports on their problem sets in real time as they complete assignments.
+With this library students can receive progress reports on their problem sets in real time as they complete assignments.
 Additionally, student submission assessment is done with unit tests, instead of hand-tracing, ensuring that the grades
 that students receive accurately reflect their submissions.
 
