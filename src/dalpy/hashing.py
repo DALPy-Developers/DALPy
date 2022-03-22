@@ -15,6 +15,7 @@ Examples:
 
         t.delete('a')
 """
+from dalpy.sets import Set
 
 
 class HashTable:
@@ -38,6 +39,10 @@ class HashTable:
         To remove a key-value pair:
 
             t.delete('a')
+
+        To retrieve the keys of a `HashTable`:
+
+            keys = t.keys()
     """
 
     def __init__(self):
@@ -107,3 +112,14 @@ class HashTable:
         if key not in self.__table:
             raise KeyError(f'cannot delete {key} as it does not exist in table')
         return self.__table.pop(key)
+
+    def keys(self):
+        """Returns a `Set` of keys in the `HashTable`.
+
+        Note that the returned `Set` will become invalid when new keys are added or removed. One should assume that this
+        runs in `O(n)` time where `n` is the number of entries in this `HashTable`.
+
+        Returns:
+            A `Set` of keys in the `HashTable`.
+        """
+        return Set(*self.__table)

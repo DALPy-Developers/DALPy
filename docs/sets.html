@@ -27,16 +27,13 @@
 <h2 id="examples">Examples</h2>
 <p>Creating a <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>, adding elements, and checking membership:</p>
 <pre><code>s = Set()
-s.add(1)
-s.add(2)
-s.add(3)
+s.union(Set(1))
+s.union(Set(2,3))
 if 1 in s:
     print("1")
 </code></pre>
 <p>Removing elements from a <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>:</p>
-<pre><code>t = Set()
-t.add(3)
-t.add(4)
+<pre><code>t = Set(3,4)
 s.difference(t)
 </code></pre>
 </section>
@@ -51,28 +48,27 @@ s.difference(t)
 <dl>
 <dt id="dalpy.sets.Set"><code class="flex name class">
 <span>class <span class="ident">Set</span></span>
-<span>(</span><span>singleton_elem=None)</span>
+<span>(</span><span>*initial_elements)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Represents a set.</p>
 <p>This class represents a set that preserves insertion order. This allows for it to be used in cases where the order
 of the set's contents must be deterministic.</p>
 <h2 id="examples">Examples</h2>
-<p>To initialize a <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>:</p>
+<p>To initialize an empty <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>:</p>
 <pre><code>s = Set()
 </code></pre>
-<p>To add elements to <code>s</code>:</p>
-<pre><code>s.add(1)
-s.add(2)
+<p>To add elements to <code>s</code> use <code>union</code> with another <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>:</p>
+<pre><code>s.union(Set(1))
+r = Set(2,3)
+s.union(r)
 </code></pre>
 <p>To check if <code>s</code> contains an element:</p>
 <pre><code>if 1 in s:
     # Do something
 </code></pre>
 <p>To remove a Set of elements from <code>s</code>, make use of difference:</p>
-<pre><code>t = Set()
-t.add(2)
-t.add(3)
+<pre><code>t = Set(2,3)
 s.difference(t)
 </code></pre>
 <p>To remove one element from <code>s</code>, make use of the ability to create a singleton set combined with difference:</p>
@@ -85,37 +81,20 @@ s.difference(t)
 <p>Initializes a <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> in <code>O(1)</code> time.</p>
 <h2 id="args">Args</h2>
 <dl>
-<dt><strong><code>singleton_elem</code></strong></dt>
-<dd>To initialize the <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> to be a singleton <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>, pass a non-<code>None</code> value as this parameter
-(of any type). By default, this is <code>None</code>, in which case the <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> is initialized to be
-empty.</dd>
+<dt><strong><code>initial_elements</code></strong></dt>
+<dd>To initialize the <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> to contain some elements, pass any number of arguments separated
+by commas that will be passed via this variable length arguments parameter.</dd>
 </dl></div>
 <h3>Methods</h3>
 <dl>
-<dt id="dalpy.sets.Set.add"><code class="name flex">
-<span>def <span class="ident">add</span></span>(<span>self, element)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Adds an element to the Set.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>element</code></strong></dt>
-<dd>An element to add. If element is already in the <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>, then it is not added again.</dd>
-</dl>
-<h2 id="raises">Raises</h2>
-<dl>
-<dt><code>ValueError</code></dt>
-<dd>If element is <code>None</code>. This is to preserve the interpretation of <code>None</code> when initializing a
-<code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>.</dd>
-</dl></div>
-</dd>
 <dt id="dalpy.sets.Set.difference"><code class="name flex">
 <span>def <span class="ident">difference</span></span>(<span>self, other_set)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Performs a set difference operation on this <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>.</p>
-<p>This method removes all the elements from this <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> that occur in another set. A user should assume this runs
-in <code>O(n)</code> time where <code>n</code> is the size of the other <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>.</p>
+<p>This method removes all the elements from this <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> that occur in another set. Calling <code>s.difference(<a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a>(1))</code>
+on a <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> <code>s</code> is akin to <code>s = s - {1}</code>.A user should assume this runs in <code>O(n)</code> time where <code>n</code> is the size of
+the other <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>other_set</code></strong></dt>
@@ -140,6 +119,26 @@ this method.</dd>
 <dd>
 <div class="desc"><p>Returns the integer number of elements in this <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> in <code>O(1)</code> time w/r/t the size of this <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>.</p></div>
 </dd>
+<dt id="dalpy.sets.Set.union"><code class="name flex">
+<span>def <span class="ident">union</span></span>(<span>self, other_set)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Performs a set union operation on this <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>.</p>
+<p>This method adds all the elements from another <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> into this <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> that do not already exist this <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>.
+Calling <code>s.union(<a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a>(1))</code> on a <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> <code>s</code> is akin to <code>s = s U {1}</code>. A user should assume this runs in <code>O(n)</code>
+time where <code>n</code> is the size of the other <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>other_set</code></strong></dt>
+<dd>Another <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> specifying the elements to be added to this <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> if they do not already exist.
+This <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> is unaffected by this method.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>TypeError</code></dt>
+<dd>If <code>other_set</code> is not a <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>.</dd>
+</dl></div>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -161,10 +160,10 @@ this method.</dd>
 <li>
 <h4><code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code></h4>
 <ul class="">
-<li><code><a title="dalpy.sets.Set.add" href="#dalpy.sets.Set.add">add</a></code></li>
 <li><code><a title="dalpy.sets.Set.difference" href="#dalpy.sets.Set.difference">difference</a></code></li>
 <li><code><a title="dalpy.sets.Set.is_empty" href="#dalpy.sets.Set.is_empty">is_empty</a></code></li>
 <li><code><a title="dalpy.sets.Set.size" href="#dalpy.sets.Set.size">size</a></code></li>
+<li><code><a title="dalpy.sets.Set.union" href="#dalpy.sets.Set.union">union</a></code></li>
 </ul>
 </li>
 </ul>

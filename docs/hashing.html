@@ -65,6 +65,9 @@ t.insert('b', 2)
 <p>To remove a key-value pair:</p>
 <pre><code>t.delete('a')
 </code></pre>
+<p>To retrieve the keys of a <code><a title="dalpy.hashing.HashTable" href="#dalpy.hashing.HashTable">HashTable</a></code>:</p>
+<pre><code>keys = t.keys()
+</code></pre>
 <p>Initializes an empty <code><a title="dalpy.hashing.HashTable" href="#dalpy.hashing.HashTable">HashTable</a></code> in <code>O(1)</code> time.</p></div>
 <h3>Methods</h3>
 <dl>
@@ -138,6 +141,16 @@ can be of any type.</dd>
 be of any type including <code>None</code>.</dd>
 </dl></div>
 </dd>
+<dt id="dalpy.hashing.HashTable.keys"><code class="name flex">
+<span>def <span class="ident">keys</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a <code>Set</code> of keys in the <code><a title="dalpy.hashing.HashTable" href="#dalpy.hashing.HashTable">HashTable</a></code>.</p>
+<p>Note that the returned <code>Set</code> will become invalid when new keys are added or removed. One should assume that this
+runs in <code>O(n)</code> time where <code>n</code> is the number of entries in this <code><a title="dalpy.hashing.HashTable" href="#dalpy.hashing.HashTable">HashTable</a></code>.</p>
+<h2 id="returns">Returns</h2>
+<p>A <code>Set</code> of keys in the <code><a title="dalpy.hashing.HashTable" href="#dalpy.hashing.HashTable">HashTable</a></code>.</p></div>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -163,6 +176,7 @@ be of any type including <code>None</code>.</dd>
 <li><code><a title="dalpy.hashing.HashTable.delete" href="#dalpy.hashing.HashTable.delete">delete</a></code></li>
 <li><code><a title="dalpy.hashing.HashTable.get_value" href="#dalpy.hashing.HashTable.get_value">get_value</a></code></li>
 <li><code><a title="dalpy.hashing.HashTable.insert" href="#dalpy.hashing.HashTable.insert">insert</a></code></li>
+<li><code><a title="dalpy.hashing.HashTable.keys" href="#dalpy.hashing.HashTable.keys">keys</a></code></li>
 </ul>
 </li>
 </ul>

@@ -8,6 +8,7 @@ class HashTableSet(unittest.TestCase):
         self.assertFalse(t.contains_key('a'))
         self.assertRaises(KeyError, lambda: t.get_value('a'))
         self.assertRaises(KeyError, lambda: t.delete('a'))
+        self.assertTrue(t.keys().is_empty())
 
     def test_insert(self):
         t = HashTable()
@@ -57,6 +58,14 @@ class HashTableSet(unittest.TestCase):
         self.assertTrue(t.contains_key('a'))
         self.assertIsNone(t.get_value('a'))
         self.assertIsNone(t.delete('a'))
+
+    def test_keys(self):
+        t = HashTable()
+        t.insert('a', None)
+        t.insert('b', None)
+        keys = t.keys()
+        self.assertTrue('a' in keys)
+        self.assertTrue('b' in keys)
 
 
 if __name__ == '__main__':
