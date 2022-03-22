@@ -485,7 +485,7 @@ def __binary_tree_to_string(root):
             else:
                 out_buf.append(None)
     __strip_trailing_nones(out_buf)
-    return str(out_buf)
+    return f'[{", ".join(out_buf)}]'
 
 
 def __vertex_to_string(vertex):
@@ -528,7 +528,7 @@ def __nary_tree_to_string(root):
                     lm_child = lm_child.right_sibling
                     q.append(lm_child)
     __strip_trailing_nones(out)
-    return str(out)
+    return f'[{", ".join(out)}]'
 
 
 def __array_equals(expected, actual):

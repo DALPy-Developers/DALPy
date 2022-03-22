@@ -242,10 +242,7 @@ class Graph:
         """
         if vertex not in self.__adj_lists:
             raise GraphVertexError(vertex.get_name())
-        adjacent = Set()
-        for u in self.__adj_lists[vertex]:
-            adjacent.add(u)
-        return adjacent
+        return Set(*self.__adj_lists[vertex])
 
     def weight(self, source, dest):
         """Gets the weight of an edge defined by two vertices.
@@ -281,10 +278,7 @@ class Graph:
             `dalpy.sets.Set` will always be the order in which the vertices were added to this `Graph` via
             `add_vertex`.
         """
-        s = Set()
-        for vertex in self.__adj_lists:
-            s.add(vertex)
-        return s
+        return Set(*self.__adj_lists)
 
     def __check_edge_vertices(self, source, dest):
         if source not in self.__adj_lists:
