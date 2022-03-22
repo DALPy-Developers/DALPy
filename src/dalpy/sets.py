@@ -6,17 +6,14 @@ Examples:
     Creating a `Set`, adding elements, and checking membership:
 
         s = Set()
-        s.add(1)
-        s.add(2)
-        s.add(3)
+        s.union(Set(1))
+        s.union(Set(2,3))
         if 1 in s:
             print("1")
 
     Removing elements from a `Set`:
 
-        t = Set()
-        t.add(3)
-        t.add(4)
+        t = Set(3,4)
         s.difference(t)
 """
 
@@ -28,14 +25,15 @@ class Set:
     of the set's contents must be deterministic.
 
     Examples:
-        To initialize a `Set`:
+        To initialize an empty `Set`:
 
             s = Set()
 
-        To add elements to `s`:
+        To add elements to `s` use `union` with another `Set`:
 
-            s.add(1)
-            s.add(2)
+            s.union(Set(1))
+            r = Set(2,3)
+            s.union(r)
 
         To check if `s` contains an element:
 
@@ -44,9 +42,7 @@ class Set:
 
         To remove a Set of elements from `s`, make use of difference:
 
-            t = Set()
-            t.add(2)
-            t.add(3)
+            t = Set(2,3)
             s.difference(t)
 
         To remove one element from `s`, make use of the ability to create a singleton set combined with difference:
@@ -59,41 +55,45 @@ class Set:
                 # Do something with e
     """
 
-    def __init__(self, singleton_elem=None):
+    def __init__(self, *initial_elements):
         """Initializes a `Set` in `O(1)` time.
 
         Args:
-            singleton_elem: To initialize the `Set` to be a singleton `Set`, pass a non-`None` value as this parameter
-                            (of any type). By default, this is `None`, in which case the `Set` is initialized to be
-                            empty.
+            initial_elements: To initialize the `Set` to contain some elements, pass any number of arguments separated
+                              by commas that will be passed via this variable length arguments parameter.
         """
 
         # https://docs.python.org/3/library/stdtypes.html#dict
         # Dictionaries preserve insertion order. Note that updating a key does not affect the order.
         # Keys added after deletion are inserted at the end.
         self.__set = dict()
-        if singleton_elem is not None:
-            self.__set[singleton_elem] = None
+        for initial_element in initial_elements:
+            self.__set[initial_element] = None
 
-    def add(self, element):
-        """Adds an element to the Set.
+    def union(self, other_set):
+        """Performs a set union operation on this `Set`.
+
+        This method adds all the elements from another `Set` into this `Set` that do not already exist in this `Set`.
+        Calling `s.union(Set(1))` on a `Set` `s` is akin to `s = s U {1}`. A user should assume this runs in `O(n)`
+        time where `n` is the size of the other `Set`.
 
         Args:
-            element: An element to add. If element is already in the `Set`, then it is not added again.
+            other_set: Another `Set` specifying the elements to be added to this `Set` if they do not already exist.
+                       This `Set` is unaffected by this method.
 
         Raises:
-            ValueError: If element is `None`. This is to preserve the interpretation of `None` when initializing a
-                        `Set`.
+            TypeError: If `other_set` is not a `Set`.
         """
-        if element is None:
-            raise ValueError('Cannot add None to a Set.')
-        self.__set[element] = None
+        if not isinstance(other_set, Set):
+            raise TypeError(f'can only perform set union between Sets')
+        self.__set.update(other_set.__set)
 
     def difference(self, other_set):
         """Performs a set difference operation on this `Set`.
 
-        This method removes all the elements from this `Set` that occur in another set. A user should assume this runs
-        in `O(n)` time where `n` is the size of the other `Set`.
+        This method removes all the elements from this `Set` that occur in another set. Calling `s.difference(Set(1))`
+        on a `Set` `s` is akin to `s = s - {1}`. A user should assume this runs in `O(n)` time where `n` is the size of
+        the other `Set`.
 
         Args:
             other_set: Another `Set` specifying the elements to be removed from this `Set`. This `Set` is unaffected by
@@ -120,4 +120,4 @@ class Set:
         return element in self.__set
 
     def __iter__(self):
-        yield from iter(self.__set)
+        yield from self.__set
