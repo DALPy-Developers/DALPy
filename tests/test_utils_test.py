@@ -3,8 +3,9 @@ import warnings
 import math
 from dalpy.arrays import Array
 from dalpy.graphs import Graph, Vertex
-from dalpy.test_utils import dalpy_equals, generic_test, build_and_run_watched_suite, UnexpectedReturnWarning
+from dalpy.test_utils import dalpy_equals, dalpy_to_string, generic_test, build_and_run_watched_suite, UnexpectedReturnWarning
 from dalpy.factory_utils import make_array
+from dalpy.trees import BinaryTreeNode, NaryTreeNode
 
 
 class WarningTest(unittest.TestCase):
@@ -152,6 +153,17 @@ class DALPyEqualsTest(unittest.TestCase):
         assert dalpy_equals(x, y), f'y={y}, x={x}'
 
 
+class DALPyToStringTest(unittest.TestCase):
+
+    def test_BTN(self):
+        t = BinaryTreeNode(10)
+        expected = f'[{t.data}]'
+        self.assertEqual(dalpy_to_string(t), f'[{t.data}]')
+
+    def test_NTN(self):
+        t = NaryTreeNode(10)
+        expected = f'[{t.data}]'
+        self.assertEqual(dalpy_to_string(t), f'[{t.data}]')
 
 if __name__ == '__main__':
     build_and_run_watched_suite([WarningTest, GenericTesterTest, DALPyEqualsTest])
