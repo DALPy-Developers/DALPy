@@ -73,7 +73,7 @@ class Set:
     def union(self, other_set):
         """Performs a set union operation on this `Set`.
 
-        This method adds all the elements from another `Set` into this `Set` that do not already exist this `Set`.
+        This method adds all the elements from another `Set` into this `Set` that do not already exist in this `Set`.
         Calling `s.union(Set(1))` on a `Set` `s` is akin to `s = s U {1}`. A user should assume this runs in `O(n)`
         time where `n` is the size of the other `Set`.
 
@@ -92,7 +92,7 @@ class Set:
         """Performs a set difference operation on this `Set`.
 
         This method removes all the elements from this `Set` that occur in another set. Calling `s.difference(Set(1))`
-        on a `Set` `s` is akin to `s = s - {1}`.A user should assume this runs in `O(n)` time where `n` is the size of
+        on a `Set` `s` is akin to `s = s - {1}`. A user should assume this runs in `O(n)` time where `n` is the size of
         the other `Set`.
 
         Args:
