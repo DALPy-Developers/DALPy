@@ -20,6 +20,7 @@ Examples:
 """
 
 from dalpy.sets import Set
+from dalpy.linked_lists import SinglyLinkedListNode as Node
 
 
 class VertexAttributeError(Exception):
@@ -177,13 +178,12 @@ class Graph:
     def add_vertex(self, vertex):
         """Adds a `Vertex` to this `Graph`.
 
-        One may assume that this operation runs in `O(1)` time with respect to the number of vertices and edges in this
-        `Graph`.
+        This runs in `O(1)` time with respect to the number of vertices and edges in this `Graph`.
 
         Args:
             vertex: The `Vertex` to be added to this `Graph`.
         """
-        self.__adj_lists[vertex] = list()
+        self.__adj_lists[vertex] = None
 
     def add_edge(self, source, dest, weight=None):
         """Adds an edge between 2 `Vertex` objects in this `Graph`.
@@ -203,7 +203,9 @@ class Graph:
         """
         self.__check_edge_vertices(source, dest)
         self.__edge_weights[(source, dest)] = weight
-        self.__adj_lists[source].append(dest)
+        # representation of adjacent lists using SLL vs. list allows for O(1) additions always without causing
+        # runtime degradation for adj()
+        self.__adj_lists[source] = Node(data=dest, next_node=self.__adj_lists[source])
 
     def adj(self, vertex):
         """Gets the `Vertex` objects that are adjacent to a `Vertex`.
@@ -211,8 +213,7 @@ class Graph:
         This gets a `dalpy.sets.Set` of the `Vertex` objects that are adjacent to the vertex. Since
         `dalpy.sets.Set` objects preserve insertion order (see `dalpy.sets.Set` documentation), the
         `dalpy.sets.Set` will be ordered according to the order in which edges starting from the input `Vertex`
-        were created. One should assume that this method runs in `O(n)` time where `n` is the number of edges going out
-        of the input `Vertex`.
+        were created. This method runs in `O(n)` time where `n` is the number of edges going out of the input `Vertex`.
 
         Args:
             vertex: A `Vertex`.
@@ -242,13 +243,18 @@ class Graph:
         """
         if vertex not in self.__adj_lists:
             raise GraphVertexError(vertex.get_name())
-        return Set(*self.__adj_lists[vertex])
+        # add adjacent vertices to list before initializing Set (faster to avoid using union())
+        ls = list()
+        curr = self.__adj_lists[vertex]
+        while curr:
+            ls.append(curr)
+            curr = curr.next_node
+        return Set(*ls)
 
     def weight(self, source, dest):
         """Gets the weight of an edge defined by two vertices.
 
-        One should assume that this method runs in `O(1)` time with respect to the number of vertices and edges in this
-        `Graph`.
+        This method runs in `O(1)` time with respect to the number of vertices and edges in this `Graph`.
 
         Args:
             source: The source `Vertex` of the edge in question.
@@ -270,8 +276,7 @@ class Graph:
     def vertices(self):
         """Gets the vertices in this `Graph`.
 
-        One should assume that this method runs in `O(V)` time where `V` is the number of vertices added to this
-        `Graph`.
+        This method runs in `O(V)` time where `V` is the number of vertices added to this `Graph`.
 
         Returns:
             A `dalpy.sets.Set` containing the `Vertex` objects in this `Graph`. The order of the vertices in this

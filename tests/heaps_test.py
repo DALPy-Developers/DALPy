@@ -121,6 +121,11 @@ class PriorityQueueTest(unittest.TestCase):
             q.insert(a, p)
         self.assertRaises(ValueError, lambda: q.decrease_key('project', 2))
 
+    def test_duplicate_element(self):
+        q = PriorityQueue()
+        q.insert('games', 1)
+        self.assertRaises(ValueError, lambda: q.insert('games', 1))
+
 
 class BuildMinHeapTest(unittest.TestCase):
     def test_build_min_heap(self):

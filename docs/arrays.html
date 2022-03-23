@@ -52,8 +52,8 @@ for i in range(3):
 </code></dt>
 <dd>
 <div class="desc"><p>Gets a sorted copy of an <code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Array</a></code>.</p>
-<p>This does not sort the <code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Array</a></code> in place. A user should assume this runs in <code>O(n * log(n))</code> time where <code>n</code> is the
-length of the input <code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Array</a></code>.</p>
+<p>This does not sort the <code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Array</a></code> in place. This runs in <code>O(n * log(n))</code> time where <code>n</code> is the length of the input
+<code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Array</a></code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>a</code></strong></dt>
@@ -98,8 +98,7 @@ a[0] = 1
 <p>Note that an <code>IndexError</code> will be raised in the event one supplies an index in <code>[]</code> that is negative or greater
 than or equal to the length of the <code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Array</a></code>.</p>
 <p>Initializes an <code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Array</a></code> to be a particular length.</p>
-<p>Each of the length elements of this <code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Array</a></code> will be set to <code>None</code>. One should assume this runs in <code>O(length)</code>
-time.</p>
+<p>Each of the length elements of this <code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Array</a></code> will be set to <code>None</code>. This runs in <code>O(length)</code> time.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>length</code></strong></dt>
@@ -125,8 +124,7 @@ time.</p>
 <div class="desc"><p>Sorts the elements of this <code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Array</a></code> in place.</p>
 <p>Note that this modifies this <code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Array</a></code>, it does not return a sorted copy. The user must make sure that the
 elements of the <code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Array</a></code> can be compared. For example, an empty <code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Array</a></code> cannot be sorted as <code>NoneType</code> (<code>None</code>)
-elements cannot be compared. A user may assume that this method runs in <code>O(n * log(n))</code> time where <code>n</code> is the
-length of the <code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Array</a></code>.</p></div>
+elements cannot be compared. This method runs in <code>O(n * log(n))</code> time where <code>n</code> is the length of the <code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Array</a></code>.</p></div>
 </dd>
 </dl>
 </dd>
@@ -138,8 +136,8 @@ length of the <code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Arr
 <div class="desc"><p>Represents a 2D Array.</p>
 <p>This class represents a 2D array with a fixed number of rows and columns. It should be used like a Java
 two-dimensional array. That is, you cannot increase its dimensions, slice it, or index it with negative numbers like
-a Python list. A user should assume that indexing into an <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code> (either for getting or setting) is done in
-<code>O(1)</code> time with respect to the dimensions of the <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code>.</p>
+a Python list. Indexing into an <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code> (either for getting or setting) is done in <code>O(1)</code> time with respect to
+the dimensions of the <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code>.</p>
 <h2 id="examples">Examples</h2>
 <p>After constructing an <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code>, one can get an element at a particular (row, column) index using square
 brackets <code>[]</code> as follows:</p>
@@ -156,8 +154,8 @@ a[0,1] = 2
 negative or greater than or equal to the number of rows of the <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code> or (ii) a column that is negative or
 greater than or equal to the number of columns of the <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code>.</p>
 <p>Initializes an <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code> to be a particular number of rows and columns.</p>
-<p>Each of the <code>num_rows * num_columns</code> elements of this <code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Array</a></code> will be set to <code>None</code>. A user may assume that this
-method runs in <code>O(num_rows * num_columns)</code> time.</p>
+<p>Each of the <code>num_rows * num_columns</code> elements of this <code><a title="dalpy.arrays.Array" href="#dalpy.arrays.Array">Array</a></code> will be set to <code>None</code>. This method runs in
+<code>O(num_rows * num_columns)</code> time.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>num_rows</code></strong></dt>
@@ -176,19 +174,13 @@ method runs in <code>O(num_rows * num_columns)</code> time.</p>
 <span>def <span class="ident">columns</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Gets the number of columns in this <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code>.</p>
-<p>A user should assume this runs in <code>O(1)</code> time with respect to the dimensions of this <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code>.</p>
-<h2 id="returns">Returns</h2>
-<p>The integer number of columns of this <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code>.</p></div>
+<div class="desc"><p>Returns integer number of columns in this <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code> in <code>O(1)</code> time w/r/t the dimensions of this <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code>.</p></div>
 </dd>
 <dt id="dalpy.arrays.Array2D.rows"><code class="name flex">
 <span>def <span class="ident">rows</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Gets the number of rows in this <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code>.</p>
-<p>A user should assume this runs in <code>O(1)</code> time with respect to the dimensions of this <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code>.</p>
-<h2 id="returns">Returns</h2>
-<p>The integer number of rows of this <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code>.</p></div>
+<div class="desc"><p>Returns integer number of rows in this <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code> in <code>O(1)</code> time w/r/t the dimensions of this <code><a title="dalpy.arrays.Array2D" href="#dalpy.arrays.Array2D">Array2D</a></code>.</p></div>
 </dd>
 </dl>
 </dd>

@@ -93,8 +93,7 @@ by commas that will be passed via this variable length arguments parameter.</dd>
 <dd>
 <div class="desc"><p>Performs a set difference operation on this <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>.</p>
 <p>This method removes all the elements from this <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> that occur in another set. Calling <code>s.difference(<a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a>(1))</code>
-on a <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> <code>s</code> is akin to <code>s = s - {1}</code>. A user should assume this runs in <code>O(n)</code> time where <code>n</code> is the size of
-the other <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>.</p>
+on a <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> <code>s</code> is akin to <code>s = s - {1}</code>. This runs in <code>O(n)</code> time where <code>n</code> is the size of the other <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>other_set</code></strong></dt>
@@ -125,8 +124,8 @@ this method.</dd>
 <dd>
 <div class="desc"><p>Performs a set union operation on this <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>.</p>
 <p>This method adds all the elements from another <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> into this <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> that do not already exist in this <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>.
-Calling <code>s.union(<a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a>(1))</code> on a <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> <code>s</code> is akin to <code>s = s U {1}</code>. A user should assume this runs in <code>O(n)</code>
-time where <code>n</code> is the size of the other <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>.</p>
+Calling <code>s.union(<a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a>(1))</code> on a <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code> <code>s</code> is akin to <code>s = s U {1}</code>. This runs in <code>O(n)</code> time where <code>n</code> is the
+size of the other <code><a title="dalpy.sets.Set" href="#dalpy.sets.Set">Set</a></code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>other_set</code></strong></dt>
