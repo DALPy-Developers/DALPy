@@ -52,7 +52,7 @@ class HashTable:
     def insert(self, key, value):
         """Inserts a key-value pair into this `HashTable`.
 
-        One should assume that this runs in `O(1)` time w/r/t the number of entries in this `HashTable`.
+        This runs in `O(1)` time with respect to the number of entries in this `HashTable`.
 
         Args:
             key: A key. If its a new key, then a new entry will be added to this `HashTable` a new pair is added. This
@@ -66,7 +66,7 @@ class HashTable:
     def contains_key(self, key):
         """Returns whether this `HashTable` contains a particular key.
 
-        One should assume that this runs in `O(1)` time w/r/t the number of entries in this `HashTable`.
+        This runs in `O(1)` time with respect to the number of entries in this `HashTable`.
 
         Args:
             key: The key being searched.
@@ -79,7 +79,7 @@ class HashTable:
     def get_value(self, key):
         """Gets the value associated with a key in the `HashTable`.
 
-        One should assume that this runs in `O(1)` time w/r/t the number of entries in this `HashTable`.
+        This runs in `O(1)` time with respect to the number of entries in this `HashTable`.
 
         Args:
             key: The key whose value is being retrieved. This can be of any type.
@@ -97,7 +97,7 @@ class HashTable:
     def delete(self, key):
         """Removes the key-value pair with a particular key in the `HashTable`.
 
-        One should assume that this runs in `O(1)` time w/r/t the number of entries in this `HashTable`.
+        This runs in `O(1)` time with respect to the number of entries in this `HashTable`.
 
         Args:
             key: The key specifying which key-value pair in the table should be removed. This can be of any type.
@@ -116,8 +116,8 @@ class HashTable:
     def keys(self):
         """Returns a `Set` of keys in the `HashTable`.
 
-        Note that the returned `Set` will become invalid when new keys are added or removed. One should assume that this
-        runs in `O(n)` time where `n` is the number of entries in this `HashTable`.
+        Note that the returned `Set` will become invalid when new keys are added or removed. This runs in `O(n)` time
+        where `n` is the number of entries in this `HashTable`.
 
         Returns:
             A `Set` of keys in the `HashTable`.

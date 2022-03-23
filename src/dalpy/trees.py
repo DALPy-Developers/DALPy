@@ -83,8 +83,8 @@ class NaryTreeNode:
 def depth(node):
     """Computes the depth of a n-ary tree node.
 
-    The depth of a node `v` is the number of edges on the path from the root to the node. One may assume this function
-    runs in `O(h)` time where `h` is the height of tree the input node is contained in.
+    The depth of a node `v` is the number of edges on the path from the root to the node. This function runs in `O(h)`
+    time where `h` is the height of tree the input node is contained in.
 
     Args:
         node: an `NaryTreeNode`.

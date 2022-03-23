@@ -51,9 +51,9 @@ q.extract_min()
 </code></dt>
 <dd>
 <div class="desc"><p>Modifies an <code><a title="dalpy.arrays.Array" href="arrays.html#dalpy.arrays.Array">Array</a></code> so that its elements make up a min heap.</p>
-<p>This method does not return a copy of the provided <code><a title="dalpy.arrays.Array" href="arrays.html#dalpy.arrays.Array">Array</a></code> whose elements make up a heap, it modifies it in place.
-Furthermore, all the elements (starting from index 0) are in a min heap. A user may assume that this method runs in
-<code>O(n)</code> time where <code>n</code> is the length of the input <code><a title="dalpy.arrays.Array" href="arrays.html#dalpy.arrays.Array">Array</a></code>.</p>
+<p>This method does not return a copy of the provided <code><a title="dalpy.arrays.Array" href="arrays.html#dalpy.arrays.Array">Array</a></code> whose elements make up a heap, it modifies
+it in place. Furthermore, all the elements (starting from index 0) are in a min heap. This method runs in <code>O(n)</code>
+time where <code>n</code> is the length of the input <code><a title="dalpy.arrays.Array" href="arrays.html#dalpy.arrays.Array">Array</a></code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>arr</code></strong></dt>
@@ -101,7 +101,7 @@ q.insert('b', 1)
 </code></dt>
 <dd>
 <div class="desc"><p>Decreases the priority of an element in this <code><a title="dalpy.heaps.PriorityQueue" href="#dalpy.heaps.PriorityQueue">PriorityQueue</a></code>.</p>
-<p>One may assume that this operation runs in <code>O(log(n))</code> time where <code>n</code> is the size of this <code><a title="dalpy.heaps.PriorityQueue" href="#dalpy.heaps.PriorityQueue">PriorityQueue</a></code>.</p>
+<p>This operation runs in <code>O(log(n))</code> time where <code>n</code> is the size of this <code><a title="dalpy.heaps.PriorityQueue" href="#dalpy.heaps.PriorityQueue">PriorityQueue</a></code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>element</code></strong></dt>
@@ -121,7 +121,7 @@ priority of <code>element</code>.</dd>
 </code></dt>
 <dd>
 <div class="desc"><p>Removes the minimum priority element of this <code><a title="dalpy.heaps.PriorityQueue" href="#dalpy.heaps.PriorityQueue">PriorityQueue</a></code>.</p>
-<p>One may assume that this operation runs in <code>O(log(n))</code> time where <code>n</code> is the size of this <code><a title="dalpy.heaps.PriorityQueue" href="#dalpy.heaps.PriorityQueue">PriorityQueue</a></code>.</p>
+<p>This operation runs in <code>O(log(n))</code> time where <code>n</code> is the size of this <code><a title="dalpy.heaps.PriorityQueue" href="#dalpy.heaps.PriorityQueue">PriorityQueue</a></code>.</p>
 <h2 id="returns">Returns</h2>
 <p>The element with the minimum priority in this <code><a title="dalpy.heaps.PriorityQueue" href="#dalpy.heaps.PriorityQueue">PriorityQueue</a></code>.</p>
 <h2 id="raises">Raises</h2>
@@ -135,7 +135,7 @@ priority of <code>element</code>.</dd>
 </code></dt>
 <dd>
 <div class="desc"><p>Inserts an element into the <code><a title="dalpy.heaps.PriorityQueue" href="#dalpy.heaps.PriorityQueue">PriorityQueue</a></code> with an associated priority.</p>
-<p>One may assume that this operation runs in <code>O(log(n))</code> time where <code>n</code> is the size of this <code>Queue</code>.</p>
+<p>This operation runs in <code>O(log(n))</code> time where <code>n</code> is the size of this <code>Queue</code>.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>element</code></strong></dt>
@@ -157,7 +157,7 @@ priority of <code>element</code>.</dd>
 </code></dt>
 <dd>
 <div class="desc"><p>Gets the minimum priority element of this <code><a title="dalpy.heaps.PriorityQueue" href="#dalpy.heaps.PriorityQueue">PriorityQueue</a></code>.</p>
-<p>One may assume that this operation runs in <code>O(1)</code> time with respect to the size of this <code><a title="dalpy.heaps.PriorityQueue" href="#dalpy.heaps.PriorityQueue">PriorityQueue</a></code>.</p>
+<p>This operation runs in <code>O(1)</code> time with respect to the size of this <code><a title="dalpy.heaps.PriorityQueue" href="#dalpy.heaps.PriorityQueue">PriorityQueue</a></code>.</p>
 <h2 id="returns">Returns</h2>
 <p>The element with the minimum priority in this <code><a title="dalpy.heaps.PriorityQueue" href="#dalpy.heaps.PriorityQueue">PriorityQueue</a></code>.</p>
 <h2 id="raises">Raises</h2>

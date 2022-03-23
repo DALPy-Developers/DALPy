@@ -53,8 +53,7 @@ class Array:
     def __init__(self, length):
         """Initializes an `Array` to be a particular length.
 
-        Each of the length elements of this `Array` will be set to `None`. One should assume this runs in `O(length)`
-        time.
+        Each of the length elements of this `Array` will be set to `None`. This runs in `O(length)` time.
 
         Args:
             length: An integer specifying the length of the `Array`.
@@ -75,8 +74,7 @@ class Array:
 
         Note that this modifies this `Array`, it does not return a sorted copy. The user must make sure that the
         elements of the `Array` can be compared. For example, an empty `Array` cannot be sorted as `NoneType` (`None`)
-        elements cannot be compared. A user may assume that this method runs in `O(n * log(n))` time where `n` is the
-        length of the `Array`.
+        elements cannot be compared. This method runs in `O(n * log(n))` time where `n` is the length of the `Array`.
         """
         self.__buf.sort()
 
@@ -103,8 +101,8 @@ class Array2D:
 
     This class represents a 2D array with a fixed number of rows and columns. It should be used like a Java
     two-dimensional array. That is, you cannot increase its dimensions, slice it, or index it with negative numbers like
-    a Python list. A user should assume that indexing into an `Array2D` (either for getting or setting) is done in
-    `O(1)` time with respect to the dimensions of the `Array2D`.
+    a Python list. Indexing into an `Array2D` (either for getting or setting) is done in `O(1)` time with respect to
+    the dimensions of the `Array2D`.
 
     Examples:
         After constructing an `Array2D`, one can get an element at a particular (row, column) index using square
@@ -130,8 +128,8 @@ class Array2D:
     def __init__(self, num_rows, num_columns):
         """Initializes an `Array2D` to be a particular number of rows and columns.
 
-        Each of the `num_rows * num_columns` elements of this `Array` will be set to `None`. A user may assume that this
-        method runs in `O(num_rows * num_columns)` time.
+        Each of the `num_rows * num_columns` elements of this `Array` will be set to `None`. This method runs in
+        `O(num_rows * num_columns)` time.
 
         Args:
             num_rows: An integer specifying the number of rows this `Array2D` should have.
@@ -147,23 +145,11 @@ class Array2D:
             self.__buf.append([None] * num_columns)
 
     def rows(self):
-        """Gets the number of rows in this `Array2D`.
-
-        A user should assume this runs in `O(1)` time with respect to the dimensions of this `Array2D`.
-
-        Returns:
-            The integer number of rows of this `Array2D`.
-        """
+        """Returns integer number of rows in this `Array2D` in `O(1)` time w/r/t the dimensions of this `Array2D`."""
         return len(self.__buf)
 
     def columns(self):
-        """Gets the number of columns in this `Array2D`.
-
-        A user should assume this runs in `O(1)` time with respect to the dimensions of this `Array2D`.
-
-        Returns:
-            The integer number of columns of this `Array2D`.
-        """
+        """Returns integer number of columns in this `Array2D` in `O(1)` time w/r/t the dimensions of this `Array2D`."""
         return len(self.__buf[0])
 
     def __iter__(self):
@@ -191,8 +177,8 @@ class Array2D:
 def sort(a):
     """Gets a sorted copy of an `Array`.
 
-    This does not sort the `Array` in place. A user should assume this runs in `O(n * log(n))` time where `n` is the
-    length of the input `Array`.
+    This does not sort the `Array` in place. This runs in `O(n * log(n))` time where `n` is the length of the input
+    `Array`.
 
     Args:
         a: An `Array` to be sorted.
