@@ -16,6 +16,8 @@ Examples:
         s.pop()
 """
 
+from collections import deque
+
 
 class StackUnderflowError(Exception):
     """This class is used by `Stack` to raise errors for operations done on an empty `Stack`."""
@@ -30,9 +32,7 @@ class StackUnderflowError(Exception):
 
 
 class Stack:
-    """This class represents a LIFO stack.
-
-    One may assume that this `Stack` has no maximum capacity.
+    """This class represents a LIFO stack that has no maximum capacity.
 
     Examples:
         To initialize a `Stack`:
@@ -55,12 +55,12 @@ class Stack:
 
     def __init__(self):
         """Initializes an empty `Stack` in `O(1)` time."""
-        self.__buf = list()
+        self.__buf = deque()
 
     def top(self):
         """Gets the element at the top of this `Stack`.
 
-        One may assume that this operation runs in `O(1)` time with respect to the size of this `Stack`.
+        This operation runs in `O(1)` time with respect to the size of this `Stack`.
 
         Returns:
             The element at the top of the `Stack`. That is, the element that was last added to this `Stack` of the
@@ -76,7 +76,7 @@ class Stack:
     def pop(self):
         """Removes the element at the top of this `Stack`.
 
-        One may assume that this operation runs in `O(1)` time with respect to the size of this `Stack`.
+        This operation runs in `O(1)` time with respect to the size of this `Stack`.
 
         Returns:
             The element at the top of the `Stack` that was removed. That is, the element that was last added to this
@@ -92,7 +92,7 @@ class Stack:
     def push(self, value):
         """Adds an element to the top of this `Stack`.
 
-        One may assume that this operation runs in `O(1)` time with respect to the size of this `Stack`.
+        This operation runs in `O(1)` time with respect to the size of this `Stack`.
 
         Args:
             value: Element to add to this `Stack`. It can be of any type.

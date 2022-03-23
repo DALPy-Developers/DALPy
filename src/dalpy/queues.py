@@ -16,6 +16,8 @@ Examples:
         q.dequeue()
 """
 
+from collections import deque
+
 
 class QueueUnderflowError(Exception):
     """This class is used by `Queue` to raise errors for operations done on an empty `Queue`."""
@@ -30,9 +32,7 @@ class QueueUnderflowError(Exception):
 
 
 class Queue:
-    """This class represents a FIFO queue.
-
-    One may assume that this `Queue` has no maximum capacity.
+    """This class represents a FIFO queue that has no maximum capacity.
 
     Examples:
         To initialize a `Queue`:
@@ -55,12 +55,12 @@ class Queue:
 
     def __init__(self):
         """Initializes an empty `Queue` in `O(1)` time."""
-        self.__buf = list()
+        self.__buf = deque()
 
     def front(self):
         """Gets the element at the front of this `Queue`.
 
-        One may assume that this operation runs in `O(1)` time with respect to the size of this `Queue`.
+        This operation runs in `O(1)` time with respect to the size of this `Queue`.
 
         Returns:
             The element at the front of the `Queue`. That is, the element that was first added to this `Queue` of the
@@ -76,7 +76,7 @@ class Queue:
     def dequeue(self):
         """Removes the element at the front of this `Queue`.
 
-        One may assume that this operation runs in `O(1)` time with respect to the size of this `Queue`.
+        This operation runs in `O(1)` time with respect to the size of this `Queue`.
 
         Returns:
             The element at the front of the `Queue` that was removed. That is, the element that was first added to this
@@ -87,12 +87,12 @@ class Queue:
         """
         if len(self.__buf) == 0:
             raise QueueUnderflowError('dequeue()')
-        return self.__buf.pop(0)
+        return self.__buf.popleft()
 
     def enqueue(self, value):
         """Adds an element to the end of this `Queue`.
 
-        One may assume that this operation runs in `O(1)` time with respect to the size of this `Queue`.
+        This operation runs in `O(1)` time with respect to the size of this `Queue`.
 
         Args:
             value: Element to add to this `Queue`. It can be of any type.
