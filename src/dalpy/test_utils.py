@@ -292,7 +292,7 @@ def dalpy_to_string(obj):
         obj: The object to convert to string
     """
     if isinstance(obj, list):
-        return "list" + "[" + ", ".join(dalpy_to_string(elem) for elem in obj) + "]"
+        return "[" + ", ".join(dalpy_to_string(elem) for elem in obj) + "]"
     if isinstance(obj, Array):
         return "Array" + __array_to_string(obj)
     if isinstance(obj, Array2D):
@@ -304,15 +304,15 @@ def dalpy_to_string(obj):
     if isinstance(obj, Set):
         return "Set" + __set_to_string(obj)
     if isinstance(obj, SinglyLinkedListNode):
-        return "SLL" + __singly_linked_list_to_string(obj)
+        return __singly_linked_list_to_string(obj)
     if isinstance(obj, BinaryTreeNode):
         return "BinaryTree" + __binary_tree_to_string(obj)
     if isinstance(obj, NaryTreeNode):
         return "NaryTree" + __nary_tree_to_string(obj)
     if isinstance(obj, Vertex):
-        return "Vertex" + __vertex_to_string(obj)
+        return __vertex_to_string(obj)
     if isinstance(obj, Graph):
-        return "Graph" + __graph_to_string(obj)
+        return __graph_to_string(obj)
     try:
         return str(obj)
     except:
