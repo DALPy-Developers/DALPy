@@ -292,27 +292,27 @@ def dalpy_to_string(obj):
         obj: The object to convert to string
     """
     if isinstance(obj, list):
-        return "[" + ", ".join(dalpy_to_string(elem) for elem in obj) + "]"
+        return "list" + "[" + ", ".join(dalpy_to_string(elem) for elem in obj) + "]"
     if isinstance(obj, Array):
-        return __array_to_string(obj)
+        return "Array" + __array_to_string(obj)
     if isinstance(obj, Array2D):
-        return __array2d_to_string(obj)
+        return "Array2D" + __array2d_to_string(obj)
     if isinstance(obj, Queue):
-        return __queue_to_string(obj)
+        return "Queue" + __queue_to_string(obj)
     if isinstance(obj, Stack):
-        return __stack_to_string(obj)
+        return "Stack" + __stack_to_string(obj)
     if isinstance(obj, Set):
-        return __set_to_string(obj)
+        return "Set" + __set_to_string(obj)
     if isinstance(obj, SinglyLinkedListNode):
-        return __singly_linked_list_to_string(obj)
+        return "SLL" + __singly_linked_list_to_string(obj)
     if isinstance(obj, BinaryTreeNode):
-        return __binary_tree_to_string(obj)
+        return "BinaryTree" + __binary_tree_to_string(obj)
     if isinstance(obj, NaryTreeNode):
-        return __nary_tree_to_string(obj)
+        return "NaryTree" + __nary_tree_to_string(obj)
     if isinstance(obj, Vertex):
-        return __vertex_to_string(obj)
+        return "Vertex" + __vertex_to_string(obj)
     if isinstance(obj, Graph):
-        return __graph_to_string(obj)
+        return "Graph" + __graph_to_string(obj)
     try:
         return str(obj)
     except:
