@@ -166,4 +166,4 @@ class DALPyToStringTest(unittest.TestCase):
         self.assertEqual(dalpy_to_string(t), f'[{t.data}]')
 
 if __name__ == '__main__':
-    build_and_run_watched_suite([WarningTest, GenericTesterTest, DALPyEqualsTest])
+    build_and_run_watched_suite([WarningTest, GenericTesterTest, DALPyEqualsTest], show_tb=True)

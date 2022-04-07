@@ -247,8 +247,8 @@ class Graph:
         ls = list()
         curr = self.__adj_lists[vertex]
         while curr:
-            ls.append(curr)
-            curr = curr.next_node
+            ls.append(curr.data)
+            curr = curr.next
         return Set(*ls)
 
     def weight(self, source, dest):
