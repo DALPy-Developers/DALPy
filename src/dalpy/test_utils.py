@@ -285,6 +285,9 @@ def dalpy_to_string(obj):
     `dalpy.linked_lists.SinglyLinkedListNode`, `dalpy.trees.BinaryTreeNode`, `dalpy.trees.NaryTreeNode`,
     `dalpy.graphs.Vertex`, and `dalpy.graphs.Graph`.
 
+    Calling dalpy_to_string on `dalpy.trees.BinaryTreeNode` or `dalpy.trees.NaryTreeNode` displays 
+    the entire tree rooted at that node.
+
     Returns:
         string representation of `obj`.
 
