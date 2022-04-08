@@ -139,8 +139,9 @@ native str method.</p>
 <code><a title="dalpy.queues.Queue" href="queues.html#dalpy.queues.Queue">Queue</a></code>, <code><a title="dalpy.stacks.Stack" href="stacks.html#dalpy.stacks.Stack">Stack</a></code>, <code><a title="dalpy.sets.Set" href="sets.html#dalpy.sets.Set">Set</a></code>,
 <code><a title="dalpy.linked_lists.SinglyLinkedListNode" href="linked_lists.html#dalpy.linked_lists.SinglyLinkedListNode">SinglyLinkedListNode</a></code>, <code><a title="dalpy.trees.BinaryTreeNode" href="trees.html#dalpy.trees.BinaryTreeNode">BinaryTreeNode</a></code>, <code><a title="dalpy.trees.NaryTreeNode" href="trees.html#dalpy.trees.NaryTreeNode">NaryTreeNode</a></code>,
 <code><a title="dalpy.graphs.Vertex" href="graphs.html#dalpy.graphs.Vertex">Vertex</a></code>, and <code><a title="dalpy.graphs.Graph" href="graphs.html#dalpy.graphs.Graph">Graph</a></code>.</p>
-<p>Calling dalpy_to_string on <code><a title="dalpy.trees.BinaryTreeNode" href="trees.html#dalpy.trees.BinaryTreeNode">BinaryTreeNode</a></code> or <code><a title="dalpy.trees.NaryTreeNode" href="trees.html#dalpy.trees.NaryTreeNode">NaryTreeNode</a></code> displays
-the entire tree rooted at that node.</p>
+<p>Calling dalpy_to_string on <code><a title="dalpy.trees.BinaryTreeNode" href="trees.html#dalpy.trees.BinaryTreeNode">BinaryTreeNode</a></code> or <code><a title="dalpy.trees.NaryTreeNode" href="trees.html#dalpy.trees.NaryTreeNode">NaryTreeNode</a></code> displays the entire
+tree rooted at that node prepended with <code>"BinaryTree"</code> and <code>"NaryTree"</code> respectively.
+This is done to clarify the nodes themselves are not holding the data listed after it.</p>
 <h2 id="returns">Returns</h2>
 <p>string representation of <code>obj</code>.</p>
 <h2 id="args">Args</h2>
