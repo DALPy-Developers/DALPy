@@ -1,7 +1,11 @@
 import unittest
 import warnings
 import math
-from dalpy.arrays import Array
+from dalpy.arrays import Array, Array2D
+from dalpy.queues import Queue
+from dalpy.stacks import Stack
+from dalpy.sets import Set
+from dalpy.linked_lists import SinglyLinkedListNode
 from dalpy.graphs import Graph, Vertex
 from dalpy.test_utils import dalpy_equals, dalpy_to_string, generic_test, build_and_run_watched_suite, UnexpectedReturnWarning
 from dalpy.factory_utils import make_array
@@ -83,7 +87,7 @@ class GenericTesterTest(unittest.TestCase):
         try:
             generic_test([a,b], c, fnc_that_modifies_second, enforce_no_mod=[False, True])
         except AssertionError as e:
-            assert "[[1, 4], [1, 3]]" in e.args[0], e.args[0]
+            assert "[Array[1, 4], Array[1, 3]]" in e.args[0], e.args[0]
             assert "2nd" in e.args[0], e.args[0]
     
     def test_multiple_larger(self):
@@ -157,13 +161,44 @@ class DALPyToStringTest(unittest.TestCase):
 
     def test_BTN(self):
         t = BinaryTreeNode(10)
-        expected = f'[{t.data}]'
-        self.assertEqual(dalpy_to_string(t), f'[{t.data}]')
+        expected = f'BinaryTree[{t.data}]'
+        self.assertEqual(dalpy_to_string(t), expected)
 
     def test_NTN(self):
         t = NaryTreeNode(10)
-        expected = f'[{t.data}]'
-        self.assertEqual(dalpy_to_string(t), f'[{t.data}]')
+        expected = f'NaryTree[{t.data}]'
+        self.assertEqual(dalpy_to_string(t), expected)
+
+    def test_Array(self):
+        a = Array(1)
+        a[0] = 1
+        expected = f'Array[1]'
+        self.assertEqual(dalpy_to_string(a), expected)
+
+    def test_Array2D(self):
+        a = Array2D(1,1)
+        a[0,0] = 1
+        expected = f'Array2D[[1]]'
+        self.assertEqual(dalpy_to_string(a), expected)
+
+    def test_Queue(self):
+        q = Queue()
+        q.enqueue(1)
+        expected = f'Queue[1]'
+        self.assertEqual(dalpy_to_string(q), expected)
+
+    def test_Stack(self):
+        s = Stack()
+        s.push(1)
+        expected = f'Stack[1]'
+        self.assertEqual(dalpy_to_string(s), expected)
+
+    def test_Set(self):
+        s = Set(1)
+        expected = 'Set{1}'
+        self.assertEqual(dalpy_to_string(s), expected)
+
+    
 
 if __name__ == '__main__':
-    build_and_run_watched_suite([WarningTest, GenericTesterTest, DALPyEqualsTest], show_tb=True)
+    build_and_run_watched_suite([WarningTest, GenericTesterTest, DALPyEqualsTest, DALPyToStringTest])
