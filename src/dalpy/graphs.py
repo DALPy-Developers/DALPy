@@ -129,9 +129,9 @@ class GraphEdgeError(Exception):
         """Initializes a `GraphEdgeError` that will be raised associated with a particular `Vertex`.
 
         Args:
-            source_name: The string name of the source `Vertex` of the edge this `GraphVertexError` is being raised in
+            source: The source `Vertex` of the edge this `GraphVertexError` is being raised in
                          association with.
-            dest_name: The string name of the destination `Vertex` of the edge this `GraphVertexError` is being raised
+            dest: The destination `Vertex` of the edge this `GraphVertexError` is being raised
                        in association with.
         """
         super().__init__(
