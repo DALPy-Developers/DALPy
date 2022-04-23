@@ -119,23 +119,23 @@ class GraphVertexError(Exception):
         Args:
             vertex_name: The string name of the `Vertex` this `GraphVertexError` is being raised in association with.
         """
-        super().__init__(f'graph does not have vertex with name {vertex_name}')
+        super().__init__(f'graph does not have vertex with name "{vertex_name}"')
 
 
 class GraphEdgeError(Exception):
     """This class is used by `Graph` to raise errors regarding invalid edges."""
 
-    def __init__(self, source_name, dest_name):
+    def __init__(self, source, dest):
         """Initializes a `GraphEdgeError` that will be raised associated with a particular `Vertex`.
 
         Args:
-            source_name: The string name of the source `Vertex` of the edge this `GraphVertexError` is being raised in
+            source: The source `Vertex` of the edge this `GraphVertexError` is being raised in
                          association with.
-            dest_name: The string name of the destination `Vertex` of the edge this `GraphVertexError` is being raised
+            dest: The destination `Vertex` of the edge this `GraphVertexError` is being raised
                        in association with.
         """
         super().__init__(
-            f'graph does not have an edge from a vertex with name {source_name} to a vertex with name {dest_name}')
+            f'graph does not have an edge from a vertex with name "{source.get_name()}" to a vertex with name "{dest.get_name()}"')
 
 
 class Graph:

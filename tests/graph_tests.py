@@ -131,6 +131,18 @@ class GraphTest(unittest.TestCase):
         g.add_edge(a, b)
         self.assertIsNone(g.weight(a, b))
 
+    def test_GraphEdgeError(self):
+        g = Graph()
+        a = Vertex('a')
+        b = Vertex('b')
+        g.add_vertex(a)
+        g.add_vertex(b)
+        try:
+            g.weight(b, a)
+        except GraphEdgeError as e:
+            self.assertEqual(e.args[0], "graph does not have an edge from a vertex with name \"b\" to a vertex with name \"a\"")
+
+
 
 if __name__ == '__main__':
     unittest.main()
